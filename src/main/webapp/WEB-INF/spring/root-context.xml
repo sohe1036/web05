@@ -12,36 +12,32 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- mysql드라이버 및 접속정보 :SqlSessionFactory에서 호출 -->
+	<!-- mysql 드라이버 및 접속 정보 설정 : sqlSessionFactory에서 호출 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url"
-            value="jdbc:mysql://localhost:3306/myshop?useSSL=false@amp;serverTimezone=UTC" />
-        <property name="username" value="root" />
-        <property name="password" value="a1234" />
-    </bean>
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/myshop?serverTimezone=UTC" />
+		<property name="username" value="root" />
+		<property name="password" value="a1234" />
+	</bean>	
+	<!-- sqlSession에서 호출 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:/mybatis-config.xml" />
+		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
+	</bean>
+	<!-- DAO에서 호출 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
     
-    <!-- SqlSessionFactory :sqlSession에서호출 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-    	<property name="dataSource" ref="dataSource" />
-    	<property name="configLocation" value="classpath:/mybatis-config.xml" />
-    	<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
-    </bean>
-    
-    <!-- DAO에서 호출 -->
-    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
-    	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
-    </bean>
-    
-    
-    
-    <!-- navermail 설정 -->
+<!-- 
+    navermail 설정
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
-     <property name="host" value="smtp.naver.com"/> <!-- 메일 서버 호스트 -->
-     <property name="port" value="465"/> <!-- 메일서버 포트번호 -->
-     <property name="username" value="your_email"/> <!-- 자신의 이메일 아이디 -->
-     <property name="password" value="your_password!"/> <!-- 자신의 비밀번호 -->
-       <!-- 보안연결 SSL과 관련된 설정 -->
+     <property name="host" value="smtp.naver.com"/> 메일 서버 호스트
+     <property name="port" value="465"/> 메일서버 포트번호
+     <property name="username" value="your_email"/> 자신의 이메일 아이디
+     <property name="password" value="your_password!"/> 자신의 비밀번호
+       보안연결 SSL과 관련된 설정
      <property name="javaMailProperties">
       <props>
       <prop key="mail.smtp.auth">true</prop>
@@ -54,13 +50,13 @@
      </property>
     </bean>
 
-	<!-- google email 설정 -->
+	google email 설정
 	<bean id="mailSender2" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
 	     <property name="host" value="smtp.gmail.com" />
 	     <property name="port" value="587" />
-	 <property name="username" value="your_email"/> <!-- 자신의 이메일 아이디 -->
-	 <property name="password" value="your_password!"/> <!-- 자신의 비밀번호 -->
-	 <!-- 보안연결 TLS과 관련된 설정 -->
+	 <property name="username" value="your_email"/> 자신의 이메일 아이디
+	 <property name="password" value="your_password!"/> 자신의 비밀번호
+	 보안연결 TLS과 관련된 설정
 	     <property name="javaMailProperties">
 	    <props>
 	       <prop key="mail.smtp.auth">true</prop>
@@ -68,6 +64,12 @@
 	    </props>
 	     </property>
 	</bean>
-	
-	 
+	 -->
+	<!-- AOP 설정 -->
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan base-package="com.eshop.service"></context:component-scan>
+	<context:component-scan base-package="com.eshop.aop"></context:component-scan>
+	<context:component-scan base-package="com.eshop"></context:component-scan>
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
 </beans>

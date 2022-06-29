@@ -20,4 +20,7 @@ public interface BoardDAO {
 	
 	//글 삭제하기
 	public void boardDelete(int seq) throws Exception;
+	
+	//조회수
+	public void boardCheck(int seq) throws Exception;
 }

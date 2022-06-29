@@ -13,7 +13,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	BoardDAO boardDao;
-
+	
 	@Override
 	public List<BoardDTO> boardList() throws Exception {
 		return boardDao.boardList();
@@ -37,6 +37,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void boardDelete(int seq) throws Exception {
 		boardDao.boardDelete(seq);
+	}
+
+	@Override
+	public void boardCheck(int seq) throws Exception {
+		boardDao.boardCheck(seq);
+		
 	}
 	
 	

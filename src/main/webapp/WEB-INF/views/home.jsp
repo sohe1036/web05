@@ -17,6 +17,7 @@
 			Hello world!  
 		</h1>
 		<P>  The time on the server is ${serverTime}. </P>
+		<a href="${path1 }/board/list.do">게시판</a>
 	</div>
 	<%@include file="inc/footer.jsp" %>
 </div>

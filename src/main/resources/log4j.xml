@@ -34,6 +34,10 @@
 	<logger name="com.eshop.util">
 		<level value="info" />
 	</logger>
+	<logger name="com.eshop.aop">
+		<level value="aop" />
+	</logger>
+	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />

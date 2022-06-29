@@ -21,22 +21,28 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public BoardDTO boardRead(int seq) throws Exception {
-		return sqlSession.selectOne("board.boardRead");
+		return sqlSession.selectOne("board.boardRead",seq);
 	}
 
 	@Override
 	public void boardInsert(BoardDTO bdto) throws Exception {
-		sqlSession.insert("board.boardInsert");
+		sqlSession.insert("board.boardInsert",bdto);
 	}
 
 	@Override
 	public void boardUpdate(BoardDTO bdto) throws Exception {
-		sqlSession.update("board.boardUpdate");
+		sqlSession.update("board.boardUpdate",bdto);
 	}
 
 	@Override
 	public void boardDelete(int seq) throws Exception {
-		sqlSession.delete("board.boardDelete");
+		sqlSession.delete("board.boardDelete",seq);
+	}
+
+	@Override
+	public void boardCheck(int seq) throws Exception {
+		sqlSession.update("board.boardCheck", seq);
+		
 	}
 	
 	
