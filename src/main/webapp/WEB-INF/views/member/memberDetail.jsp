@@ -13,33 +13,37 @@
 <body>
 <div class="wrap">
 	<c:import url="../inc/header.jsp" />
-	<div id="content">
+	<div class="content">
 		<table>
 			<tr>
-				<th>글번호</th>
-				<td>${board.seq }</td>
+				<th>아이디</th>
+				<td>${member.uid }</td>
 			</tr>
 			<tr>
-				<th>글 제목</th>
-				<td>${board.btitle }</td>
+				<th>비밀번호</th>
+				<td>${member.upw }</td>
 			</tr>
 			<tr>
-				<th>글 내용</th>
-				<td>${board.bcontent }</td>
+				<th>이름</th>
+				<td>${member.uname }</td>
 			</tr>
 			<tr>
-				<th>작성자</th>
-				<td>${board.uname }</td>
+				<th>전화번호</th>
+				<td>${member.tel }</td>
 			</tr>
 			<tr>
-				<th>작성일</th>
-				<td>${board.regdate }</td>
+				<th>이메일</th>
+				<td>${member.email }</td>
+			</tr>
+			<tr>
+				<th>생년월일</th>
+				<td>${member.birth }</td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/board/list.do">목록</a>
-				<a href="${path1 }/board/edit.do?seq=${board.seq }">수정하기</a>
-				<a href="${path1 }/board/delete.do?seq=${board.seq }">삭제하기</a>
+				<a href="${path1 }/member/list.do">목록</a>
+				<a href="${path1 }/">수정하기</a>
+				<a href="${path }/member/delete.do?uid=${sid }">회원탈퇴</a>
 				</td>
 			</tr>
 		</table>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="goods">
+	<!-- 상품 목록 -->
+	<select id="goodsList" resultType="com.eshop.dto.GoodsDTO">
+		select * from goods order by gno
+	</select>
+	
+	<!-- 타입별 상품목록 -->
+	<select id="goodsTypeList" resultType="com.eshop.dto.GoodsDTO">
+		select * from goods where gtype=#{gtype } or gshape=#{gshape }
+	</select>
+	
+	<!-- 상품 상세보기 -->
+	<select id="goodsDetail" resultType="com.eshop.dto.GoodsDTO">
+		select * from goods where gno=#{gno }
+	</select>
+	
+	<!-- 상품 등록 insert -->
+	<insert id="goodsInsert">
+		insert into (gtype, gname, gshape, gcolor, gimg1 ,gimg2 ,ginfo ,price ,pieces) 
+		valuse (#{gtype }, #{gtype }, #{gshape },#{gcolor }, #{gimg1 }, #{gimg2 }, #{ginfo }, #{price }, #{pieces })
+	</insert>
+	
+	<!-- 상품 수정 update -->
+	<update id="goodsUpdate">
+		update goods set gtype=#{gtype },gname=#{gname },gshape=#{gshape },gcolor=#{gcolor }, gimg1=#{gimg1 },
+		gimg2=#{gimg2 },ginfo=#{ginfo },price=#{price },pieces=#{pieces }  where gno=#{gno }
+	
+	</update>
+	
+	<!-- 상품 삭제 delete -->
+	<delete id="goodsDelete">
+		delete from goods where gno=#{gno }
+	</delete>
+</mapper>

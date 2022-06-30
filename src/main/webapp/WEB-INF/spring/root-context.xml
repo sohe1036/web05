@@ -15,7 +15,7 @@
 	<!-- mysql 드라이버 및 접속 정보 설정 : sqlSessionFactory에서 호출 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/myshop?serverTimezone=UTC" />
+		<property name="url" value="jdbc:mysql://localhost:3306/myshop?useSSL=false&amp;serverTimezone=UTC"/>
 		<property name="username" value="root" />
 		<property name="password" value="a1234" />
 	</bean>	
@@ -66,10 +66,10 @@
 	</bean>
 	 -->
 	<!-- AOP 설정 -->
-	<context:annotation-config></context:annotation-config>
-	<context:component-scan base-package="com.eshop.service"></context:component-scan>
-	<context:component-scan base-package="com.eshop.aop"></context:component-scan>
-	<context:component-scan base-package="com.eshop"></context:component-scan>
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+		<!-- <context:annotation-config></context:annotation-config>
+		<context:component-scan base-package="com.eshop.service"></context:component-scan>
+		<context:component-scan base-package="com.eshop.aop"></context:component-scan>
+		<context:component-scan base-package="com.eshop"></context:component-scan>
+		<aop:aspectj-autoproxy></aop:aspectj-autoproxy> -->
 
 </beans>

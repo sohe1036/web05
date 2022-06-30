@@ -16,6 +16,7 @@ public class JoinMemberBean {
 	@Pattern(regexp="^([A-Za-z])+([0-9])+$", message="비밀번호는 영문대소문자와 숫자의 조합으로만 가능합니다.")
 	private String upw2;
 	
+	@Size(min=2, max=15, message="길이는 2~15 사이로만 가능합니다.")
 	private String uname;
 	private String birth;
 	private String tel;

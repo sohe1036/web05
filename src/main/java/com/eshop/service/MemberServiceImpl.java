@@ -1,53 +1,56 @@
-package com.eshop.dao;
+package com.eshop.service;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.eshop.dao.MemberDAO;
 import com.eshop.dto.MemberDTO;
 
-@Repository
-public class MemberDAOImpl implements MemberDAO {
-
+@Service
+public class MemberServiceImpl implements MemberService {
+	
 	@Autowired
-	SqlSession sqlSession;
-	//(namespace.id)
+	MemberDAO memberDao;
+	
+
 	@Override
 	public List<MemberDTO> memberList() throws Exception {
-		return sqlSession.selectList("member.memberList");
+		return memberDao.memberList();
 	}
 
 	@Override
 	public MemberDTO memberDetail(String uid) throws Exception {
-		return sqlSession.selectOne("member.memberDetail",uid);
+		return memberDao.memberDetail(uid);
 	}
 
 	@Override
 	public void memberInsert(MemberDTO mdto) throws Exception {
-		sqlSession.insert("member.memberInsert", mdto);
+		memberDao.memberInsert(mdto);
 	}
 
 	@Override
 	public void memberUpdate(MemberDTO mdto) throws Exception {
-		sqlSession.update("member.memberUpdate", mdto);
+		memberDao.memberUpdate(mdto);
 	}
 
 	@Override
 	public void memberDelete(String uid) throws Exception {
-		sqlSession.delete("member.memberDelete", uid);
+		memberDao.memberDelete(uid);
 	}
 
 	@Override
 	public MemberDTO login(MemberDTO mdto) throws Exception {
-		return sqlSession.selectOne("member.login", mdto);
+		return memberDao.login(mdto);
 	}
 
 	@Override
 	public int idCheck(String uid) throws Exception {
-		return sqlSession.selectOne("member.idCheck", uid);
+		return memberDao.idCheck(uid);
 	}
 	
 	
+
 }

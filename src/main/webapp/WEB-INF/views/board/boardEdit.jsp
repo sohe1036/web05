@@ -11,7 +11,7 @@
 <c:import url="../inc/head.jsp" />
 </head>
 <body>
-<div class="wrap">
+<div id="content">
 	<c:import url="../inc/header.jsp" />
 	<div class="content">
 		<form method="post" action="${path1 }/board/update.do">

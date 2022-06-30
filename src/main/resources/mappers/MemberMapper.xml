@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 	<!-- 회원목록 -->
 	<select id="memberList" resultType="com.eshop.dto.MemberDTO">
-		select * from mamber order by regdate desc
+		select * from member 
 	</select>
 	
 	<!-- 회원상세정보 -->
@@ -16,8 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 회원가입 insert -->
 	<insert id="memberInsert">
-		insert into member(uid, upw, uname, birth, tel, email) 
-		values (#{uid }, #{upw }, #{uname }, #{birth }, #{tel }, #{email })	
+		insert into member (uid, upw, uname, birth, tel, email) values (#{uid }, #{upw }, #{uname }, #{birth }, #{tel }, #{email })	
 	</insert>
 	
 	<!-- 회원정보 수정 update -->
