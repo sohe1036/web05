@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 로그인 DAO에서 uid,upw select -->
 	<select id="login" resultType="com.eshop.dto.MemberDTO">
-		select uid, upw from member where uid=#{uid }
+		select * from member where uid=#{uid }
 	</select>
 	
 	<!-- 아이디 체크 카운트로 동일한 아이디 있는지 확인->int select -->

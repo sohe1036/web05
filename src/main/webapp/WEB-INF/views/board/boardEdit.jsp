@@ -13,7 +13,7 @@
 <body>
 <div id="content">
 	<c:import url="../inc/header.jsp" />
-	<div class="content">
+	<div id="content">
 		<form method="post" action="${path1 }/board/update.do">
 			<table>
 				<tr>

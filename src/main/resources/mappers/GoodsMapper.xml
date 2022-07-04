@@ -10,13 +10,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 타입별 상품목록 -->
+	<!-- 
 	<select id="goodsTypeList" resultType="com.eshop.dto.GoodsDTO">
 		select * from goods where gtype=#{gtype } or gshape=#{gshape }
 	</select>
-	
+	 -->
 	<!-- 상품 상세보기 -->
 	<select id="goodsDetail" resultType="com.eshop.dto.GoodsDTO">
 		select * from goods where gno=#{gno }
+	</select>
+	
+	<!-- 최신상품 -->
+	<select id="latestGoods" resultType="com.eshop.dto.GoodsDTO">
+		select * from goods order by regdate desc limit 5
+	</select>
+	
+	<!-- 베스트상품 -->
+	<select id="bestGoods" resultType="com.eshop.dto.GoodsDTO">
+		<!-- 판매테이블에서 팔린 개수가 많은 상품 5개를 상품테이블에 조인해서 출력 -->
+	</select>
+	
+	<!-- 추천상품 -->
+	<select id="recogoods" resultType="com.eshop.dto.GoodsDTO">
+		<!-- 관리자가 추천상품 등록해 일치하는 상품 출력 -->
+	</select>
+	
+	<select id="goodsCount" resultType="integer">
+		select count(*) from goods
 	</select>
 	
 	<!-- 상품 등록 insert -->

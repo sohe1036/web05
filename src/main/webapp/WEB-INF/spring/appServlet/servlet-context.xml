@@ -16,9 +16,12 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/user/**" location="/WEB-INF/views/user/" />
 	<resources mapping="/inc/**" location="/inc/" />
+	<resources mapping="/admin/**" location="/admin/" />
 	<resources mapping="/img/**" location="/img/" />
 	<resources mapping="/board/**" location="/board/" />
 	<resources mapping="/member/**" location="/member/" />
+	<resources mapping="/goods/**" location="/goods/" />
+	<resources mapping="/upload/**" location="/upload/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -38,6 +41,15 @@
 	
 	<context:component-scan base-package="com.eshop" />
 	
-	
+	<!-- 인터셉터 -->
+	<beans:bean id="AdminInterceptor" class="com.eshop.interceptor.AdminInterceptor"/>
+		<interceptors>
+			 <interceptor>
+	 			 <mapping path="/admin/**" />
+	 			 <beans:ref bean="AdminInterceptor" />
+			 </interceptor>
+		</interceptors>
 	
 </beans:beans>
+	
+

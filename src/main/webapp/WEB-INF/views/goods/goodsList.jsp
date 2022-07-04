@@ -7,36 +7,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판 목록</title>
+<title>상품목록</title>
 <%@include file="../inc/head.jsp" %>
 </head>
 <body>
 <div class="wrap">
 	<%@include file="../inc/header.jsp" %>
 	<div id="content">
-		<table class="table">
+		<table>
 			<thead>
 				<tr>
-					<th scope="col">번호</th>
-					<th scope="col">제목</th>
-					<th scope="col">작성자</th>
-					<th scope="col">작성일</th>
-					<th scope="col">조회수</th>
+					<th>상품번호</th>
+					<th>이름</th>
+					<th>컬러</th>
+					<th>사진</th>
+					<th>가격</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${boardList }" var="list">
+				<c:forEach items="${goodsList }" var="glist">
 				<tr>
-					<td scope="row">${list.seq }</td>
-					<td scope="row"><a href="${path1 }/board/read.do?seq=${list.seq }">${list.btitle }</a></td>
-					<td scope="row">${list.uname }</td>
-					<td scope="row">${list.regdate }</td>
-					<td scope="row">${list.ck }</td>
+					<td>${glist.gno }</td>
+					<td><a href="${path1 }/goods/detail.do?gno=${glist.gno }">${glist.gname }</a></td>
+					<td>${glist.gcolor }</td>
+					<td><img src="../img/${glist.gimg1 }" /></td>
+					<td>${glist.price }</td>
 				</tr>	
 				</c:forEach>
 				<tr>
 					<td>
-						<a href="${path1 }/board/write_from.do">글 추가</a>
+						<a href="${path1 }/goods/goodsAddForm">상품 추가</a>
 					</td>
 				</tr>
 			</tbody>

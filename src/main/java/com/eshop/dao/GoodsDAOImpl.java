@@ -20,14 +20,23 @@ public class GoodsDAOImpl implements GoodsDAO {
 	}
 
 	@Override
-	public List<GoodsDTO> goodsTypeList(GoodsDTO gdto) throws Exception {
-		return sqlSession.selectList("goods.goodsTypeList", gdto);
-	}
-
-
-	@Override
 	public GoodsDTO goodsDetail(int gno) throws Exception {
 		return sqlSession.selectOne("goods.goodsDetail", gno);
+	}
+	
+	@Override
+	public List<GoodsDTO> latestGoods() throws Exception {
+		return sqlSession.selectList("goods.latestGoods");
+	}
+
+	@Override
+	public List<GoodsDTO> bestGoods() throws Exception {
+		return sqlSession.selectList("goods.bestGoods");
+	}
+
+	@Override
+	public List<GoodsDTO> recogoods() throws Exception {
+		return sqlSession.selectList("goods.recogoods");
 	}
 
 	@Override

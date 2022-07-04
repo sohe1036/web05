@@ -13,37 +13,36 @@
 <body>
 <div class="wrap">
 	<c:import url="../inc/header.jsp" />
-	<div class="content">
+	<div id="content">
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td>${member.uid }</td>
+				<td><input type="text" name="uid" value="${member.uid }" /> </td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td>${member.upw }</td>
+				<td><input type="text" name="upw" value="${member.upw }"></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td>${member.uname }</td>
+				<td><input type="text" name="uname" value="${member.uname }"></td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td>${member.tel }</td>
+				<td> <input type="tel" name="tel" value="${member.tel }"></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td>${member.email }</td>
+				<td><input type="email" name="email" value="${member.email }"></td>
 			</tr>
 			<tr>
 				<th>생년월일</th>
-				<td>${member.birth }</td>
+				<td><input type="text" name="birth" value=" ${member.birth }"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/member/list.do">목록</a>
-				<a href="${path1 }/">수정하기</a>
-				<a href="${path }/member/delete.do?uid=${sid }">회원탈퇴</a>
+				<a href="${path1 }/member/update.do">수정하기</a>
+				<a href="${path1 }/member/delete.do?uid=${sid }">회원탈퇴</a>
 				</td>
 			</tr>
 		</table>

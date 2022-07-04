@@ -13,7 +13,7 @@
 <body>
 <div id="content">
 	<c:import url="../inc/header.jsp" />
-	<div class="content">
+	<div id="content">
 		 <form action="${path1 }/member/login.do" method="post">
              <div class="login_form">
                  <input type="text" name="uid" id="uid"  required placeholder="아이디">

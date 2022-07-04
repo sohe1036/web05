@@ -88,20 +88,20 @@
                 }
             </style>
             <div class="wrapper">
-               
                 <div class="right">
+                	<c:if test="${sid=='admin' }">
+						<a href="${path }/member/list.do" class="item">회원목록</a>
+						<a href="${path }/goods/list.do" class="item">상품목록</a>
+					</c:if>
                 	<c:if test="${empty sid }">
-					<a href="${path }/member/loginForm.do" class="item point">로그인</a>
-					<a href="${path }/member/agree.do" class="item">회원가입</a>
+						<a href="${path }/member/loginForm.do" class="item point">로그인</a>
+						<a href="${path }/member/agree.do" class="item">회원가입</a>
 					</c:if>
 					<c:if test="${!empty sid }">
-					<h1 class="item point">${sid }님</h1>
-					<a href="${path }/member/detail.do?uid=${sid }" class="item">내정보</a>
-					<a href="${path }/member/logout.do" class="item">로그아웃</a>
-					<c:if test="${sid == 'admin' }">
-					<a href="${path }/admin/admin.do" class="item">관리자페이지</a>
-					</c:if>
-					</c:if>
+						<h1 class="item point">${sid }님</h1>
+						<a href="${path }/member/detail.do?uid=${sid }" class="item">내정보</a>
+						<a href="${path }/member/logout.do" class="item">로그아웃</a>
+					</c:if>	
                 </div>
             </div>
         </div>
@@ -319,7 +319,7 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="${path1 }/goods/List.do?gtype=">선글라스</a>
+                            <a href="${path }/goods/List.do?gtype=">선글라스</a>
                             <ul>
                                 <li><a>전체보기</a></li>
                                 <li><a>클래식 디자인</a></li>
@@ -350,7 +350,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="${path1 }/board/list.do">게시판</a>
+                            <a href="${path }/board/list.do">게시판</a>
                         </li>
                     </ul>
                 </nav>

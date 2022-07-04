@@ -46,7 +46,6 @@ public class MemberController {
 		model.addAttribute("memberList", memberList);
 		return "member/memberList";
 	}
-	
 	//마이페이지
 		
 	//회원정보보기
@@ -76,7 +75,7 @@ public class MemberController {
 	}
 	
 	//회원탈퇴
-	@RequestMapping("delete.do")
+	@RequestMapping(value="delete.do")
 	public String memberDelete(@RequestParam String uid,Model model,HttpSession session) throws Exception {
 		memberService.memberDelete(uid);
 		session.invalidate();
@@ -108,7 +107,7 @@ public class MemberController {
 			model.addAttribute("msg", "사용 가능한 아이디입니다.");
 			rttr.addFlashAttribute("message", "사용 가능한 아이디입니다.");
 			model.addAttribute("ck", "yes");
-			model.addAttribute("uid", uid);
+			model.addAttribute("id", uid);
 		} else {
 			model.addAttribute("msg", "이미 사용중인 아이디입니다.");
 			rttr.addFlashAttribute("message", "이미 사용중인 아이디입니다.");
@@ -126,18 +125,18 @@ public class MemberController {
 	//로그인
 	@RequestMapping(value="login.do", method = RequestMethod.POST)
 	public String memberLogin(@RequestParam String uid, @RequestParam String upw, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
-		session.invalidate();
-		MemberDTO mdto = new MemberDTO();		//DTO선언
-		mdto.setUid(uid);
-		mdto.setUpw(upw);		//request된 아이디 패스워드입력값을 DTO에 주입
-		MemberDTO login = memberService.login(mdto);
-		boolean loginSuccess = pwdEncoder.matches(mdto.getUpw(), login.getUpw());	// 입력한 비밀번호값과 원래 DTO의 비밀번호값 매치해
+		MemberDTO member = new MemberDTO();		//DTO선언
+		member.setUid(uid);
+		member.setUpw(upw);		//request된 아이디 패스워드입력값을 DTO에 주입
+		MemberDTO login = memberService.login(member);
+		boolean loginSuccess = pwdEncoder.matches(member.getUpw(), login.getUpw());	// 입력한 비밀번호값과 원래 DTO의 비밀번호값 매치해
 		
-		if(loginSuccess && login !=null) {
+		if(loginSuccess==true && login !=null) {
 			session.setAttribute("member", login);
-			session.setAttribute("sid", uid);
+			session.setAttribute("sid", member.getUid());
 			return "redirect:/";
 		} else {
+			session.setAttribute("member", null);
 			return "redirect:loginForm.do";
 		}
 	}

@@ -20,13 +20,23 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
-	public List<GoodsDTO> goodsTypeList(GoodsDTO gdto) throws Exception {
-		return goodsDao.goodsTypeList(gdto);
+	public GoodsDTO goodsDetail(int gno) throws Exception {
+		return goodsDao.goodsDetail(gno);
 	}
 
 	@Override
-	public GoodsDTO goodsDetail(int gno) throws Exception {
-		return goodsDao.goodsDetail(gno);
+	public List<GoodsDTO> latestGoods() throws Exception {
+		return goodsDao.latestGoods();
+	}
+
+	@Override
+	public List<GoodsDTO> bestGoods() throws Exception {
+		return goodsDao.bestGoods();
+	}
+
+	@Override
+	public List<GoodsDTO> recogoods() throws Exception {
+		return goodsDao.recogoods();
 	}
 
 	@Override

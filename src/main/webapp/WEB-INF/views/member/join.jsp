@@ -60,20 +60,38 @@
 				</div>
 			</div>
 		</form:form> --%>
-		<form action="${path1 }/member/insert.do" method="post" >
+		<form action="${path1 }/member/insert.do" method="post" name="joinform" onsubmit="return joinCheck(this)" >
 			<table>
 				<tbody>
 					<tr>
 						<th>아이디</th>
-						<td><input type="text" name="uid" id="uid" required /></td>
+						<td>
+						<c:if test="${empty id }">
+						<input type="text" name="uid" id="uid" required />
+						</c:if>
+						<c:if test="${!empty id }">
+						<input type="text" name="uid" id="uid" value="${id }" placeholder="아이디를 입력하세요." />
+						</c:if>
+						<input type="button" value="중복확인" onclick="idCheck()"/>
+						<input type="hidden" name="id" />
+						<c:if test="${!empty ck }">
+						<input type="hidden" name="ck" value="${ck }" />	
+						</c:if>
+						<c:if test="${empty ck }">
+						<input type="hidden" name="ck" value="" />
+						</c:if>
+						<c:if test="${!empty msg }">
+						<input type="hidden" name="msg" value="${msg }" />
+						</c:if>
+						</td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
-						<td><input type="password" name="upw" required/></td>
+						<td><input type="password" name="upw" id="upw" required/></td>
 					</tr>
 					<tr>
 						<th>비밀번호 확인</th>
-						<td><input type="password" name="upw2" required/></td>
+						<td><input type="password" name="upw2" id="upw2" required/></td>
 					</tr>
 					<tr>
 					 	<th>이름</th>
@@ -99,7 +117,32 @@
 				</tbody>
 			</table>
 		</form>
-		
+		<script>
+			function idCheck() {
+				var id = document.joinform.uid.value;
+				if(id!=""){
+					location.href="${path1}/member/idCheck.do?uid="+id;
+				}
+			}
+			
+			function joinCheck(f) {
+				if(f.upw.value!=f.upw2.value){
+					alert("비밀번호가 일치하지 않습니다.");
+					return false;
+				}
+				if(f.ck.value!="yes"){
+					alert("아이디 중복확인이 필요합니다.");
+					return false;
+				}
+			}
+			
+		</script>
+		<script>
+			if("${msg}"!=""){
+    			alert("${msg}");
+    			return false;
+    		}
+		</script>
 	</div>
 	<c:import url="../inc/footer.jsp" />
 </div>

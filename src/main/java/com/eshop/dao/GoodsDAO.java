@@ -9,11 +9,17 @@ public interface GoodsDAO {
 	//상품목록 =>리턴 메서드 (매개변수) throws Exception
 	public List<GoodsDTO> goodList() throws Exception;
 	
-	//타입이나 모양을 매개변수로 한 목록
-	public List<GoodsDTO> goodsTypeList(GoodsDTO gdto) throws Exception;
-	
 	//상품 상세보기
 	public GoodsDTO goodsDetail(int gno) throws Exception;
+	
+	//최신상품
+	public List<GoodsDTO> latestGoods() throws Exception;
+	
+	//베스트상품
+	public List<GoodsDTO> bestGoods() throws Exception;
+	
+	//추천상품
+	public List<GoodsDTO> recogoods() throws Exception;
 	
 	//상품 등록하기
 	public void goodsInsert(GoodsDTO gdto) throws Exception;

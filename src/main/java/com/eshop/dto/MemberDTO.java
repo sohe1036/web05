@@ -10,6 +10,8 @@ public class MemberDTO {
 	private String tel;
 	private String email;
 	private String regdate;
+	private int grade;
+	
 	public String getUid() {
 		return uid;
 	}
@@ -51,6 +53,12 @@ public class MemberDTO {
 	}
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 	
 	
