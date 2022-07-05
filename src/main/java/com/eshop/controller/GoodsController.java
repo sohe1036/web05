@@ -2,12 +2,16 @@ package com.eshop.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +37,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/goods/*")
 @Log4j
 public class GoodsController {
+	private static final Logger logger = LoggerFactory.getLogger(GoodsController.class);
 
 	@Autowired
 	GoodsService goodsService;
@@ -46,12 +52,18 @@ public class GoodsController {
 		return "리턴경로";
 	}*/
 	@RequestMapping("list.do")
-	public String boardList(Model model) throws Exception {
+	public String boardList( Model model) throws Exception {
 			List<GoodsDTO> goodsList = goodsService.goodList();
 			model.addAttribute("goodsList", goodsList);
-
 		return "goods/goodsList";
 	}
+	
+	@RequestMapping("typeList.do")
+	public String goodsTypeList(@RequestParam String gtype, Model model) throws Exception {
+		List<GoodsDTO> goodsList = goodsService.goodsTypeList(gtype);
+		model.addAttribute("goodsList", goodsList);
+	return "goods/goodsList";
+}
 	
 	@RequestMapping(value="detail.do" ,method= RequestMethod.GET )
 	public String goodsDetail(@RequestParam int gno, Model model ) throws Exception {
@@ -74,7 +86,7 @@ public class GoodsController {
 	}
 	
 	//상품 추가 폼
-	@RequestMapping(value="goodsAddForm.do")
+	@RequestMapping(value="goodsAddForm.do",method= RequestMethod.GET)
 	public String goodsAddForm(Model model) throws Exception {
 		return "goods/goodsAddForm";
 	}
@@ -94,10 +106,40 @@ public class GoodsController {
 	}
 	
 	
+	//Get 방식으로 업로드 폼 열기
+		@RequestMapping(value = "uploadForm.do", method = RequestMethod.GET)
+		public String uploadFormGET() {
+			return "goods/uploadForm";
+		}
+		
+		//Post 방식으로 업로드 폼 열기
+		@RequestMapping("uploadForm.do")  
+		public String uploadFormPOST(MultipartFile file, Model model) throws Exception {
+			logger.info("uploadFormPost");
+			if(file != null) {
+				logger.info("originalName:" + file.getOriginalFilename());
+				logger.info("size:" + file.getSize());
+				logger.info("ContentType:" + file.getContentType());
+			}
+			String savedName = uploadFile(file.getOriginalFilename(), file.getBytes());
+			model.addAttribute("savedName", savedName);
+			model.addAttribute("uploadFile", savedName);
+			return "goods/uploadForm";
+		}
+		
+		//업로드된 파일 저장 함수
+		private String uploadFile(String originalName, byte[] fileDate) throws IOException {
+			UUID uid = UUID.randomUUID();
+			String savedName = uid.toString() + "_" + originalName;
+			File target = new File(uploadPath, savedName);
+			FileCopyUtils.copy(fileDate, target);		
+			return savedName;
+		}
+	
 	//Ajax 파일 업로드
 		@RequestMapping(value="uploadAjax.do", method = RequestMethod.GET)
 		public String uploadAjaxGET() {
-			return "databank/uploadAjax";
+			return "goods/uploadAjax";
 		}
 		
 		//Ajax로 한글 파일이름이나 데이터를 받아서 처리

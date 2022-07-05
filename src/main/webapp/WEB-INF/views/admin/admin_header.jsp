@@ -90,7 +90,8 @@
             <div class="wrapper">
                 <div class="right">
                 	<c:if test="${sid=='admin' }">
-						<a href="${path }/member/list.do" class="item">회원목록</a>
+                		<a href="${path }/goods/goodsAddForm.do" class="item">상품추가</a>
+						<a href="${path }/admin/memberList.do" class="item">회원목록</a>
 						<a href="${path }/goods/list.do" class="item">상품목록</a>
 					</c:if>
                 	<c:if test="${empty sid }">
@@ -314,7 +315,7 @@
             </style>
             <div class="wrapper">
                 <div class="brand">
-                    <a>GENTLE MONSTER</a>
+                    <a href="${path }/">GENTLE MONSTER</a>
                 </div>
                 <nav>
                     <ul>

@@ -1,15 +1,18 @@
 package com.eshop.controller;
 
 
-import javax.inject.Inject;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.eshop.dto.MemberDTO;
 import com.eshop.service.MemberService;
 
 @Controller
@@ -34,4 +37,11 @@ public class AdminController {
     public String Admin() {
         return "admin/admin";
     }
+  //회원목록
+  	@RequestMapping("memberList.do")
+  	public String memberList(Model model) throws Exception {
+  		List<MemberDTO> memberList = memberService.memberList();
+  		model.addAttribute("memberList", memberList);
+  		return "admin/memberList";
+  	}
 }

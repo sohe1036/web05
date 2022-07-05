@@ -14,50 +14,81 @@
 <div class="wrap">
 	<c:import url="../inc/header.jsp" />
 	<div id="content">
-		<form method="post" action="${path1 }/goods/update.do">
+		<form method="post" action="${path1 }/goods/update.do" name="goodsUpload" onsubmit="return fileCk(this)">
 			<table>
 				<tr>
-					<th>상품번호</th>
-					<td><input type="text" name="gno" value="${goods.gno }"/></td>
+					<th><label for="gno">상품번호</label></th>
+					<td><input type="text" name="gno" value="${goods.gno }" readonly></td>
 				</tr>
 				<tr>
-					<th>상품명</th>
+					<th><label for="gname">상품명</label></th>
 					<td><input type="text" name="gname" value="${goods.gname }"/></td>
 				</tr>
 				<tr>
-					<th>모양</th>
-					<td><input type="text" name="gshape" value="${goods.gshape }"/></td>
-				</tr>
-				<tr>
-					<th>컬러</th>
-					<td><input type="text" name="gcolor" value="${goods.gcolor }"/></td>
-				</tr>
-				<tr>
-					<th>사진</th>
+					<th><label for="gtype">상품타입</label></th>
 					<td>
-					<input type="file" name="gimg1" >
-					<img src="../img/${goods.gimg1 }" >
+					<select name="gtype" id="gtype">
+						<option value="">타입을 선택하세요.</option>
+						<option value="선글라스" <c:if test="${goods.gtype == '선글라스' }">selected</c:if>>선글라스</option>
+						<option value="안경" <c:if test="${goods.gtype == '안경' }">selected</c:if>>안경</option>
+						<option value="콜라보레이션" <c:if test="${goods.gtype == '콜라보레이션' }">selected</c:if>>콜라보레이션</option>
+					</select>
 					</td>
 				</tr>
 				<tr>
-					<th>상세정보</th>
+					<th><label for="gshape">프레임모양</label></th>
+					<td><input type="text" name="gshape" value="${goods.gshape }"/></td>
+				</tr>
+				<tr>
+					<th><label for="gcolor">컬러</label></th>
+					<td><input type="text" name="gcolor" value="${goods.gcolor }"/></td>
+				</tr>
+				<tr>
+					<th><label for="dposter">파일 형식</label></th>
+					<td>
+						<input type="text" name="dposter" id="dposter" size="40"  value="" readonly>
+						<input type="image" name="dposter2" id="proData2" /> 
+						<input type="hidden" name="fileCheck" id="fileCheck" />
+					</td>
+				</tr>
+				<tr>
+					<th><label for="gimg1">사진</label></th>
+					<td>
+					<input type="text" name="gimg1" id="gimg1" value="" readonly />
+					<button onclick="uploadFile()" class="btn btn-primary">업로드 </button>
+					<img src="" id="proData" />
+					</td>
+				</tr>
+				<tr>
+					<th><label for="ginfo">상세정보</label></th>
 					<td><textarea name="ginfo" cols="80" rows="5">${goods.ginfo }</textarea></td>
 				</tr>
 				<tr>
-					<th>가격</th>
+					<th><label for="price">가격</label></th>
 					<td><input type="text" name="price" value="${goods.price }"/></td>
 				</tr>
 				<tr>
-					<th>수량</th>
+					<th><label for="pieces">수량</label></th>
 					<td><input type="text" name="pieces" value="${goods.pieces }"/></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-					<input type="submit" value="수정하기">
+					<input type="submit" value="수정하기" class="btn btn-primary">
 					</td>
 				</tr>
 			</table>
 		</form>	
+		<script>
+		function uploadFile() {
+			window.open("${path1 }/goods/uploadForm.do", "dataupload", "width=500, height=400");
+		}
+		function fileCk(f){
+    		if(f.fileCheck.value!="yes") {
+    			alert("파일을 업로드해주세요.");
+    			return false;
+    		}
+		}
+	</script>
 	</div>
 	<c:import url="../inc/footer.jsp" />
 </div>

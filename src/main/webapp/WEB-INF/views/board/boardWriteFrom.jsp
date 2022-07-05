@@ -36,8 +36,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="추가" />
-						<input type="reset" value="취소" />
+						<input type="submit" value="추가" class="btn btn-primary" />
+						<input type="reset" value="취소" class="btn btn-primary" />
 					</td>	
 				</tr>
 			</table>

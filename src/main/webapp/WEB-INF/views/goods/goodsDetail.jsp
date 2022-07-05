@@ -14,7 +14,7 @@
 <div class="wrap">
 	<c:import url="../inc/header.jsp" />
 	<div id="content">
-		<table>
+		<table class="table">
 			<tr>
 				<th>상품번호</th>
 				<td>${goods.gno }</td>
@@ -33,7 +33,7 @@
 			</tr>
 			<tr>
 				<th>사진</th>
-				<td><img src="../img/${goods.gimg1 }"></td>
+				<td><img src="${path1 }/resources/upload/${goods.gimg1 } " style="width: 200px; height: 250px;"/></td>
 			</tr>
 			<tr>
 				<th>상세정보</th>
@@ -51,10 +51,10 @@
 			</c:if>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/goods/list.do">목록</a>
+				<a href="${path1 }/goods/list.do" class="btn btn-primary">목록</a>
 				<c:if test="${sid=='admin' }">
-				<a href="${path1 }/goods/edit.do?gno=${goods.gno }">수정하기</a>
-				<a href="${path1 }/goods/delete.do">삭제하기</a>
+				<a href="${path1 }/goods/edit.do?gno=${goods.gno }" class="btn btn-primary">수정하기</a>
+				<a href="${path1 }/goods/delete.do" class="btn btn-primary">삭제하기</a>
 				</c:if>
 				</td>
 			</tr>

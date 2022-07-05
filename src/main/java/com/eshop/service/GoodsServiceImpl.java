@@ -18,6 +18,11 @@ public class GoodsServiceImpl implements GoodsService {
 	public List<GoodsDTO> goodList() throws Exception {
 		return goodsDao.goodList();
 	}
+	
+	@Override
+	public List<GoodsDTO> goodsTypeList(String gtype) throws Exception {
+		return goodsDao.goodsTypeList(gtype);
+	}
 
 	@Override
 	public GoodsDTO goodsDetail(int gno) throws Exception {

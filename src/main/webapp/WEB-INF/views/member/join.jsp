@@ -8,12 +8,16 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 가입</title>
+<c:import url="../inc/head.jsp" />
+<style>
+	h2 {padding: 30px;}
+	form {width:400px; margin: 0 auto; }
+</style>
 </head>
 <body>
 <div class="wrap">
 	<c:import url="../inc/header.jsp" />
-	<div id="contents" class="contents">
-		<h2 class="tit">회원가입</h2>
+	<div id="content">
 		
 <%-- 		<form:form action="${path1 }/member/insert.do" method="post" modelAttribute="joinMemberBean">
 			<div class="form-group">
@@ -60,62 +64,53 @@
 				</div>
 			</div>
 		</form:form> --%>
-		<form action="${path1 }/member/insert.do" method="post" name="joinform" onsubmit="return joinCheck(this)" >
-			<table>
-				<tbody>
-					<tr>
-						<th>아이디</th>
-						<td>
-						<c:if test="${empty id }">
-						<input type="text" name="uid" id="uid" required />
-						</c:if>
-						<c:if test="${!empty id }">
-						<input type="text" name="uid" id="uid" value="${id }" placeholder="아이디를 입력하세요." />
-						</c:if>
-						<input type="button" value="중복확인" onclick="idCheck()"/>
-						<input type="hidden" name="id" />
-						<c:if test="${!empty ck }">
-						<input type="hidden" name="ck" value="${ck }" />	
-						</c:if>
-						<c:if test="${empty ck }">
-						<input type="hidden" name="ck" value="" />
-						</c:if>
-						<c:if test="${!empty msg }">
-						<input type="hidden" name="msg" value="${msg }" />
-						</c:if>
-						</td>
-					</tr>
-					<tr>
-						<th>비밀번호</th>
-						<td><input type="password" name="upw" id="upw" required/></td>
-					</tr>
-					<tr>
-						<th>비밀번호 확인</th>
-						<td><input type="password" name="upw2" id="upw2" required/></td>
-					</tr>
-					<tr>
-					 	<th>이름</th>
-						<td><input type="text" name="uname" required /></td>
-					</tr>
-					<tr>
-						<th>생년월일</th>
-						<td><input type="date" name="birth"  /></td>
-					</tr>
-					<tr>
-						<th>전화번호</th>
-						<td><input type="tel" name="tel" required/></td>
-					</tr>
-					<tr>
-						<th>이메일</th>
-						<td><input type="email" name="email" required/></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<input type="submit" value="가입">
-						</td>
-					</tr>
-				</tbody>
-			</table>
+		<form action="${path1 }/member/insert.do" method="post" name="joinform" onsubmit="return joinCheck(this)">
+			<h2 class="tit">회원가입</h2>
+			<div class="mb-3">
+				<label for="uid" class="form-label">아이디</label>
+				<c:if test="${empty id }">
+				<input type="text" name="uid" id="uid" required class="form-control"/>
+				</c:if>
+				<c:if test="${!empty id }">
+				<input type="text" name="uid" id="uid" value="${id }" placeholder="아이디를 입력하세요." class="form-control"/>
+				</c:if>
+				<input type="button" value="중복확인" onclick="idCheck()" class="btn btn-primary"/>
+				<input type="hidden" name="id" />
+				<c:if test="${!empty ck }">
+				<input type="hidden" name="ck" value="${ck }" />	
+				</c:if>
+				<c:if test="${empty ck }">
+				<input type="hidden" name="ck" value="" />
+				</c:if>
+				<c:if test="${!empty msg }">
+				<input type="hidden" name="msg" value="${msg }" />
+				</c:if>
+			</div>
+			<div class="mb-3">
+				<label for="upw" class="form-label">비밀번호</label>
+				<input type="password" name="upw" id="upw" required class="form-control"/>
+			</div>
+			<div class="mb-3">
+				<label for="upw2" class="form-label">비밀번호 확인</label>
+				<input type="password" name="upw2" id="upw2" required class="form-control"/>
+			</div>
+			<div class="mb-3">
+		 		<label for="uname" class="form-label">이름</label>
+				<input type="text" name="uname" required class="form-control"/>
+			</div>
+			<div class="mb-3">
+				<label for="birth" class="form-label">생년월일</label>
+				<input type="date" name="birth" class="form-control" />
+			</div>
+			<div class="mb-3">
+				<label for="tel" class="form-label">전화번호</label>
+				<input type="tel" name="tel" required class="form-control"/>
+			</div>
+			<div class="mb-3">
+				<label for="email" class="form-label">이메일</label>
+				<input type="email" name="email" class="form-control" required/>
+			</div>
+			<button type="submit" class="btn btn-primary">회원가입</button>
 		</form>
 		<script>
 			function idCheck() {
@@ -140,7 +135,6 @@
 		<script>
 			if("${msg}"!=""){
     			alert("${msg}");
-    			return false;
     		}
 		</script>
 	</div>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cart">
+	<!-- 장바구니 목록 -->
+	<select id="cartList" resultType="com.eshop.dto.CartDTO">
+		select * from cart where uid=#{uid}
+	</select>
+	
+	<!-- 장바구니 상세 -->
+	<select id="cartDetail" resultType="com.eshop.dto.CartDTO">
+		select * from cart where bno=#{bno} and uid=#{uid}	
+	</select>
+
+	<!-- 장바구니 담기 -->
+	<insert id="cartInsert">
+		insert into cart(uid, gno, gcolor, pieces, gsize ) value (#{uid}, #{gno}, #{gcolor}, #{pieces}, #{gsize})
+	</insert>
+	
+	<!-- 장바구니 수정 -->
+	<update id="cartUpdate">
+		update cart set gno=#{gno}, gcolor=#{gcolor}, pieces=#{pieces}, gsize=#{gsize}, bdate=(current_date) where bno=#{bno}
+	</update>
+	
+	<!-- 장바구니 삭제 -->
+	<delete id="cartDelete">
+		delete from cart where bno=#{bno}
+	</delete>
+	
+</mapper>

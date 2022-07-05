@@ -14,7 +14,7 @@
 <div class="wrap">
 	<c:import url="../inc/header.jsp" />
 	<div id="content">
-		<table>
+		<table class="table">
 			<tr>
 				<th>글번호</th>
 				<td>${board.seq }</td>
@@ -37,9 +37,9 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/board/list.do">목록</a>
-				<a href="${path1 }/board/edit.do?seq=${board.seq }">수정하기</a>
-				<a href="${path1 }/board/delete.do?seq=${board.seq }">삭제하기</a>
+				<a href="${path1 }/board/list.do" class="btn btn-primary">목록</a>
+				<a href="${path1 }/board/edit.do?seq=${board.seq }" class="btn btn-primary">수정하기</a>
+				<a href="${path1 }/board/delete.do?seq=${board.seq }" class="btn btn-primary">삭제하기</a>
 				</td>
 			</tr>
 		</table>

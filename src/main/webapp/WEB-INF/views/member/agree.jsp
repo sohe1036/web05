@@ -8,27 +8,31 @@
 <head>
 <meta charset="UTF-8">
 <title>약관동의</title>
+<c:import url="../inc/head.jsp" />
+<style>
+	form {width: 900px; margin: 0 auto;}
+</style>
 </head>
 <body>
-<div class="wrap">
+<div id="wrap">
 	<c:import url="../inc/header.jsp" />
-	<div id="contents" class="contents">
+	<div id="content" class="content">
 		<form action="${path1 }/member/join.do" class="agree_form" method="post" onsubmit="return send(this)">
             <h3>이용약관</h3>
-            <textarea cols="140" rows="13" class="textcheck" readonly>
+            <textarea cols="120" rows="10" class="textcheck" readonly>
 				약관1
 			</textarea>    
             <input type="checkbox" name="ck1" id="ck1">
             <label for="ck1">위의 이용약관에 동의합니다.</label>
-            
+            <br><br>
             <h3>개인정보처리방침</h3>
-            <textarea cols="140" rows="13" class="textcheck" readonly>
+            <textarea cols="120" rows="10" class="textcheck" readonly>
             	약관2
             </textarea>    
             <input type="checkbox" name="ck2" id="ck2">
             <label for="ck2">위의 개인 정보 수집  처리에 동의합니다.</label>
             <div class="btn_warp">
-            <input type="submit" value="회원가입" class="agree_btn">
+            <input type="submit" value="회원가입" class="btn btn-primary">
             </div>	
          </form>
          <script>
@@ -42,6 +46,7 @@
 	       	 }
          </script>   
 	</div>
+<c:import url="../inc/footer.jsp" />	
 </div>	
 </body>
 </html>

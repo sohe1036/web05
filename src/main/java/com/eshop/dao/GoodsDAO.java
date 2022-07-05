@@ -9,6 +9,8 @@ public interface GoodsDAO {
 	//상품목록 =>리턴 메서드 (매개변수) throws Exception
 	public List<GoodsDTO> goodList() throws Exception;
 	
+	public List<GoodsDTO> goodsTypeList(String gtype) throws Exception;
+	
 	//상품 상세보기
 	public GoodsDTO goodsDetail(int gno) throws Exception;
 	

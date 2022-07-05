@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link href="/css/page.css" rel="stylesheet" no-export="">
     <style>
-    	#content { clear:both; width :1200px; margin: 0 auto; height: 1200px;}
+    	#content { clear:both; width :1200px; margin: 0 auto; height: 1200px; margin-top: 80px;}
     </style>
 </head>
 <body>
@@ -314,12 +314,12 @@
             </style>
             <div class="wrapper">
                 <div class="brand">
-                    <a>GENTLE MONSTER</a>
+                    <a href="${path }/">GENTLE MONSTER</a>
                 </div>
                 <nav>
                     <ul>
                         <li>
-                            <a href="${path1 }/goods/List.do?gtype=">선글라스</a>
+                            <a href="${path1 }/goods/typeList.do?gtype=선글라스">선글라스</a>
                             <ul>
                                 <li><a>전체보기</a></li>
                                 <li><a>클래식 디자인</a></li>
@@ -329,7 +329,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a>안경</a>
+                            <a href="${path1 }/goods/typeList.do?gtype=안경">안경</a>
                             <ul>
                                 <li><a>전체보기</a></li>
                                 <li><a>틴트 렌즈</a></li>

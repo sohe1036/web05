@@ -11,11 +11,11 @@
 <c:import url="../inc/head.jsp" />
 </head>
 <body>
-<div id="content">
+<div class="wrap">
 	<c:import url="../inc/header.jsp" />
-	<div id="content">
+	<div class="content">
 		<form method="post" action="${path1 }/board/update.do">
-			<table>
+			<table class="table">
 				<tr>
 					<th>글번호</th>
 					<td>${board.seq }</td>

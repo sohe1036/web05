@@ -25,7 +25,7 @@ $(document).ready(function () {
 		var formData = new FormData(); 
 		formData.append("file", file);
 		$.ajax({
-			url: '${path }/databank/uploadAjax.do',
+			url: '${path }/goods/uploadAjax.do',
 			data: formData,
 			dataType: 'text',
 			processData: false,
@@ -38,13 +38,13 @@ $(document).ready(function () {
 				//이미지 인경우 썸네일을 보여준다.
 				if(checkImageType(data)){
 					str = "<div>"
-						+ "<a href='${path }/databank/displayFile.do?fileName=" + getImageLink(data) + "'>"
-						+ "<img src='${path }/databank/displayFile.do?fileName=" + data + "'/>"
+						+ "<a href='${path }/goods/displayFile.do?fileName=" + getImageLink(data) + "'>"
+						+ "<img src='${path }/goods/displayFile.do?fileName=" + data + "'/>"
 						+ "</a>"
 						+ "<span data-src='" + data + "'>X</span></div>";
 				}else {
 					str = "<div>"
-						+ "<a href='${path }/databank/displayFile.do?fileName=" + data + "'>"
+						+ "<a href='${path }/goods/displayFile.do?fileName=" + data + "'>"
 						+ getOriginalName(data) + "</a>"
 						+ "<span data-src='" + data + "'>X</span></div>";
 				}
@@ -85,7 +85,7 @@ $(document).ready(function () {
 		var that = $(this);		
 		alert($(this).attr("data-src"));
 		$.ajax({
-			url: "${path }/databank/deleteFile.do",
+			url: "${path }/goods/deleteFile.do",
 			type: "post",
 			data: {fileName:$(this).attr("data-src")},
 			dataType: "text",
@@ -106,7 +106,7 @@ span {	margin-left: 3px;	font-weight: bold; color: gray; }
 <body>
 <article id="con" class="content">
       <h2 class="page_tit">Ajax File Upload</h2>
-      <form id="form" action="${path }/databank/uploadAjax.do" method="post" enctype="multipart/form-data">
+      <form id="form" action="${path }/goods/uploadAjax.do" method="post" enctype="multipart/form-data">
         <div class="box-body">
           <div class="form-group">
 				<div class="fileDrop"></div>	
@@ -140,8 +140,8 @@ span {	margin-left: 3px;	font-weight: bold; color: gray; }
 			} else if(ext2!='jpg' && ext2!='png' && ext2!='gif' && ext2!='pdf' && ext2!='hwp' && ext2!='txt' && ext2!='doc' && ext2!='xls' && ext2!='ppt'){
 				ext2 = 'no';	
 			}
-			opener.document.databankUpload.dfilename.value=id;
-			opener.document.databankUpload.dposter.value=ext;
+			opener.document.goodsUpload.dfilename.value=id;
+			opener.document.goodsUpload.dposter.value=ext;
 			opener.document.getElementById("proData").src = id;
 			opener.document.getElementById("proData2").src = "${path }/data/"+ext+".png";
 			//opener.document.frm.imgck.value="yes";

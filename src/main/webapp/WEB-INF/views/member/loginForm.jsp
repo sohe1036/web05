@@ -9,19 +9,26 @@
 <meta charset="UTF-8">
 <title>로그인폼</title>
 <c:import url="../inc/head.jsp" />
+<style>
+	h2 {padding: 30px;}
+	form {width: 600px; margin: 0 auto;}
+</style>
 </head>
 <body>
 <div id="content">
 	<c:import url="../inc/header.jsp" />
 	<div id="content">
 		 <form action="${path1 }/member/login.do" method="post">
-             <div class="login_form">
-                 <input type="text" name="uid" id="uid"  required placeholder="아이디">
-                 <input type="password" name="upw" id="upw" required placeholder="비밀번호">							
-             </div>
-             <div class="button_box">
-                 <button type="submit">로그인</button>
-             </div>
+		 	<h2>로그인</h2>
+		 	<div class="mb-3">
+			    <label for="uid" class="form-label">아이디</label>
+			    <input type="text" name="uid" id="uid"  required placeholder="아이디" class="form-control">
+			</div>
+			<div class="mb-3">
+			    <label for="upw" class="form-label">비밀번호</label>
+			    <input type="password" name="upw" id="upw" required placeholder="비밀번호" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-primary">로그인</button>
  		</form>
 	</div>
 	<c:import url="../inc/footer.jsp" />

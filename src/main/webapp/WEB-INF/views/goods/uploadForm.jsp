@@ -18,7 +18,7 @@
 <article id="con" class="content">
   <div class="box box-primary">
       <h2 class="page_tit">파일 업로드</h2>
-      <form id="form" action="${path }/databank/uploadForm.do" method="post" enctype="multipart/form-data" >
+      <form id="form" action="${path }/goods/uploadForm.do" method="post" enctype="multipart/form-data" >
        <fieldset class="form-group">
        	   <p>업로드할 이미지를 선택 후 업로드 버튼을 눌러 주세요</p>
 	       <input type="file" name="file" id="file"><br><br>
@@ -29,8 +29,8 @@
 	       <div id="img_data"></div>
        </fieldset>
        <div class="btn-wrap">
-				<a href="${path }/databank/deleteFile.do" class="btn btn-danger" id="del_Btn">제거</a>
-                <a href="${path }/databank/displayFile.do" class="btn btn-primary" id="view_Btn">보기</a>
+				<a href="${path }/goods/deleteFile.do" class="btn btn-danger" id="del_Btn">제거</a>
+                <a href="${path }/goods/displayFile.do" class="btn btn-primary" id="view_Btn">보기</a>
        </div>
       </form>
       <script>
@@ -64,9 +64,9 @@
 			} else if(ext2!='jpg' && ext2!='png' && ext2!='gif' && ext2!='pdf' && ext2!='hwp' && ext2!='txt' && ext2!='doc' && ext2!='xls' && ext2!='ppt'){
 				ext2 = 'no';	
 			}
-			opener.document.databankUpload.fileCheck.value="yes";
-			opener.document.databankUpload.dfilename.value=id;
-			opener.document.databankUpload.dposter.value=ext;
+			opener.document.goodsUpload.fileCheck.value="yes";
+			opener.document.goodsUpload.gimg1.value=id;
+			opener.document.goodsUpload.dposter.value=ext;
 			//opener.document.getElementById("proData").src = id;
 /* 			opener.document.getElementById("proData2").src = "${path }/data/"+ext+".png"; */
 			window.close();

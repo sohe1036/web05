@@ -36,7 +36,7 @@
 				</c:forEach>
 				<tr>
 					<td>
-						<a href="${path1 }/board/write_from.do">글 추가</a>
+						<a href="${path1 }/board/write_from.do" class="btn btn-primary">글 추가</a>
 					</td>
 				</tr>
 			</tbody>

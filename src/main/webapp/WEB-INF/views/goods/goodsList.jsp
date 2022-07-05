@@ -14,7 +14,7 @@
 <div class="wrap">
 	<%@include file="../inc/header.jsp" %>
 	<div id="content">
-		<table>
+		<table class="table">
 			<thead>
 				<tr>
 					<th>상품번호</th>
@@ -30,15 +30,17 @@
 					<td>${glist.gno }</td>
 					<td><a href="${path1 }/goods/detail.do?gno=${glist.gno }">${glist.gname }</a></td>
 					<td>${glist.gcolor }</td>
-					<td><img src="../img/${glist.gimg1 }" /></td>
-					<td>${glist.price }</td>
+					<td><img src="${path1 }/resources/upload/${glist.gimg1 } " style="width: 100px; height: 150px;"/></td>
+					<td><fmt:formatNumber value="${glist.price }" type="number" /></td>
 				</tr>	
 				</c:forEach>
+				<c:if test="${sid=='admin' }">
 				<tr>
 					<td>
-						<a href="${path1 }/goods/goodsAddForm">상품 추가</a>
+						<a href="${path1 }/goods/goodsAddForm.do">상품 추가</a>
 					</td>
 				</tr>
+				</c:if>
 			</tbody>
 		</table>
 	</div>
