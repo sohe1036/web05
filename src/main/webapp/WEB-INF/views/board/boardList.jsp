@@ -9,12 +9,20 @@
 <meta charset="UTF-8">
 <title>게시판 목록</title>
 <%@include file="../inc/head.jsp" %>
+<link rel="stylesheet" href="../inc/datatables.min.css" />
+<script src="../inc/datatables.min.js"></script>
 </head>
 <body>
 <div class="wrap">
 	<%@include file="../inc/header.jsp" %>
 	<div id="content">
-		<table class="table">
+		<h2 class="tit">게시판 목록</h2>
+		<br>
+		<div>
+			<a href="${path1 }/board/write_from.do" class="btn btn-primary">글 추가</a>
+		</div>
+		<br>
+		<table class="table" id="boardTable">
 			<thead>
 				<tr>
 					<th scope="col">번호</th>
@@ -34,14 +42,14 @@
 					<td scope="row">${list.ck }</td>
 				</tr>	
 				</c:forEach>
-				<tr>
-					<td>
-						<a href="${path1 }/board/write_from.do" class="btn btn-primary">글 추가</a>
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
+	<script>
+			$(function(){
+				$("#boardTable").DataTable();
+			});
+			</script>
 	<%@include file="../inc/footer.jsp" %>
 </div>	
 </body>
