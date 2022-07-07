@@ -24,6 +24,10 @@ public class GoodsDAOImpl implements GoodsDAO {
 		return sqlSession.selectList("goods.goodsTypeList", gtype);
 	}
 
+	@Override
+	public List<GoodsDTO> goodsShapeList(GoodsDTO gdto) throws Exception {
+		return sqlSession.selectList("goods.goodsShapeList", gdto);
+	}
 
 	@Override
 	public GoodsDTO goodsDetail(int gno) throws Exception {

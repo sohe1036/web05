@@ -17,11 +17,12 @@
 	<resources mapping="/user/**" location="/WEB-INF/views/user/" />
 	<resources mapping="/inc/**" location="/WEB-INF/views/inc/" />
 	<resources mapping="/admin/**" location="/WEB-INF/views//admin/" />
-	<resources mapping="/img/**" location="/WEB-INF/views//img" />
-	<resources mapping="/board/**" location="/WEB-INF/views//board/" />
-	<resources mapping="/notice/**" location="/WEB-INF/views//notice/" />
-	<resources mapping="/member/**" location="/WEB-INF/views//member/" />
-	<resources mapping="/goods/**" location="/WEB-INF/views//goods/" />
+	<resources mapping="/img/**" location="/WEB-INF/views/img" />
+	<resources mapping="/board/**" location="/WEB-INF/views/board/" />
+	<resources mapping="/cart/**" location="/WEB-INF/views/cart/" />
+	<resources mapping="/notice/**" location="/WEB-INF/views/notice/" />
+	<resources mapping="/member/**" location="/WEB-INF/views/member/" />
+	<resources mapping="/goods/**" location="/WEB-INF/views/goods/" />
 	<resources mapping="/upload/**" location="/resources/upload/" />
 	<resources mapping="/uplaod/**" location="/WEB-INF/views/uplaod/" />
 	<resources mapping="/ckeditor/**" location="/WEB-INF/views/ckeditor/" />
@@ -35,6 +36,8 @@
 	<!-- 멀티파트(파일 업로드) 리졸버 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="10485760"/>
+		<beans:property name="defaultEncoding" value="UTF-8"/>
+		
 	</beans:bean>
 	
 	<!-- 멀티파트(파일 업로드) 저장위치 -->

@@ -9,14 +9,14 @@ import com.eshop.dao.CartDAO;
 import com.eshop.dto.CartDTO;
 
 @Service
-public class CartServiceImpl implements CartDAO {
+public class CartServiceImpl implements CartService {
 	
 	@Autowired
 	CartDAO cartDao;
 
 	@Override
-	public List<CartDTO> cartList() throws Exception {
-		return cartDao.cartList();
+	public List<CartDTO> cartList(String uid) throws Exception {
+		return cartDao.cartList(uid);
 	}
 
 	@Override

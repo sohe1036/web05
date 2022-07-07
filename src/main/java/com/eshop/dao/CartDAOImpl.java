@@ -15,8 +15,8 @@ public class CartDAOImpl implements CartDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public List<CartDTO> cartList() throws Exception {
-		return sqlSession.selectList("cart.cartList");
+	public List<CartDTO> cartList(String uid) throws Exception {
+		return sqlSession.selectList("cart.cartList",uid);
 	}
 
 	@Override

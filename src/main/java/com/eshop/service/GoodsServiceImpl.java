@@ -25,6 +25,11 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
+	public List<GoodsDTO> goodsShapeList(GoodsDTO gdto) throws Exception {
+		return goodsDao.goodsShapeList(gdto);
+	}
+
+	@Override
 	public GoodsDTO goodsDetail(int gno) throws Exception {
 		return goodsDao.goodsDetail(gno);
 	}

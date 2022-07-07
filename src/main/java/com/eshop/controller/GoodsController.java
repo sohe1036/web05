@@ -63,7 +63,17 @@ public class GoodsController {
 		List<GoodsDTO> goodsList = goodsService.goodsTypeList(gtype);
 		model.addAttribute("goodsList", goodsList);
 	return "goods/goodsList";
-}
+	}
+	
+	@RequestMapping("shapeList.do")
+	public String goodsShapeList(@RequestParam String gtype,@RequestParam String gshape,GoodsDTO gdto, Model model) throws Exception {
+		GoodsDTO goods = new GoodsDTO();
+		goods.setGtype(gtype);
+		goods.setGshape(gshape);
+		List<GoodsDTO> goodsList = goodsService.goodsShapeList(gdto);
+		model.addAttribute("goodsList", goodsList);
+		return "goods/goodsList";
+	}	
 	
 	@RequestMapping(value="detail.do" ,method= RequestMethod.GET )
 	public String goodsDetail(@RequestParam int gno, Model model ) throws Exception {

@@ -11,8 +11,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 타입별 상품목록 -->
 	<select id="goodsTypeList" resultType="com.eshop.dto.GoodsDTO">
-		select * from goods where gtype=#{gtype } 
+		select * from goods where gtype=#{gtype }
 	</select>
+	
+	<!-- 타입,쉐입별 상품목록 -->
+	<select id="goodsShapeList" resultType="com.eshop.dto.GoodsDTO">
+		select * from goods where gtype=#{gtype } and gshape=#{gshape}
+	</select>	
 	
 	<!-- 상품 상세보기 -->
 	<select id="goodsDetail" resultType="com.eshop.dto.GoodsDTO">

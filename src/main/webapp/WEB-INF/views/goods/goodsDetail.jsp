@@ -41,7 +41,7 @@
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>${goods.price }</td>
+				<td><fmt:formatNumber value="${goods.price }" type="number" /></td>
 			</tr>
 			<c:if test="${sid=='admin' }">
 			<tr>
@@ -56,6 +56,7 @@
 				<a href="${path1 }/goods/edit.do?gno=${goods.gno }" class="btn btn-primary">수정하기</a>
 				<a href="${path1 }/goods/delete.do" class="btn btn-primary">삭제하기</a>
 				</c:if>
+				<a href="${path1 }/cart/insert.do?uid=${sid }&gno=${goods.gno}&gname=${goods.gname}&gcolor=${goods.gcolor}&gimg1=${goods.gimg1}" class="btn btn-primary">장바구니</a>
 				</td>
 			</tr>
 		</table>

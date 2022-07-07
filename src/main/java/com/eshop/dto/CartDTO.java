@@ -6,8 +6,9 @@ public class CartDTO {
 	public int gno;
 	public String gcolor;
 	public int pieces;
-	public String gsize;
+	public String gimg1;
 	public String bdate;
+	public String gname;
 	
 	public int getBno() {
 		return bno;
@@ -39,17 +40,23 @@ public class CartDTO {
 	public void setPieces(int pieces) {
 		this.pieces = pieces;
 	}
-	public String getGsize() {
-		return gsize;
+	public String getGimg1() {
+		return gimg1;
 	}
-	public void setGsize(String gsize) {
-		this.gsize = gsize;
+	public void setGimg1(String gimg1) {
+		this.gimg1 = gimg1;
 	}
 	public String getBdate() {
 		return bdate;
 	}
 	public void setBdate(String bdate) {
 		this.bdate = bdate;
+	}
+	public String getGname() {
+		return gname;
+	}
+	public void setGname(String gname) {
+		this.gname = gname;
 	}
 	
 }

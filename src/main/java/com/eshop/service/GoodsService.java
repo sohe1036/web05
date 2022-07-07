@@ -11,6 +11,8 @@ public interface GoodsService {
 		
 		public List<GoodsDTO> goodsTypeList(String gtype) throws Exception;
 		
+		public List<GoodsDTO> goodsShapeList(GoodsDTO gdto) throws Exception;
+		
 		//상품 상세보기
 		public GoodsDTO goodsDetail(int gno) throws Exception;
 		

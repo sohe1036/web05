@@ -7,7 +7,7 @@ import com.eshop.dto.CartDTO;
 public interface CartService {
 
 	//카트목록
-		public List<CartDTO> cartList() throws Exception;
+		public List<CartDTO> cartList(String uid) throws Exception;
 		
 		//카트 상세
 		public CartDTO cartDetail(CartDTO cdto) throws Exception;

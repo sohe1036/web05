@@ -55,7 +55,7 @@ public class NoticeController {
 			int cnt = noticeService.noticeCount();
 			//PageMaker page = new PageMaker(cnt, curPage);
 			//PageMaker page = new PageMaker(cnt, curPage, 10);
-			PageMaker page = new PageMaker(cnt, curPage, 10, 10);
+			PageMaker page = new PageMaker(cnt, curPage, 5, 10);
 			List<NoticeDTO> noticePageList = noticeService.noticePageList(page);
 			model.addAttribute("noticePageList", noticePageList);
 			model.addAttribute("page", page);
