@@ -31,8 +31,12 @@
 				<c:forEach items="${cartList }" var="list" varStatus="status">
 				<tr>
 					<td>${status.count }</td>
-					<td scope="row"><a href="${path1 }/cart/read.do?seq=${list.bno }&&">${list.gname }</a></td>
-					<td scope="row"><img src="${path1 }/resources/upload/${list.gimg1 }" style="width: 100px; height: 150px;"/></td>
+					<td scope="row"><a href="${path1 }/cart/cartDetail.do?bno=${list.bno }&uid=${list.uid}">${list.gname }</a></td>
+					<td scope="row">
+						<a href="${path1 }/goods/detail.do?gno=${list.gno}">
+							<img src="${path1 }/resources/upload/${list.gimg1 }" style="width: 100px; height: 150px;"/>
+						</a>	
+					</td>
 					<td scope="row">${list.pieces }</td>
 				</tr>	
 				</c:forEach>

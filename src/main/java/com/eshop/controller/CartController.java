@@ -49,7 +49,7 @@ public class CartController {
 	@RequestMapping(value="update.do" ,method = RequestMethod.POST)
 	public String cartUpdate (CartDTO cdto, Model model) throws Exception {
 		cartService.cartUpdate(cdto);
-		return "redirect:list.do";
+		return "redirect:list.do?uid="+cdto.getUid();
 	}
 	
 	//장바구니 삭제

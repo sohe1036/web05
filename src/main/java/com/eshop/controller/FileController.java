@@ -20,6 +20,7 @@ import com.eshop.dto.DatabankDTO;
 import com.eshop.service.FileService;
 
 @Controller
+@RequestMapping("/file/")
 public class FileController {
 
 	@Autowired
@@ -29,21 +30,27 @@ public class FileController {
 	public String uplasdForm() {
 		return "uploadFile";
 	}
+	
 	//단일 파일 업로드
-	@RequestMapping(value="fileUpload.do",method= RequestMethod.POST)	//파일 업로드 처리
+	@RequestMapping(value="/fileUpload.do",method= RequestMethod.POST)	//파일 업로드 처리
 	public String fileUpload(MultipartFile myfile) throws UnsupportedEncodingException, Exception {
 		String filename = myfile.getOriginalFilename();
 		System.out.println("업로드 파일 이름 "+filename);
 		
 		filename = new String(filename.getBytes("8859_1"),"utf-8");		//인코팅처리
-		Resource resource = rsLoader.getResource("/WEB-INF/view/upload");
-		myfile.transferTo(new File(resource.getFile().getCanonicalPath()+"/"+filename));  //상대경로
-		System.out.println("파일 업로드 위치 "+resource.getFile().getCanonicalPath());
+		
+		//Resource resource = rsLoader.getResource("/WEB-INF/view/upload");		
+		myfile.transferTo(new File("D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload2"+"/"+filename));  //절대경로
+		//System.out.println("파일 업로드 위치 "+resource.getFile().getCanonicalPath());
 
 		System.out.println("파일 저장 성공");
 		
 		return "redirect:/";
 	}
+	
+
+	
+	
 	//다수 파일 업로드
 	@RequestMapping(value="/uploadMulti.do", method = RequestMethod.GET)	
 	public String uploadMulti() {
@@ -53,7 +60,7 @@ public class FileController {
 	
 	@RequestMapping(value="/multiFileUpload.do", method = RequestMethod.POST)
 	public String multiFileUpload(MultipartFile[] files) {
-		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\WEB-INF\\views\\upload";
+		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload2";
 		
 		for(MultipartFile file :files) {
 			String fileName = file.getOriginalFilename();
@@ -70,6 +77,9 @@ public class FileController {
 		}
 		return "redirect:/";
 	}
+	
+	
+	
 	
 	//자료등록 폼 로딩
 	@RequestMapping(value="/databankForm.do", method = RequestMethod.GET)
@@ -97,13 +107,22 @@ public class FileController {
 	}
 	
 	@RequestMapping(value="/databankList.do",method = RequestMethod.GET)
-	public String databankDTO databank, Model model) throws Exception {
+	public String databankList (DatabankDTO databank, Model model) throws Exception {
 		List<DatabankDTO> databankList = fileService.databankList();
 		model.addAttribute("databankList",databankList);
 		return "databankList";
 	}
 	
+	
+	
 	//Ajax 방식 파일 업로드
+	
+	@RequestMapping(value="/upload.do", method = RequestMethod.GET)
+	public String uploadAjax() {
+		return "uploadAjax";
+	}
+
+	
 	@ResponseBody
 	@RequestMapping(value="/uploadAjax.do", method = RequestMethod.POST)
 	public String uploadAjax(MultipartFile[] uploadFile, Model model) throws UnsupportedEncodingException, Exception {

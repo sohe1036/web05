@@ -16,12 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 장바구니 담기 -->
 	<insert id="cartInsert">
-		insert into cart (uid, gno, gname, gcolor, pieces, gimg1 ) values (#{uid}, #{gno}, #{gname}, #{gcolor}, 1 , #{gimg1})
+		insert into cart (uid, gno, gname, gcolor, pieces, gimg1 ) values (#{uid}, #{gno}, #{gname}, #{gcolor}, #{pieces} , #{gimg1})
 	</insert>
 	
 	<!-- 장바구니 수정 -->
 	<update id="cartUpdate">
-		update cart set gno=#{gno}, gcolor=#{gcolor}, pieces=#{pieces}, gimg1=#{gimg1}, bdate=(current_date) where bno=#{bno}
+		update cart set gno=#{gno}, gcolor=#{gcolor}, pieces=#{pieces}, bdate=(current_date) where bno=#{bno}
 	</update>
 	
 	<!-- 장바구니 삭제 -->

@@ -45,7 +45,6 @@
         <div nid="top1" class="top1">
             <style>
                 .top1 {
-                    margin-bottom: 30px;
                     border-bottom: 1px solid #ddd;
                 }
 
@@ -110,7 +109,7 @@
                     position: relative;
                     padding: 25px 0;
                     border-bottom: 1px solid #ddd;
-                    margin-bottom: 30px;
+                  
                 }
 
                 .header1 .wrapper:after {

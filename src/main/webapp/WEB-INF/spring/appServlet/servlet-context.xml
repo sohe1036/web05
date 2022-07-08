@@ -16,16 +16,18 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/user/**" location="/WEB-INF/views/user/" />
 	<resources mapping="/inc/**" location="/WEB-INF/views/inc/" />
-	<resources mapping="/admin/**" location="/WEB-INF/views//admin/" />
-	<resources mapping="/img/**" location="/WEB-INF/views/img" />
+	<resources mapping="/admin/**" location="/WEB-INF/views/admin/" />
+	<resources mapping="/img/**" location="/WEB-INF/views/img/" />
+	<resources mapping="/upload/**" location="/WEB-INF/views/upload/" />
 	<resources mapping="/board/**" location="/WEB-INF/views/board/" />
 	<resources mapping="/cart/**" location="/WEB-INF/views/cart/" />
 	<resources mapping="/notice/**" location="/WEB-INF/views/notice/" />
 	<resources mapping="/member/**" location="/WEB-INF/views/member/" />
 	<resources mapping="/goods/**" location="/WEB-INF/views/goods/" />
 	<resources mapping="/upload/**" location="/resources/upload/" />
-	<resources mapping="/uplaod/**" location="/WEB-INF/views/uplaod/" />
+	<resources mapping="/upload2/**" location="/resources/upload2/" />
 	<resources mapping="/ckeditor/**" location="/WEB-INF/views/ckeditor/" />
+	<resources mapping="/ajax/**" location="/WEB-INF/views/ajax/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

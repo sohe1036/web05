@@ -12,7 +12,11 @@
 <body>
 <div class="wrap">
 	<%@include file="inc/header.jsp" %>
+	<div class="img" style="width:100%">
+			<img src="./img/sl.png"/>
+	</div>
 	<div id="content">
+		
 		<h1>
 			Hello world!  
 		</h1>
