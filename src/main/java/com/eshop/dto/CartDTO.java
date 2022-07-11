@@ -9,7 +9,18 @@ public class CartDTO {
 	public String gimg1;
 	public String bdate;
 	public String gname;
+	public int amount;
 	
+	public String price;
+	
+	public String getPrice() {
+		return price;
+	}
+	
+	
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	public int getBno() {
 		return bno;
 	}
@@ -57,6 +68,12 @@ public class CartDTO {
 	}
 	public void setGname(String gname) {
 		this.gname = gname;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 	
 }

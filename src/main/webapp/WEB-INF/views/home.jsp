@@ -13,7 +13,7 @@
 <div class="wrap">
 	<%@include file="inc/header.jsp" %>
 	<div class="img" style="width:100%">
-			<img src="./img/sl.png"/>
+			<img src="./img/sl.png" style="width:100%"/>
 	</div>
 	<div id="content">
 		

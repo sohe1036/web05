@@ -38,11 +38,45 @@ public class CartController {
 		return "cart/cartDetail";
 	}
 	
+	//추가폼
+	@RequestMapping(value="addCartForm.do", method= RequestMethod.GET)
+	public String addCartForm(CartDTO cdto, Model model)throws Exception {
+		String gname = cdto.getGname();
+		String gimg1 = cdto.getGimg1();
+		int pieces = cdto.getPieces();
+		int gno = cdto.getGno();
+		String gcolor = cdto.getGcolor();
+		String price = cdto.getPrice();
+		model.addAttribute("gimg1", gimg1);
+		model.addAttribute("gname",gname);
+		model.addAttribute("pieces", pieces);
+		model.addAttribute("gno", gno);
+		model.addAttribute("gcolor", gcolor);
+		model.addAttribute("price", price);
+
+		return "cart/addCartForm";
+	}
+	
 	//장바구니 추가
-	@RequestMapping(value="insert.do", method= RequestMethod.GET)
+	@RequestMapping(value="insert.do", method= RequestMethod.POST)
 	public String cartInsert(@RequestParam("uid") String uid,CartDTO cdto, Model model) throws Exception {
 		cartService.cartInsert(cdto);
 		return "redirect:list.do?uid="+cdto.getUid();
+	}
+	
+	//장바구니 체크
+	@RequestMapping(value="check.do" , method= RequestMethod.GET)
+	public String cartCheck(@RequestParam int gno,@RequestParam String uid,CartDTO cdto,Model model) throws Exception {
+		CartDTO cart = new CartDTO();
+		cart.setGno(gno);
+		cart.setUid(uid);
+		int cnt = cartService.cartCheck(cart);
+		if(cnt==0) {
+			model.addAttribute("ck", "yes");
+		}else {
+			model.addAttribute("ck", "no");
+		}
+		return "cart/addCartForm";
 	}
 	
 	//장바구니 수정
@@ -54,8 +88,8 @@ public class CartController {
 	
 	//장바구니 삭제
 	@RequestMapping(value="delete.do" ,method= RequestMethod.GET )
-	public String cartDelete(@RequestParam("bno") int bno, Model model) throws Exception {
+	public String cartDelete(@RequestParam("bno") int bno,@RequestParam("uid") String uid, Model model) throws Exception {
 		cartService.cartDelete(bno);
-		return "redirect:list.do";
+		return "redirect:list.do?uid="+uid;
 	}
 }

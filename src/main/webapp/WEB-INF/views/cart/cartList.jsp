@@ -25,6 +25,7 @@
 					<th scope="col">상품명</th>
 					<th scope="col">사진</th>
 					<th scope="col">수량</th>
+					<th scope="col">가격</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,7 +38,8 @@
 							<img src="${path1 }/resources/upload/${list.gimg1 }" style="width: 100px; height: 150px;"/>
 						</a>	
 					</td>
-					<td scope="row">${list.pieces }</td>
+					<td scope="row">${list.amount }</td>
+					<td scope="row"><fmt:formatNumber value="${list.price }" type="number" /></td>
 				</tr>	
 				</c:forEach>
 			</tbody>

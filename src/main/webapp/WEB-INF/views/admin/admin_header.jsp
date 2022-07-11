@@ -163,6 +163,7 @@
             </style>
             <div class="wrapper">
                 <div class="right">
+                <c:if test="${sid=='admin' }">
                 <nav>
                 	<ul>
                 		<li>
@@ -173,26 +174,19 @@
                 			</ul>
                 		</li>
                 		<li>
-                			<a>공지사항</a>
+                			<a>공지</a>
                 			<ul>
-                				<li><a href="${path }/" class="item">공지사항수정</a></li>
-                				<li><a href="${path }/" class="item">공지사항추가</a></li>
-                			</ul>
-                		</li>
-                		<li>
-                			<a>회원관리</a>
-                			<ul>
-                				<li><a href="${path }/" class="item">회원보기</a></li>
-                				<li><a href="${path }/" class="item">회원수정</a></li>
+                				<li><a href="${path }/" class="item">공지수정</a></li>
+                				<li><a href="${path }/" class="item">공지추가</a></li>
                 			</ul>
                 		</li>	
                 	</ul>
                 </nav>	
-                
+                </c:if>
                 	<c:if test="${sid=='admin' }">
                 		<a href="${path }/goods/goodsAddForm.do" class="item">상품추가</a>
 						<a href="${path }/admin/memberList.do" class="item">회원목록</a>
-						<a href="${path }/goods/list.do" class="item">상품목록</a>
+						<a href="${path }/sales/list.do" class="item">주문목록</a>
 					</c:if>
                 	<c:if test="${empty sid }">
 						<a href="${path }/member/loginForm.do" class="item point">로그인</a>

@@ -9,9 +9,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from sales order by ono desc
 	</select>
 	
-	<!-- 아이디별 결제 상세 -->
-	<select id="salesIdDetail" resultType="com.eshop.dto.SalesDTO">
-		select * from sales where uid = #{uid }	
+	<!-- 아이디별 결제 목록 -->
+	<select id="salesIdList" resultType="com.eshop.dto.SalesDTO">
+		select * from sales where uid = #{uid }	order by ono desc
 	</select>
 	
 	<!-- 주문번호별 결제상세 -->
@@ -21,18 +21,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 결제 및 주문처리 -->
 	<insert id="salesInsert">
-		insert into sales(paytype, payno, meney, sdate, gno, pieces, uid, rname, tel, addr1, addr2, postcode, memo)
-		values (#{paytype}, #{payno}, #{meney}, #{sdate}, #{gno}, #{pieces}, #{uid}, #{rname}, #{tel}, #{addr1}, #{addr2}, #{postcode}, #{memo}
+		insert into sales(paytype, payno, money, gno, pieces, uid, rname, tel, addr1, addr2, postcode, memo,gname)
+		values (#{paytype}, #{payno}, #{money}, #{gno}, #{pieces}, #{uid}, #{rname}, #{tel}, #{addr1}, #{addr2}, #{postcode}, #{memo},#{gname})
 	</insert>
 	
 	<!-- 배송처리  -->
 	<update id="addShipping">
-		update sales set transno=#{transno}, transco=#{transco}, rstate=#[rstate}, rdate=#{rdate} where ono=#{ono}
+		update sales set transno=#{transno}, transco=#{transco}, rstate=#{rstate}, rdate=#{rdate} where ono=#{ono}
 	</update>
 	
 	<!-- 주문 수정 -->
 	<update id="salesUpdate">
-		update sales set update sales set rname=#{rname}, tel=#{tel}, addr1=#{addr1}, addr2=#{addr2}, postcode=#{postcode} where ono=#{ono}
+		update sales set rname=#{rname}, tel=#{tel}, addr1=#{addr1}, addr2=#{addr2}, postcode=#{postcode} where ono=#{ono}
 	</update>
 
 	<!-- 결제 취소 -->

@@ -9,8 +9,8 @@ public interface SalesDAO {
 	//결제목록
 	public List<SalesDTO> salesList() throws Exception;
 	
-	//결제 상세 -아이디
-	public SalesDTO salesIdDetail(String uid) throws Exception;
+	//결제 목록 -아이디
+	public List<SalesDTO> salesIdList(String uid) throws Exception;
 	
 	//결제상세 - 주문번호
 	public SalesDTO salesDetail(int ono) throws Exception;

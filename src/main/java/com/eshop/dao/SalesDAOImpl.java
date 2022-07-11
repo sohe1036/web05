@@ -21,8 +21,8 @@ public class SalesDAOImpl implements SalesDAO {
 	}
 
 	@Override
-	public SalesDTO salesIdDetail(String uid) throws Exception {
-		return sqlSession.selectOne("sales.salesIdDetail", uid);
+	public List<SalesDTO> salesIdList(String uid) throws Exception {
+		return sqlSession.selectList("sales.salesIdList", uid);
 	}
 
 	@Override

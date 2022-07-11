@@ -9,7 +9,7 @@ import com.eshop.dao.SalesDAO;
 import com.eshop.dto.SalesDTO;
 
 @Service
-public class SalesServiceImpl implements SalesDAO {
+public class SalesServiceImpl implements SalesService {
 	
 	@Autowired
 	SalesDAO salesDao;
@@ -20,15 +20,14 @@ public class SalesServiceImpl implements SalesDAO {
 	}
 
 	@Override
-	public SalesDTO salesIdDetail(String uid) throws Exception {
-		return salesDao.salesIdDetail(uid);
+	public List<SalesDTO> salesIdList(String uid) throws Exception {
+		return salesDao.salesIdList(uid);
 	}
 
 	@Override
 	public SalesDTO salesDetail(int ono) throws Exception {
 		return salesDao.salesDetail(ono);
 	}
-
 	@Override
 	public void salesInsert(SalesDTO sdto) throws Exception {
 		salesDao.salesInsert(sdto);

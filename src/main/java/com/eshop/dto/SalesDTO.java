@@ -1,5 +1,7 @@
 package com.eshop.dto;
 
+import java.util.Date;
+
 public class SalesDTO {
 	
 	public int ono;
@@ -20,7 +22,15 @@ public class SalesDTO {
 	public String rstate;
 	public String rdate;
 	public String memo;
+	public String gname;
 	
+	
+	public String getGname() {
+		return gname;
+	}
+	public void setGname(String gname) {
+		this.gname = gname;
+	}
 	public int getOno() {
 		return ono;
 	}
@@ -117,6 +127,7 @@ public class SalesDTO {
 	public void setRstate(String rstate) {
 		this.rstate = rstate;
 	}
+	
 	public String getRdate() {
 		return rdate;
 	}

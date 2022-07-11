@@ -38,6 +38,11 @@ public class CartServiceImpl implements CartService {
 	public void cartDelete(int bno) throws Exception {
 		cartDao.cartDelete(bno);
 	}
+
+	@Override
+	public int cartCheck(CartDTO cdto) throws Exception {
+		return cartDao.cartCheck(cdto);
+	}
 	
 	
 }
