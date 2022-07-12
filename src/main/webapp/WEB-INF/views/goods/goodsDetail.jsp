@@ -53,7 +53,12 @@
 				<c:if test="${sid=='admin' }">
 				<tr>
 					<th>수량</th>
+					<c:if test="${goods.pieces!=0 }">
 					<td>${goods.pieces }</td>
+					</c:if>
+					<c:if test="${goods.pieces==0 }">
+					<td><p>품절된 상품입니다.</p></td>
+					</c:if>
 				</tr>
 				</c:if>
 				<c:if test="${sid!='admin' }">
@@ -64,23 +69,30 @@
 				</c:if>
 				<tr>
 					<td colspan="2">
-					<a href="${path1 }/goods/list.do" class="btn btn-primary">목록</a>
+						<a href="${path1 }/goods/list.do" class="btn btn-primary">목록</a>
 					<%-- <a href="${path1 }/sales/salesForm.do?gname=${goods.gname}&gno=${goods.gno }&gimg1=${goods.gimg1}&pieces=${goods.pieces }" class="btn btn-primary">주문하기</a> --%>
 					<c:if test="${sid=='admin' }">
-					<a href="${path1 }/goods/edit.do?gno=${goods.gno }" class="btn btn-primary">수정하기</a>
-					<a href="${path1 }/goods/delete.do" class="btn btn-primary">삭제하기</a>
+						<a href="${path1 }/goods/edit.do?gno=${goods.gno }" class="btn btn-primary">수정하기</a>
+						<a href="${path1 }/goods/delete.do" class="btn btn-primary">삭제하기</a>
 					</c:if>
 					<%-- <a href="${path1 }/cart/insert.do?uid=${sid }&gno=${goods.gno}&gname=${goods.gname}&gcolor=${goods.gcolor}&gimg1=${goods.gimg1}&pieces=${goods.pieces }" class="btn btn-primary">장바구니</a> --%>
 					<c:if test="${!empty sid }">
-					<button onclick="addCart()" class="btn btn-primary">장바구니 추가 </button>
-					<input type="submit" value="주문하기" class="btn btn-primary">
+						<c:if test="${goods.pieces!=0 }">
+							<input type="submit" value="주문하기" class="btn btn-primary">
+						</c:if>
+						<c:if test="${goods.pieces==0 }">
+							<p style="color:red;">품절</p>
+						</c:if>
 					</c:if>
-					
+					</td>
 				</tr>
 			</table>
 		</form>	
+		<c:if test="${goods.pieces!=0 }">
+			<button onclick="addCart()" class="btn btn-primary">장바구니 추가 </button>
+		</c:if>
 		<c:if test="${empty sid }">
-			<button onclick="loginCart()" class="btn btn-primary">장바구니 추가 </button>
+			<button onclick="loginCart()" class="btn btn-primary">로그인 </button>
 		</c:if>
 		
 		<script>

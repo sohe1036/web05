@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eshop.dao.SalesDAO;
+import com.eshop.dto.GoodsDTO;
 import com.eshop.dto.SalesDTO;
 
 @Service
@@ -44,8 +45,8 @@ public class SalesServiceImpl implements SalesService {
 	}
 
 	@Override
-	public void salesDelete(int ono) throws Exception {
-		salesDao.salesDelete(ono);
+	public void salesDelete(GoodsDTO gdto,int ono) throws Exception {
+		salesDao.salesDelete(gdto,ono);
 	}
 
 	@Override

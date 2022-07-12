@@ -184,7 +184,6 @@
                 </nav>	
                 </c:if>
                 	<c:if test="${sid=='admin' }">
-                		<a href="${path }/goods/goodsAddForm.do" class="item">상품추가</a>
 						<a href="${path }/admin/memberList.do" class="item">회원목록</a>
 						<a href="${path }/sales/list.do" class="item">주문목록</a>
 					</c:if>

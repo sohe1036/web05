@@ -22,7 +22,7 @@
 					${goods.gname }
 					<input type="hidden" name="gname" id="gname" value="${goods.gname }"/>
 					<input type="hidden" name="gno" id="gno" value="${goods.gno }" />
-					<input type="hidden" name="money" id="money" value="${goods.price * goods.pieces }" />
+					<input type="hidden" name="money" id="money" value="${goods.price * goods.pieces}" />
 					<input type="hidden" name="pieces" id="pieces" value="${goods.pieces }" />
 					<input type="hidden" name="uid" id="uid" value="${sid }" />
 					</td>
@@ -69,7 +69,7 @@
 				<tr>
 					<th><label for="memo">메모</label></th>
 					<td>
-					<input type="text" name="memo" id="memo" required />
+					<input type="text" name="memo" id="memo" />
 					</td>
 				</tr>
 				<tr>

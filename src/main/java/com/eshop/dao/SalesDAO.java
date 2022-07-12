@@ -2,6 +2,7 @@ package com.eshop.dao;
 
 import java.util.List;
 
+import com.eshop.dto.GoodsDTO;
 import com.eshop.dto.SalesDTO;
 
 public interface SalesDAO {
@@ -25,8 +26,9 @@ public interface SalesDAO {
 	public void salesUpdate(SalesDTO sdto) throws Exception;
 	
 	//주문 취소
-	public void salesDelete(int ono) throws Exception;
+	public void salesDelete(GoodsDTO gdto,int ono) throws Exception;
 	
 	//판매건수
 	public int salesCount() throws Exception;
+	
 }

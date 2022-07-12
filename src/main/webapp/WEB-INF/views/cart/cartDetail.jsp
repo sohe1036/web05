@@ -50,10 +50,6 @@
 					</td>
 				</tr>
 				<tr>
-					<th>가격</th>
-					<td><fmt:formatNumber value="${cart.price }" type="number" /></td>
-				</tr>
-				<tr>
 					<td colspan="2">
 						<input type="submit" value="수량 변경" class="btn btn-primary"/>
 						<a href="${path1 }/cart/delete.do?bno=${cart.bno }&uid=${cart.uid}" class="btn btn-primary">삭제</a>

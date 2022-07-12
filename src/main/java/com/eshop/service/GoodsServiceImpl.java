@@ -58,11 +58,18 @@ public class GoodsServiceImpl implements GoodsService {
 	public void goodsUpdate(GoodsDTO gdto) throws Exception {
 		goodsDao.goodsUpdate(gdto);
 	}
+	
+	//사진없이 수정
+
+	@Override
+	public void goodsEidt(GoodsDTO gdto) throws Exception {
+		goodsDao.goodsEidt(gdto);
+	}
 
 	@Override
 	public void goodsDelete(int gno) throws Exception {
 		goodsDao.goodsDelete(gno);
 	}
-	
+
 	
 }

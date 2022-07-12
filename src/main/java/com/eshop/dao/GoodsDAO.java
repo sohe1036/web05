@@ -31,6 +31,12 @@ public interface GoodsDAO {
 	//상품 수정하기
 	public void goodsUpdate(GoodsDTO gdto) throws Exception;
 	
+	//사진없이 상품 수정하기
+	public void goodsEidt(GoodsDTO gdto) throws Exception;
+	
 	//상품 삭제하기
 	public void goodsDelete(int gno) throws Exception;
+	
+
+
 }

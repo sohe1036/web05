@@ -44,4 +44,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="salesCount" resultType="integer">
 		select count(*) from sales;
 	</select>
+	
+	<!-- 주문후 상품수량 변경 -->
+	<update id="updatePieces">
+		update goods set pieces= pieces - #{pieces} where gno = #{gno}
+	</update>
+	
+	<!-- 주문취소 상품수량 변경 -->
+	<update id="returnPieces">
+		update goods set pieces= pieces + #{pieces} where gno = #{gno}
+	</update>
+	
+	<!-- 장바구니 삭제 -->
+	<delete id="cartDelete">
+		delete from cart where gno=#{gno}
+	</delete>
 </mapper>

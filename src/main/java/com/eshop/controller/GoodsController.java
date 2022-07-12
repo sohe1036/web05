@@ -8,11 +8,13 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -41,6 +43,9 @@ public class GoodsController {
 
 	@Autowired
 	GoodsService goodsService;
+	
+	@Autowired
+	ResourceLoader rsLoader;
 	
 	@Resource(name = "uploadPath")
 	private String uploadPath;
@@ -90,7 +95,21 @@ public class GoodsController {
 	}
 	
 	@RequestMapping(value="insert.do" , method = RequestMethod.POST)
-	public String goodsInsert(GoodsDTO gdto, Model model) throws Exception {
+	public String goodsInsert(MultipartFile gimg1, HttpServletRequest request, Model model) throws Exception {
+		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
+		String fileName = gimg1.getOriginalFilename();
+		File saveFile = new File(uploadFolder, fileName);
+		gimg1.transferTo(saveFile);
+		GoodsDTO gdto = new GoodsDTO();
+		gdto.setGname(request.getParameter("gname"));
+		gdto.setGtype(request.getParameter("gtype"));
+		gdto.setGshape(request.getParameter("gshape"));
+		gdto.setGcolor(request.getParameter("gcolor"));
+		gdto.setGimg1(fileName);
+		gdto.setGinfo(request.getParameter("ginfo"));
+		gdto.setPrice(request.getParameter("price"));
+		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
+	
 		goodsService.goodsInsert(gdto);
 		return "redirect:list.do";
 	}
@@ -101,10 +120,40 @@ public class GoodsController {
 		return "goods/goodsAddForm";
 	}
 	
+	
+	
 	//수정
 	@RequestMapping(value="update.do", method = RequestMethod.POST )
-	public String goodsUpdate(GoodsDTO gdto, Model model) throws Exception {
+	public String goodsUpdate(MultipartFile gimg1, HttpServletRequest request, Model model) throws Exception {
+		if(!gimg1.isEmpty()) {
+		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
+		String fileName = gimg1.getOriginalFilename();
+		File saveFile = new File(uploadFolder, fileName);
+		gimg1.transferTo(saveFile);
+		GoodsDTO gdto = new GoodsDTO();
+		gdto.setGno(Integer.parseInt(request.getParameter("gno")));
+		gdto.setGname(request.getParameter("gname"));
+		gdto.setGtype(request.getParameter("gtype"));
+		gdto.setGshape(request.getParameter("gshape"));
+		gdto.setGcolor(request.getParameter("gcolor"));
+		gdto.setGimg1(fileName);
+		gdto.setGinfo(request.getParameter("ginfo"));
+		gdto.setPrice(request.getParameter("price"));
+		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
+		
 		goodsService.goodsUpdate(gdto);
+		}else {
+			GoodsDTO gdto = new GoodsDTO();
+			gdto.setGno(Integer.parseInt(request.getParameter("gno")));
+			gdto.setGname(request.getParameter("gname"));
+			gdto.setGtype(request.getParameter("gtype"));
+			gdto.setGshape(request.getParameter("gshape"));
+			gdto.setGcolor(request.getParameter("gcolor"));
+			gdto.setGinfo(request.getParameter("ginfo"));
+			gdto.setPrice(request.getParameter("price"));
+			gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
+			goodsService.goodsEidt(gdto);
+		}
 		return "redirect:list.do";
 	}
 	
@@ -115,7 +164,7 @@ public class GoodsController {
 		return "redirect:list.do";
 	}
 	
-	
+	/*
 	//Get 방식으로 업로드 폼 열기
 		@RequestMapping(value = "uploadForm.do", method = RequestMethod.GET)
 		public String uploadFormGET() {
@@ -207,7 +256,7 @@ public class GoodsController {
 			return new ResponseEntity<String>("deleted", HttpStatus.OK);
 		}
 	
-	
+	*/
 	
 	
 }

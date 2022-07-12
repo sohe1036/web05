@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.eshop.dto.GoodsDTO;
 import com.eshop.dto.SalesDTO;
+import com.eshop.service.GoodsService;
 import com.eshop.service.SalesService;
 
 @Controller
@@ -19,6 +20,9 @@ public class SalesController {
 
 	@Autowired
 	SalesService salesService;
+	
+	@Autowired
+	GoodsService goodsService;
 	
 	@RequestMapping("list.do")
 	public String salesList(Model model) throws Exception {
@@ -73,11 +77,11 @@ public class SalesController {
 	}
 	
 	//결제 주문처리
-	@RequestMapping(value="insert.do", method = RequestMethod.POST)
-	public String salesInsert(SalesDTO sdto,Model model) throws Exception {
-		salesService.salesInsert(sdto);
-		return "redirect:idList.do?uid="+sdto.getUid();
-	}
+		@RequestMapping(value="insert.do", method = RequestMethod.POST)
+		public String salesInsert(SalesDTO sdto,Model model) throws Exception {
+			salesService.salesInsert(sdto);
+			return "redirect:idList.do?uid="+sdto.getUid();
+		}
 	
 	//배송처리 ->운송장 입력
 	@RequestMapping(value="addShipping.do" , method = RequestMethod.POST)
@@ -96,8 +100,12 @@ public class SalesController {
 	
 	//결제취소
 	@RequestMapping(value="delete.do",  method = RequestMethod.GET)
-	public String salesDelete(@RequestParam ("ono") int ono,@RequestParam("uid") String uid, Model model) throws Exception {
-		salesService.salesDetail(ono);
+	public String salesDelete(SalesDTO sdto,@RequestParam("ono") int ono,@RequestParam("gno") int gno, Model model) throws Exception {
+		GoodsDTO goods = new GoodsDTO();
+		goods.setGno(sdto.getGno());
+		goods.setPieces(sdto.getPieces());
+		salesService.salesDelete(goods,ono);
+		String uid = sdto.getUid();
 		return "redirect:idList.do?uid="+uid;
 	}
 }

@@ -1,6 +1,5 @@
 package com.eshop.dto;
 
-import java.util.Date;
 
 public class SalesDTO {
 	

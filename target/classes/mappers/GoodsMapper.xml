@@ -55,9 +55,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		gimg2=#{gimg2 },ginfo=#{ginfo },price=#{price },pieces=#{pieces }  where gno=#{gno }
 	
 	</update>
+	<!-- 이미지없이 상품수정 -->
+	<update id="goodsEidt">
+		update goods set gtype=#{gtype },gname=#{gname },gshape=#{gshape },gcolor=#{gcolor },ginfo=#{ginfo },
+		price=#{price },pieces=#{pieces }  where gno=#{gno }
+	</update>
 	
 	<!-- 상품 삭제 delete -->
 	<delete id="goodsDelete">
 		delete from goods where gno=#{gno }
 	</delete>
+	
 </mapper>

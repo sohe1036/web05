@@ -32,14 +32,19 @@
 				<c:forEach items="${cartList }" var="list" varStatus="status">
 				<tr>
 					<td>${status.count }</td>
-					<td scope="row"><a href="${path1 }/cart/cartDetail.do?bno=${list.bno }&uid=${list.uid}">${list.gname }</a></td>
+					<td scope="row">
+					${list.gname }
+					<a href="${path1 }/cart/cartDetail.do?bno=${list.bno }&uid=${list.uid}" class="btn btn-primary">수량변경</a>
+					<a href="${path1 }/cart/delete.do?bno=${list.bno }&uid=${list.uid}" class="btn btn-primary">삭제</a>
+					</td>
 					<td scope="row">
 						<a href="${path1 }/goods/detail.do?gno=${list.gno}">
 							<img src="${path1 }/resources/upload/${list.gimg1 }" style="width: 100px; height: 150px;"/>
 						</a>	
 					</td>
 					<td scope="row">${list.amount }</td>
-					<td scope="row"><fmt:formatNumber value="${list.price }" type="number" /></td>
+					<td scope="row"><fmt:formatNumber value="${list.price *list.amount}" type="number" /></td>
+					<td><a href="${path1 }/sales/salesForm.do?gname=${list.gname}&gno=${list.gno}&gimg1=${list.gimg1}&pieces=${list.amount}&price=${list.price}" class="btn btn-primary">주문하기</a></td>
 				</tr>	
 				</c:forEach>
 			</tbody>

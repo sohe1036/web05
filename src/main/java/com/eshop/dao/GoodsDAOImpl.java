@@ -59,10 +59,17 @@ public class GoodsDAOImpl implements GoodsDAO {
 		sqlSession.update("goods.goodsUpdate", gdto);
 	}
 
+	//사진없이 상품수정
+	@Override
+	public void goodsEidt(GoodsDTO gdto) throws Exception {
+		sqlSession.update("goods.goodsEidt", gdto);
+		
+	}
+
 	@Override
 	public void goodsDelete(int gno) throws Exception {
 		sqlSession.delete("goods.goodsDelete", gno);
 	}
-	
-	
+
+
 }

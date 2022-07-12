@@ -5,7 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.eshop.dto.GoodsDTO;
 import com.eshop.dto.SalesDTO;
 
 @Repository
@@ -31,7 +33,10 @@ public class SalesDAOImpl implements SalesDAO {
 	}
 
 	@Override
+	@Transactional
 	public void salesInsert(SalesDTO sdto) throws Exception {
+		sqlSession.delete("sales.cartDelete", sdto);
+		sqlSession.update("sales.updatePieces", sdto);
 		sqlSession.insert("sales.salesInsert", sdto);
 	}
 
@@ -46,7 +51,9 @@ public class SalesDAOImpl implements SalesDAO {
 	}
 
 	@Override
-	public void salesDelete(int ono) throws Exception {
+	@Transactional
+	public void salesDelete(GoodsDTO gdto,int ono) throws Exception {
+		sqlSession.update("sales.returnPieces", gdto);
 		sqlSession.delete("sales.salesDelete", ono);
 	}
 
@@ -54,6 +61,6 @@ public class SalesDAOImpl implements SalesDAO {
 	public int salesCount() throws Exception {
 		return sqlSession.selectOne("sales.salesCount");
 	}
-	
+
 	
 }

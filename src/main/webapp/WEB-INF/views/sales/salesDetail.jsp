@@ -112,7 +112,7 @@
 					<td colspan="2">
 						<c:if test="${empty sales.transco }">
 							<a href="${path1 }/sales/edit.do?ono=${sales.ono}" class="btn btn-primary">배송정보수정</a>
-							<a href="${path1 }/sales/delete.do?ono=${sales.ono}&uid=${sid}" class="btn btn-primary">주문취소</a>
+							<a href="${path1 }/sales/delete.do?ono=${sales.ono}&gno=${sales.gno }&pieces=${sales.pieces }&uid=${sid}" class="btn btn-primary">주문취소</a>
 						</c:if>
 						<c:if test="${!empty sales.transco }">
 							<span>배송이 시작되어 취소 및 수정이 불가능합니다.</span>

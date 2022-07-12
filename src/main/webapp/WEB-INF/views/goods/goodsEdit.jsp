@@ -14,8 +14,8 @@
 <div class="wrap">
 	<c:import url="../inc/header.jsp" />
 	<div id="content">
-		<form method="post" action="${path1 }/goods/update.do" name="goodsUpload" onsubmit="return fileCk(this)">
-			<table>
+		<form method="post" action="${path1 }/goods/update.do" enctype="multipart/form-data">
+			<table class="table">
 				<tr>
 					<th><label for="gno">상품번호</label></th>
 					<td><input type="text" name="gno" value="${goods.gno }" readonly></td>
@@ -43,6 +43,7 @@
 					<th><label for="gcolor">컬러</label></th>
 					<td><input type="text" name="gcolor" value="${goods.gcolor }"/></td>
 				</tr>
+				<!-- 
 				<tr>
 					<th><label for="dposter">파일 형식</label></th>
 					<td>
@@ -51,14 +52,13 @@
 						<input type="hidden" name="fileCheck" id="fileCheck" />
 					</td>
 				</tr>
+				 -->
 				<tr>
 					<th><label for="gimg1">사진</label></th>
 					<td>
-					<input type="text" name="gimg1" id="gimg1" value="" readonly />
-					<button onclick="uploadFile()" class="btn btn-primary">업로드 </button>
-					<img src="" id="proData" />
+					<input type="file" name="gimg1" id="gimg1" >
+					<input type="hidden" name="gimg1" value="${goods.gimg1 }"/>
 					</td>
-				</tr>
 				<tr>
 					<th><label for="ginfo">상세정보</label></th>
 					<td><textarea name="ginfo" cols="80" rows="5">${goods.ginfo }</textarea></td>
@@ -79,15 +79,15 @@
 			</table>
 		</form>	
 		<script>
-		function uploadFile() {
-			window.open("${path1 }/goods/uploadForm.do", "dataupload", "width=500, height=400");
-		}
+	
+		/*
 		function fileCk(f){
     		if(f.fileCheck.value!="yes") {
     			alert("파일을 업로드해주세요.");
     			return false;
     		}
 		}
+		*/
 	</script>
 	</div>
 	<c:import url="../inc/footer.jsp" />
