@@ -24,6 +24,7 @@
 					<c:if test="${sid=='admin' }">
 					<th scope="col">구매아이디</th>
 					</c:if>
+					<th scope="col">배송상태</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,6 +37,17 @@
 					<c:if test="${sid=='admin' }">
 					<td scope="row">${list.uid }</td>
 					</c:if>
+					<td scope="row">
+						<c:if test="${!empty list.transco }">
+						<span>${list.rstate }</span>
+						</c:if>
+						<c:if test="${empty list.transco }">
+						<span>상품준비중</span>
+						</c:if>
+						<c:if test="${list.rstate =='배송완료'}">
+							<a href="${path1 }/review/reviewForm.do?gno=${list.gno}&uid=${list.uid }&gname=${list.gname }&ono=${list.ono}" class="btn btn-primary">리뷰작성</a>
+						</c:if>
+					</td>
 				</tr>	
 				</c:forEach>
 			</tbody>

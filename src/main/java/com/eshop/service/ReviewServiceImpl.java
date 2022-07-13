@@ -9,7 +9,7 @@ import com.eshop.dao.ReviewDAO;
 import com.eshop.dto.ReviewDTO;
 
 @Service
-public class ReviewServiceImpl implements ReviewDAO {
+public class ReviewServiceImpl implements ReviewService {
 
 	@Autowired
 	ReviewDAO reviewDao;
@@ -17,6 +17,16 @@ public class ReviewServiceImpl implements ReviewDAO {
 	@Override
 	public List<ReviewDTO> reviewList(int gno) throws Exception {
 		return reviewDao.reviewList(gno);
+	}
+
+	@Override
+	public List<ReviewDTO> reviewIdList(String uid) throws Exception {
+		return reviewDao.reviewIdList(uid);
+	}
+
+	@Override
+	public ReviewDTO reviewRead(ReviewDTO rdto) throws Exception {
+		return reviewDao.reviewRead(rdto);
 	}
 
 	@Override
@@ -32,6 +42,11 @@ public class ReviewServiceImpl implements ReviewDAO {
 	@Override
 	public void reviewDelete(int uno) throws Exception {
 		reviewDao.reviewDelete(uno);
+	}
+
+	@Override
+	public int reviewCheck(int ono) throws Exception {
+		return reviewDao.reviewCheck(ono);
 	}
 	
 	

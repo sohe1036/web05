@@ -2,13 +2,15 @@ package com.eshop.dto;
 
 public class ReviewDTO {
 	
-	public int uno;
+	public int uno;			//리뷰번호
 	public int gno;
 	public String uid;
 	public String subject;
 	public String content;
 	public String regdate;
 	public int visited;
+	public int best;
+	public int ono;			//주분번호
 	
 	public int getUno() {
 		return uno;
@@ -16,10 +18,11 @@ public class ReviewDTO {
 	public void setUno(int uno) {
 		this.uno = uno;
 	}
+	
 	public int getGno() {
 		return gno;
 	}
-	public void setGnum(int gno) {
+	public void setGno(int gno) {
 		this.gno = gno;
 	}
 	public String getUid() {
@@ -51,6 +54,18 @@ public class ReviewDTO {
 	}
 	public void setVisited(int visited) {
 		this.visited = visited;
+	}
+	public int getBest() {
+		return best;
+	}
+	public void setBest(int best) {
+		this.best = best;
+	}
+	public int getOno() {
+		return ono;
+	}
+	public void setOno(int ono) {
+		this.ono = ono;
 	}
 	
 	

@@ -77,6 +77,7 @@
 					</c:if>
 					<%-- <a href="${path1 }/cart/insert.do?uid=${sid }&gno=${goods.gno}&gname=${goods.gname}&gcolor=${goods.gcolor}&gimg1=${goods.gimg1}&pieces=${goods.pieces }" class="btn btn-primary">장바구니</a> --%>
 					<c:if test="${!empty sid }">
+						<a href="${path1 }/review/list.do?gno=${goods.gno }" class="btn btn-primary">리뷰</a>
 						<c:if test="${goods.pieces!=0 }">
 							<input type="submit" value="주문하기" class="btn btn-primary">
 						</c:if>

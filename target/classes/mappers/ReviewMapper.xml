@@ -7,21 +7,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 리뷰 목록 -->
 	<select id="reviewList" resultType="com.eshop.dto.ReviewDTO">
-		select * from review gn0=#{gn0} order by regdate desc;
+		select * from review where gno=#{gno} order by regdate desc;
+	</select>
+	<!-- 아이디별 리뷰목록 -->
+	<select id="reviewIdList" resultType="com.eshop.dto.ReviewDTO">
+		select * from review where uid=#{uid} order by regdate desc;
+	</select>
+	
+	<!-- 리뷰 상세보기 -->
+	<select id="reviewRead" resultType="com.eshop.dto.ReviewDTO">
+		select * from review where uno=#{uno}
 	</select>
 	
 	<!-- 리뷰쓰기 -->
 	<insert id="reviewInsert">
-		insert into review (gno, uid, subject, content) values (#{gno}, #{uid}, #{subject}, #{content}) 
+		insert into review (gno, uid, subject, content,best,ono) values (#{gno}, #{uid}, #{subject}, #{content},#{best},#{ono}) 
 	</insert>
 	
 	<!-- 리뷰 수정 -->
 	<update id="reviewUpdate">
-		update review set uid=#{uid}, subject=#{subject}, content=#{content}, regdate=now() where uno=#{uno}
+		update review set uid=#{uid}, subject=#{subject}, content=#{content},best=#{best}, regdate=now() where uno=#{uno}
 	</update>
 	
 	<!-- 리뷰삭제 -->
 	<delete id="reviewDelete">
 		delete from review where uno=#{uno}
 	</delete>
+	
+	<!-- 리뷰 중복체크 -->
+	<select id="reviewCheck" resultType="int">
+		select * from review where ono=#{ono}
+	</select>
+	
+	<!-- 클릭시 visited 추가 -->
+	<update id="visitedAdd">
+		update review set visited=visited+1 where uno=#{uno}
+	</update>
 </mapper>

@@ -29,6 +29,7 @@
 	<resources mapping="/ckeditor/**" location="/WEB-INF/views/ckeditor/" />
 	<resources mapping="/ajax/**" location="/WEB-INF/views/ajax/" />
 	<resources mapping="/sales/**" location="/WEB-INF/views/sales/" />
+	<resources mapping="/review/**" location="/WEB-INF/views/ewview/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

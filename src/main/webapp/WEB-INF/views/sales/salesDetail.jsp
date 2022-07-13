@@ -120,9 +120,6 @@
 						<c:if test="${sid=='admin' }">
 							<a href="${path1 }/sales/rstate.do?ono=${sales.ono}" class="btn btn-primary">운송장 입력</a>
 						</c:if>
-						<c:if test="${sales.rstate =='배송완료'}">
-							<a href="" class="btn btn-primary">리뷰쓰기</a>
-						</c:if>
 					</td>
 				</tr>
 			</tbody>	

@@ -42,7 +42,7 @@
                 display: table;
             }
         </style>
-        <div nid="top1" class="top1">
+        <div name="top1" class="top1">
             <style>
                 .top1 {
                     margin-bottom: 30px;
@@ -67,7 +67,7 @@
                 }
 
                 .top1>.wrapper .item:hover {
-                    background: #f7f7f7;
+                    /* background: #f7f7f7; */
                 }
 
                 .top1>.wrapper .point {
@@ -160,29 +160,17 @@
                 .wrapper .toggle {
                     display: none;
                 }    
+                .sub {
+                	margin: 0;
+                	padding: 0;
+                }
+                
+                .items {
+                	font-size: 10px;
+                }
             </style>
             <div class="wrapper">
                 <div class="right">
-                <c:if test="${sid=='admin' }">
-                <nav>
-                	<ul>
-                		<li>
-                			<a>상품</a>
-                			<ul>
-                				<li><a href="${path }/goods/goodsAddForm.do" class="item">상품추가</a></li>
-                				<li><a href="${path }/goods/list.do" class="item">상품목록</a></li>
-                			</ul>
-                		</li>
-                		<li>
-                			<a>공지</a>
-                			<ul>
-                				<li><a href="${path }/" class="item">공지수정</a></li>
-                				<li><a href="${path }/" class="item">공지추가</a></li>
-                			</ul>
-                		</li>	
-                	</ul>
-                </nav>	
-                </c:if>
                 	<c:if test="${sid=='admin' }">
 						<a href="${path }/admin/memberList.do" class="item">회원목록</a>
 						<a href="${path }/sales/list.do" class="item">주문목록</a>
@@ -193,9 +181,28 @@
 					</c:if>
 					<c:if test="${!empty sid }">
 						<h1 class="item point">${sid }님</h1>
-						<a href="${path }/member/detail.do?uid=${sid }" class="item">내정보</a>
 						<a href="${path }/member/logout.do" class="item">로그아웃</a>
 					</c:if>	
+					 <c:if test="${sid=='admin' }">
+                <nav>
+                	<ul>
+                		<li>
+                			<a>상품관리</a>
+                			<ul class="sub">
+                				<li><a href="${path }/goods/list.do" class="items">상품목록</a></li>
+                				<li><a href="${path }/goods/goodsAddForm.do" class="items">상품추가</a></li>
+                			</ul>
+       					</li>
+       					<li>
+                			<a>공지관리</a>
+                			<ul class="sub">
+                				<li><a href="${path }/" class="">공지수정</a></li>
+                				<li><a href="${path }/" class="">공지추가</a></li>
+                			</ul>
+                		</li>	
+                	</ul>
+                </nav>	
+                </c:if>
                 </div>
             </div>
         </div>
