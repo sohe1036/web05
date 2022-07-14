@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
+	<c:import url="admin_header.jsp" />
 	<div id="content">
 		<table class="table">
 			<tr>
@@ -39,12 +39,12 @@
 				<th>생년월일</th>
 				<td><input type="text" name="birth" value=" ${member.birth }"></td>
 			</tr>
-			<tr>
+			<%-- <tr>
 				<td colspan="2">
 				<a href="${path1 }/member/update.do" class="btn btn-primary">수정하기</a>
 				<a href="${path1 }/member/delete.do?uid=${sid }" class="btn btn-primary">회원탈퇴</a>
 				</td>
-			</tr>
+			</tr> --%>
 		</table>
 	</div>
 	<c:import url="../inc/footer.jsp" />

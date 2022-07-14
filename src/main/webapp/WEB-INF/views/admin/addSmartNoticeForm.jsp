@@ -13,9 +13,9 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
+	<c:import url="admin_header.jsp" />
 	<div id="content">
-		<form method="post" action="${path1 }/notice/addSmartNotice.do">
+		<form method="post" action="${path1 }/admin/addSmartNotice.do">
 			<table class="table">
 				<tr>
 					<th><label for="title">제목</label></th>

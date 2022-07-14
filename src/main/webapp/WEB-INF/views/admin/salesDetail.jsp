@@ -15,10 +15,16 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
+	<c:import url="admin_header.jsp" />
 	<div id="content">
 		<table class="table">
 			<tbody>
+			<c:if test="${sid == 'admin' }">
+				<tr>
+					<th>아이디</th>
+					<td>${sales.uid }</td>
+				</tr>
+			</c:if>
 				<tr>
 					<th>주문번호</th>
 					<td>${sales.ono }</td>
@@ -78,6 +84,9 @@
 						<c:if test="${empty sales.transco }">
 						<span>등록된 운송장번호가 없습니다.</span>
 						</c:if>
+						<c:if test="${sid=='admin' }">
+						<a href="${path1 }/sales/rstate.do?ono=${sales.ono}" class="btn btn-primary">운송장 입력</a>
+					</c:if>
 					</td>					
 				</tr>
 				<tr>

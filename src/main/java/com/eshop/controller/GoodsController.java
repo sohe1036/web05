@@ -56,12 +56,14 @@ public class GoodsController {
 		model.addAttribute("boardList", boardList);
 		return "리턴경로";
 	}*/
+	
 	@RequestMapping("list.do")
-	public String boardList( Model model) throws Exception {
+	public String goodsList( Model model) throws Exception {
 			List<GoodsDTO> goodsList = goodsService.goodList();
 			model.addAttribute("goodsList", goodsList);
 		return "goods/goodsList";
 	}
+	
 	
 	@RequestMapping("typeList.do")
 	public String goodsTypeList(@RequestParam String gtype, Model model) throws Exception {
@@ -86,6 +88,7 @@ public class GoodsController {
 		model.addAttribute("goods", goods);
 		return "goods/goodsDetail";
 	}
+	/*
 	//수정폼
 	@RequestMapping(value="edit.do" ,method= RequestMethod.GET )
 	public String goodsEdit(@RequestParam int gno, Model model ) throws Exception {
@@ -93,19 +96,24 @@ public class GoodsController {
 		model.addAttribute("goods", goods);
 		return "goods/goodsEdit";
 	}
-	
+	*/
+	/*
 	@RequestMapping(value="insert.do" , method = RequestMethod.POST)
-	public String goodsInsert(MultipartFile gimg1, HttpServletRequest request, Model model) throws Exception {
+	public String goodsInsert(MultipartFile gimg1,MultipartFile gimg2, HttpServletRequest request, Model model) throws Exception {
 		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
 		String fileName = gimg1.getOriginalFilename();
+		String fileName2 = gimg2.getOriginalFilename();
 		File saveFile = new File(uploadFolder, fileName);
+		File saveFile2 = new File(uploadFolder, fileName2);
 		gimg1.transferTo(saveFile);
+		gimg2.transferTo(saveFile2);
 		GoodsDTO gdto = new GoodsDTO();
 		gdto.setGname(request.getParameter("gname"));
 		gdto.setGtype(request.getParameter("gtype"));
 		gdto.setGshape(request.getParameter("gshape"));
 		gdto.setGcolor(request.getParameter("gcolor"));
 		gdto.setGimg1(fileName);
+		gdto.setGimg2(fileName2);
 		gdto.setGinfo(request.getParameter("ginfo"));
 		gdto.setPrice(request.getParameter("price"));
 		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
@@ -113,19 +121,41 @@ public class GoodsController {
 		goodsService.goodsInsert(gdto);
 		return "redirect:list.do";
 	}
-	
+	*/
+	/*
 	//상품 추가 폼
 	@RequestMapping(value="goodsAddForm.do",method= RequestMethod.GET)
 	public String goodsAddForm(Model model) throws Exception {
 		return "goods/goodsAddForm";
 	}
+	*/
 	
-	
-	
+	/*
 	//수정
 	@RequestMapping(value="update.do", method = RequestMethod.POST )
-	public String goodsUpdate(MultipartFile gimg1, HttpServletRequest request, Model model) throws Exception {
-		if(!gimg1.isEmpty()) {
+	public String goodsUpdate(MultipartFile gimg1,MultipartFile gimg2, HttpServletRequest request, Model model) throws Exception {
+		if(!gimg1.isEmpty() && !gimg2.isEmpty()) {
+		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
+		String fileName = gimg1.getOriginalFilename();
+		String fileName2 = gimg2.getOriginalFilename();
+		File saveFile = new File(uploadFolder, fileName);
+		File saveFile2 = new File(uploadFolder, fileName2);
+		gimg1.transferTo(saveFile);
+		gimg2.transferTo(saveFile2);
+		GoodsDTO gdto = new GoodsDTO();
+		gdto.setGno(Integer.parseInt(request.getParameter("gno")));
+		gdto.setGname(request.getParameter("gname"));
+		gdto.setGtype(request.getParameter("gtype"));
+		gdto.setGshape(request.getParameter("gshape"));
+		gdto.setGcolor(request.getParameter("gcolor"));
+		gdto.setGimg1(fileName);
+		gdto.setGimg2(fileName2);
+		gdto.setGinfo(request.getParameter("ginfo"));
+		gdto.setPrice(request.getParameter("price"));
+		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
+		
+		goodsService.goodsUpdate(gdto);
+	}else if(!gimg1.isEmpty()) {
 		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
 		String fileName = gimg1.getOriginalFilename();
 		File saveFile = new File(uploadFolder, fileName);
@@ -140,30 +170,31 @@ public class GoodsController {
 		gdto.setGinfo(request.getParameter("ginfo"));
 		gdto.setPrice(request.getParameter("price"));
 		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
-		
+
 		goodsService.goodsUpdate(gdto);
-		}else {
-			GoodsDTO gdto = new GoodsDTO();
-			gdto.setGno(Integer.parseInt(request.getParameter("gno")));
-			gdto.setGname(request.getParameter("gname"));
-			gdto.setGtype(request.getParameter("gtype"));
-			gdto.setGshape(request.getParameter("gshape"));
-			gdto.setGcolor(request.getParameter("gcolor"));
-			gdto.setGinfo(request.getParameter("ginfo"));
-			gdto.setPrice(request.getParameter("price"));
-			gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
-			goodsService.goodsEidt(gdto);
-		}
+	} else {
+		GoodsDTO gdto = new GoodsDTO();
+		gdto.setGno(Integer.parseInt(request.getParameter("gno")));
+		gdto.setGname(request.getParameter("gname"));
+		gdto.setGtype(request.getParameter("gtype"));
+		gdto.setGshape(request.getParameter("gshape"));
+		gdto.setGcolor(request.getParameter("gcolor"));
+		gdto.setGinfo(request.getParameter("ginfo"));
+		gdto.setPrice(request.getParameter("price"));
+		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
+		goodsService.goodsEidt(gdto);
+	}
 		return "redirect:list.do";
 	}
-	
+	*/
+	/*
 	//삭제
 	@RequestMapping(value="delete.do", method = RequestMethod.GET)
 	public String goodsDelete(@RequestParam int gno ,Model model ) throws Exception {
 		goodsService.goodsDelete(gno);
 		return "redirect:list.do";
 	}
-	
+	*/
 	/*
 	//Get 방식으로 업로드 폼 열기
 		@RequestMapping(value = "uploadForm.do", method = RequestMethod.GET)

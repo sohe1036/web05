@@ -11,11 +11,11 @@
 <c:import url="../inc/head.jsp" />
 <style>
 	h2 {padding: 30px;}
-	form {width: 600px; margin: 0 auto;}
+	form {width: 400px; margin: 0 auto;}
 </style>
 </head>
 <body>
-<div id="content">
+<div class="wrap">
 	<c:import url="../inc/header.jsp" />
 	<div id="content">
 		 <form action="${path1 }/member/login.do" method="post">

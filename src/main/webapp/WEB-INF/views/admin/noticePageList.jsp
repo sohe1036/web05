@@ -20,12 +20,18 @@
 <script src="../inc/datatables.min.js"></script>
 </head>
 <body>
-<%@ include file="../inc/header.jsp" %>
+<%@ include file="admin_header.jsp" %>
 <div id="contents" class="contents">
 	<div class="container px-4 px-lg-5 mt-5">
 		<div class="row">
 			<br><br>		
 			<h2 class="tit">공지사항 목록</h2>
+			<c:if test="${sid == 'admin' }">
+			<div>
+				<a href="${path1 }/notice/addSmartNoticeForm.do" class="btn btn-primary">글쓰기</a>
+			</div>
+			</c:if>
+			<br><br>
 			<div class="panel-body">
 				<table class="table" id="myTable">
 					<thead>
@@ -42,7 +48,7 @@
 							<c:forEach items="${noticePageList}" var="notice" varStatus="status">
 							<tr>
 								<td>${status.count }</td>
-								<td><a href="${path1 }/notice/noticeRead.do?seq=${notice.seq}">${notice.title }</a></td>
+								<td><a href="${path1 }/admin/noticeRead.do?seq=${notice.seq}">${notice.title }</a></td>
 								<td>${notice.regdate }</td>
 								<td>${notice.nickname }</td>
 							</tr>

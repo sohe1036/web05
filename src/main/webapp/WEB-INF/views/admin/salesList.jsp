@@ -30,8 +30,8 @@
 			<tbody>
 				<c:forEach items="${salesList }" var="list">
 				<tr>
-					<td scope="row"><a href="${path1 }/sales/detail.do?ono=${list.ono}">${list.ono }</a></td>
-					<td scope="row">${list.money }</td>
+					<td scope="row"><a href="${path1 }/admin/salesDetail.do?ono=${list.ono}">${list.ono }</a></td>
+					<td scope="row"><fmt:formatNumber> ${list.money }</fmt:formatNumber>원</td>
 					<td scope="row"><a href="${path1 }/goods/detail.do?gno=${list.gno}">${list.gname }</a></td>
 					<td scope="row">${list.sdate }</td>
 					<c:if test="${sid=='admin' }">
@@ -43,9 +43,6 @@
 						</c:if>
 						<c:if test="${empty list.transco }">
 						<span>상품준비중</span>
-						</c:if>
-						<c:if test="${list.rstate =='배송완료'}">
-							<a href="${path1 }/review/reviewForm.do?gno=${list.gno}&uid=${list.uid }&gname=${list.gname }&ono=${list.ono}" class="btn btn-primary">리뷰작성</a>
 						</c:if>
 					</td>
 				</tr>	

@@ -11,6 +11,9 @@
 </head>
 <body>
 	<c:import url="admin_header.jsp" />
+	<div class="img" style="width:100%">
+		<img src="../img/sl.png" style="width:100%"/>
+	</div>
 	<div id="content">
 		<h1>
 			관리자페이지  

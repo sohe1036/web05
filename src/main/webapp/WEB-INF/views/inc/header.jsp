@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <style>
-    	#content { clear:both; width :1200px; margin: 0 auto; height: 1200px; margin-top: 80px;}
+    	#content { clear:both; width :1200px; margin: 0 auto; height: auto; margin-top: 80px; margin-bottom: 80px;}
     </style>
 </head>
 <body>
@@ -94,8 +94,7 @@
 					</c:if>
 					<c:if test="${!empty sid }">
 					<h1 class="item point">${sid }님</h1>
-					<a href="${path }/member/detail.do?uid=${sid }" class="item">마이페이지</a>
-					<a href="${path }/sales/idList.do?uid=${sid }" class="item">주문내역</a>
+					<a href="${path }/member/myPage.do" class="item">마이페이지</a>
 					<a href="${path }/cart/list.do?uid=${sid }" class="item">장바구니</a>
 					<a href="${path }/member/logout.do" class="item">로그아웃</a>
 					<c:if test="${sid == 'admin' }">

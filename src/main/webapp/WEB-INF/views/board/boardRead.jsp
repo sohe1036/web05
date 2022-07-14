@@ -37,9 +37,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/board/list.do" class="btn btn-primary">목록</a>
-				<a href="${path1 }/board/edit.do?seq=${board.seq }" class="btn btn-primary">수정하기</a>
-				<a href="${path1 }/board/delete.do?seq=${board.seq }" class="btn btn-primary">삭제하기</a>
+					<a href="${path1 }/board/list.do" class="btn btn-primary">목록</a>
 				</td>
 			</tr>
 		</table>

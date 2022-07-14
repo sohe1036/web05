@@ -42,40 +42,44 @@ public class BoardController {
 		boardService.boardCheck(seq);		//조회수+1
 		return "board/boardRead";
 	}
-	
+	/*
 	//글 수정 폼
-	//글 상세
 		@RequestMapping(value="edit.do", method = RequestMethod.GET )
 		public String boardEdit(@RequestParam int seq, Model model) throws Exception {
 			BoardDTO board = boardService.boardRead(seq);
 			model.addAttribute("board", board);
 			return "board/boardEdit";
 		}
-	
+		*/
+	/*
 	//글 작성 폼
 	@RequestMapping(value="write_from.do" )
 	public String boardWriteForm(Model model) throws Exception {
 		return "board/boardWriteFrom";
 	}
-	
+	*/
+		/*
 	//글 작성
 	@RequestMapping(value="insert.do",method = RequestMethod.POST)
 	public String boardInsert(BoardDTO bdto, Model model) throws Exception {
 		boardService.boardInsert(bdto);
 		return "redirect:list.do";
 	}
-	
+	*/
+	/*
 	//글 수정
 	@RequestMapping(value="update.do", method = RequestMethod.POST)
 	public String boardUpdate(BoardDTO bdto, Model model) throws Exception {
 		boardService.boardUpdate(bdto);
 		return "redirect:read.do?seq="+bdto.getSeq();
 	}
-	
+	*/
+	/*
 	//글 삭제
 	@RequestMapping(value="delete.do", method = RequestMethod.GET)
 	public String boardDelete(@RequestParam int seq, Model model) throws Exception {
 		boardService.boardDelete(seq);
 		return "redirect:list.do";
 	}
+	*/
 }

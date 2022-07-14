@@ -23,14 +23,15 @@ public class SalesController {
 	
 	@Autowired
 	GoodsService goodsService;
-	
+	/*
 	@RequestMapping("list.do")
 	public String salesList(Model model) throws Exception {
 		List<SalesDTO> salesList = salesService.salesList();
 		model.addAttribute("salesList", salesList);
 		return "sales/salesList";
 	}
-	
+	*/
+
 	//아이디별 리스트
 	@RequestMapping("idList.do")
 	public String salesIdList(@RequestParam("uid") String uid, Model model) throws Exception { 

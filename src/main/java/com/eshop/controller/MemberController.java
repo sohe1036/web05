@@ -38,7 +38,7 @@ public class MemberController {
 	public String agree(Model model) throws Exception {
 		return "member/agree";
 	}
-	
+	/*
 	//회원목록
 	@RequestMapping("list.do")
 	public String memberList(Model model) throws Exception {
@@ -46,8 +46,14 @@ public class MemberController {
 		model.addAttribute("memberList", memberList);
 		return "member/memberList";
 	}
+	*/
+	
 	//마이페이지
-		
+	@RequestMapping(value="myPage.do")
+	public String myPage(Model model) throws Exception{
+		return "member/myPage";
+	}
+	
 	//회원정보보기
 	@RequestMapping(value="detail.do" ,method = RequestMethod.GET )
 	public String memberDetail(@RequestParam String uid, Model model) throws Exception {

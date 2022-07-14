@@ -12,10 +12,10 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
+	<c:import url="admin_header.jsp" />
 	<script src="../ckeditor/ckeditor.js"></script>
 	<div id="content">
-		<form action="${path1 }/notice/noticeUpdate.do" method="post">
+		<form action="${path1 }/admin/noticeUpdate.do" method="post">
 			<table class="table">
 				<tr>
 					<th>글번호</th>
@@ -55,7 +55,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" class="btn btn-primary">
+						<input type="submit" value="수정" class="btn btn-primary">
 					</td>
 				</tr>
 			</table>

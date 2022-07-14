@@ -41,32 +41,18 @@ public class ReviewController {
 	//리뷰 상세보기
 	@RequestMapping(value="read.do" , method = RequestMethod.GET)
 	public String reviewRead(ReviewDTO rdto, Model model) throws Exception {
-		ReviewDTO review = new ReviewDTO();
+		ReviewDTO review = reviewService.reviewRead(rdto);
 		model.addAttribute("review", review);
-		return "review/reviewIdList?uid="+review.getUid();
+		return "review/reviewRead";
 	}
 	
 	//리뷰쓰기
 	@RequestMapping(value="insert.do", method = RequestMethod.POST)
 	public String reviewInsert(ReviewDTO rdto, Model model) throws Exception {
 		reviewService.reviewInsert(rdto);
-		return "redirect:/reviewIdList?uid="+rdto.getUid();
+		return "redirect:idList.do?uid="+rdto.getUid();
 	}
-	
-	//리뷰체크
-	@RequestMapping(value="reviewCheck", method = RequestMethod.GET)
-	public String reviewCheck(@RequestParam ("ono") int ono, Model model) throws Exception{
-		int cnt = reviewService.reviewCheck(ono);
-		
-		if(cnt>0) {
-			model.addAttribute("ck", null);
-			model.addAttribute("msg", "이미 리뷰를 작성하셨습니다");
-		}else {
-			model.addAttribute("ck", "yes");
-		}
-		return "sales/salesList";
-	}
-	
+
 	//리뷰작성폼 
 	@RequestMapping(value="reviewForm.do")
 	public String reviewForm(SalesDTO sdto,Model model) throws Exception {
@@ -83,12 +69,14 @@ public class ReviewController {
 	@RequestMapping(value="update.do" ,method = RequestMethod.POST )
 	public String reviewUpdate(ReviewDTO rdto,  Model model ) throws Exception {
 		reviewService.reviewUpdate(rdto);
-		return "redirect:/reviewIdList?uid="+rdto.getUid();
+		return "redirect:idList.do?uid="+rdto.getUid();
 	}
 	
 	//리뷰수정폼
 	@RequestMapping(value="editForm.do")
-	public String reviewEditForm(Model model) throws Exception {
+	public String reviewEditForm(ReviewDTO rdto,Model model) throws Exception {
+		ReviewDTO review = reviewService.reviewRead(rdto);
+		model.addAttribute("review", review);
 		return "review/reviewEditForm";
 	}
 	
@@ -96,6 +84,6 @@ public class ReviewController {
 	@RequestMapping(value="delete.do")
 	public String reviewDelete(@RequestParam("uno") int  uno ,HttpSession session, Model model) throws Exception {
 		reviewService.reviewDelete(uno);
-		return "redirect:/reviewIdList?uid="+session.getId();
+		return "redirect:idList.do?uid="+session.getId();
 	}
 }

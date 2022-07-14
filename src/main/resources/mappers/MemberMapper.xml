@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 	<!-- 회원목록 -->
 	<select id="memberList" resultType="com.eshop.dto.MemberDTO">
-		select * from member 
+		select * from member order by regdate desc
 	</select>
 	
 	<!-- 회원상세정보 -->

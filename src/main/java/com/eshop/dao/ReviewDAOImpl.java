@@ -39,7 +39,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public void reviewUpdate(ReviewDTO rdto) throws Exception {
-		sqlSession.update("review.Update", rdto);
+		sqlSession.update("review.reviewUpdate", rdto);
 	}
 
 	@Override

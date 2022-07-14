@@ -41,7 +41,9 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/notice/pageList.do?curPage=1" class="btn btn-primary">목록</a>
+				<a href="${path1 }/admin/noticePageList.do?curPage=1" class="btn btn-primary">목록</a>
+				<a href="${path1 }/admin/noticeEdit.do?seq=${notice.seq }" class="btn btn-primary">수정하기</a>
+				<a href="${path1 }/admin/noticeDelete.do?seq=${notice.seq }" class="btn btn-primary">삭제하기</a>
 				</td>
 			</tr>
 		</table>

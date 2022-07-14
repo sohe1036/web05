@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품별 리뷰목록</title>
+<title>아이디별 리뷰목록</title>
 <%@include file="../inc/head.jsp" %>
 </head>
 <body>
@@ -26,7 +26,7 @@
 		</div>
 		<hr>
 		<div class="tbody">
-		<c:forEach items="${reviewList }" var="list" varStatus="status">
+		<c:forEach items="${reviewIdList }" var="list" varStatus="status">
 			<ul>
 				<li>
 					<span style="display:inline-block; width:15%;">

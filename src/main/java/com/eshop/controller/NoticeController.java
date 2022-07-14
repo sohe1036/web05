@@ -68,20 +68,22 @@ public class NoticeController {
 	 public String noticeInsert(Model model) throws Exception {
 		 return "notice/addNoticeForm";
 	 }
-	 
-	 /* ckeditor 폼 호출 */ 
+	/* 
+	 //ckeditor 폼 호출 
 	@RequestMapping(value="addSmartNoticeForm.do", method = RequestMethod.GET)
     public String addNoticeSmartForm(Model model) throws Exception {
         return "notice/addSmartNoticeForm";
     }
-	 
-	 /* ckeditor를 활용한 글쓰기 처리 */
+	 */
+	 /*
+	 //ckeditor를 활용한 글쓰기 처리 
 	@RequestMapping(value="addSmartNotice.do", method = RequestMethod.POST)
     public String addSmartNotice(NoticeDTO ndto, Model model) throws Exception {
 		noticeService.noticeInsert(ndto);
         return "redirect:/notice/pageList.do?curPage="+1;
     }
-	
+    
+	*/
 	//파일 업로드
 		@ResponseBody
 		@RequestMapping(value = "fileupload.do")
@@ -138,31 +140,35 @@ public class NoticeController {
 				}
 			}
 		}
-
+		/*
 		@RequestMapping(value="noticeRead.do", method = RequestMethod.GET)
 	    public String noticeRead(@RequestParam("seq") int seq, Model model) throws Exception {
 			NoticeDTO notice = noticeService.noticeRead(seq);
 			model.addAttribute("notice", notice);
 	        return "notice/noticeRead";
 		}
-		
+		*/
+		/*
 		//수정폼
 		@RequestMapping(value="edit.do", method = RequestMethod.GET)
-	    public String boardEdit(@RequestParam("seq") int seq, Model model) throws Exception {
+	    public String noticeEdit(@RequestParam("seq") int seq, Model model) throws Exception {
 			NoticeDTO notice = noticeService.noticeRead(seq);
 			model.addAttribute("notice", notice);
 	        return "notice/noticeEdit";
 		}
-		
+		*/
+		/*
 		@RequestMapping(value="noticeUpdate.do", method = RequestMethod.POST)
 	    public String noticeUpdate(NoticeDTO ndto, Model model) throws Exception {
 			noticeService.noticeUpdate(ndto);
 			return "redirect:/notice/pageList.do?curPage="+1;
 	    }
-		
+	    */
+		/*
 		@RequestMapping(value="noticeDelete.do" ,method = RequestMethod.GET)
 		public String noticeDelete(@RequestParam int seq, Model model) throws Exception {
 			noticeService.noticeDelete(seq);
 			return "redirect:/notice/pageList.do?curPage="+1;
 		}
+		*/
 }

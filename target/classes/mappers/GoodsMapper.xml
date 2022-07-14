@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="goods">
 	<!-- 상품 목록 -->
 	<select id="goodsList" resultType="com.eshop.dto.GoodsDTO">
-		select * from goods order by gno
+		select * from goods order by gno desc
 	</select>
 	
 	<!-- 타입별 상품목록 -->

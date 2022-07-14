@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
+	<c:import url="admin_header.jsp" />
 	<div id="content">
 		<form action="${path1 }/sales/salesForm.do" method="post">
 			<table class="table">
@@ -74,18 +74,17 @@
 				</c:if>
 				<tr>
 					<td colspan="2">
-						<a href="${path1 }/goods/list.do" class="btn btn-primary">목록</a>
-					<%-- <a href="${path1 }/sales/salesForm.do?gname=${goods.gname}&gno=${goods.gno }&gimg1=${goods.gimg1}&pieces=${goods.pieces }" class="btn btn-primary">주문하기</a> --%>			
-					<%-- <a href="${path1 }/cart/insert.do?uid=${sid }&gno=${goods.gno}&gname=${goods.gname}&gcolor=${goods.gcolor}&gimg1=${goods.gimg1}&pieces=${goods.pieces }" class="btn btn-primary">장바구니</a> --%>
+						<a href="${path1 }/admin/goodsList.do" class="btn btn-primary">목록</a>
+
+					<c:if test="${sid=='admin' }">
+						<a href="${path1 }/admin/edit.do?gno=${goods.gno }" class="btn btn-primary">수정하기</a>
+						<a href="${path1 }/admin/goodsDelete.do?gno=${goods.gno }" class="btn btn-primary">삭제하기</a>
+					</c:if>
 					<c:if test="${!empty sid }">
 						<a href="${path1 }/review/list.do?gno=${goods.gno }" class="btn btn-primary">리뷰</a>
-						<c:if test="${goods.pieces!=0 }">
-							<button type="button" onclick="addCart()" class="btn btn-primary">장바구니 추가 </button>
-							<input type="submit" value="주문하기" class="btn btn-primary">
-						</c:if>
-						<c:if test="${goods.pieces==0 }">
-							<p style="color:red;">품절</p>
-						</c:if>
+					<c:if test="${goods.pieces==0 }">
+						<p style="color:red;">품절</p>
+					</c:if>
 					</c:if>
 					</td>
 				</tr>

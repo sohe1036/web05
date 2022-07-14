@@ -12,36 +12,34 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
+	<c:import url="admin_header.jsp" />
 	<div id="content">
 		<table class="table">
 			<tr>
 				<th>글번호</th>
-				<td>${notice.seq }</td>
+				<td>${board.seq }</td>
 			</tr>
 			<tr>
 				<th>글 제목</th>
-				<td>${notice.title }</td>
+				<td>${board.btitle }</td>
 			</tr>
 			<tr>
 				<th>글 내용</th>
-				<td>${notice.content }</td>
+				<td>${board.bcontent }</td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td>${notice.nickname }</td>
+				<td>${board.uname }</td>
 			</tr>
 			<tr>
 				<th>작성일</th>
-				<td>${notice.regdate }</td>
-			</tr>
-			<tr>
-				<th>조회수</th>
-				<td>${notice.visited }</td>
+				<td>${board.regdate }</td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/notice/pageList.do?curPage=1" class="btn btn-primary">목록</a>
+				<a href="${path1 }/admin/boardList.do" class="btn btn-primary">목록</a>
+				<a href="${path1 }/admin/boardEdit.do?seq=${board.seq }" class="btn btn-primary">수정하기</a>
+				<a href="${path1 }/admin/boardDelete.do?seq=${board.seq }" class="btn btn-primary">삭제하기</a>
 				</td>
 			</tr>
 		</table>

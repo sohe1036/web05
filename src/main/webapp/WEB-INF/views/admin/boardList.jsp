@@ -14,13 +14,9 @@
 </head>
 <body>
 <div class="wrap">
-	<%@include file="../inc/header.jsp" %>
+	<%@include file="admin_header.jsp" %>
 	<div id="content">
 		<h2 class="tit">게시판 목록</h2>
-		<br>
-		<div>
-			<a href="${path1 }/admin/write_from.do" class="btn btn-primary">글 추가</a>
-		</div>
 		<br>
 		<table class="table" id="boardTable">
 			<thead>
@@ -36,7 +32,7 @@
 				<c:forEach items="${boardList }" var="list">
 				<tr>
 					<td scope="row">${list.seq }</td>
-					<td scope="row"><a href="${path1 }/board/read.do?seq=${list.seq }">${list.btitle }</a></td>
+					<td scope="row"><a href="${path1 }/admin/boardRead.do?seq=${list.seq }">${list.btitle }</a></td>
 					<td scope="row">${list.uname }</td>
 					<td scope="row">${list.regdate }</td>
 					<td scope="row">${list.ck }</td>

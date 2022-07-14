@@ -12,9 +12,9 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
-	<div class="content">
-		<form method="post" action="${path1 }/board/update.do">
+	<c:import url="admin_header.jsp" />
+	<div id="content">
+		<form method="post" action="${path1 }/admin/boardUpdate.do">
 			<table class="table">
 				<tr>
 					<th>글번호</th>
@@ -43,8 +43,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="수정" />
-						<input type="reset" value="취소" />
+						<input type="submit" value="수정" class="btn btn-primary"/>
+						<input type="reset" value="취소" class="btn btn-primary"/>
 					</td>	
 				</tr>
 			</table>

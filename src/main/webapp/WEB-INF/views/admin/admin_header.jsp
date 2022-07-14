@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
-    	#content { clear:both; width :1200px; margin: 0 auto; height: 1200px;}
+    	#content { clear:both; width :1200px; margin: 0 auto; height: auto; margin-top: 80px; margin-bottom: 80px;}
     </style>
 </head>
 <body>
@@ -146,7 +146,7 @@
                 .wrapper nav>ul>li>ul>li>a {
                     display: block;
                     padding: 15px;
-                    font-size: 15px;
+                    font-size: 13px;
                 }
 
                 .wrapper nav>ul>li:last-child>a {
@@ -168,13 +168,15 @@
                 .items {
                 	font-size: 10px;
                 }
+                
+                nav>ul>li>span {
+                	font-size: 13px;
+                	display: inline-block;
+    				padding: 10px 15px;
+                }
             </style>
             <div class="wrapper">
                 <div class="right">
-                	<c:if test="${sid=='admin' }">
-						<a href="${path }/admin/memberList.do" class="item">회원목록</a>
-						<a href="${path }/sales/list.do" class="item">주문목록</a>
-					</c:if>
                 	<c:if test="${empty sid }">
 						<a href="${path }/member/loginForm.do" class="item point">로그인</a>
 						<a href="${path }/member/agree.do" class="item">회원가입</a>
@@ -183,23 +185,36 @@
 						<h1 class="item point">${sid }님</h1>
 						<a href="${path }/member/logout.do" class="item">로그아웃</a>
 					</c:if>	
-					 <c:if test="${sid=='admin' }">
+				<c:if test="${sid=='admin' }">
                 <nav>
                 	<ul>
                 		<li>
-                			<a>상품관리</a>
+                			<span>상품관리</span>
                 			<ul class="sub">
-                				<li><a href="${path }/goods/list.do" class="items">상품목록</a></li>
-                				<li><a href="${path }/goods/goodsAddForm.do" class="items">상품추가</a></li>
+                				<li><a href="${path }/admin/goodsList.do" class="items">상품목록</a></li>
+                				<li><a href="${path }/admin/goodsAddForm.do" class="">상품추가</a></li>
                 			</ul>
        					</li>
        					<li>
-                			<a>공지관리</a>
+                			<span>게시판관리</span>
                 			<ul class="sub">
-                				<li><a href="${path }/" class="">공지수정</a></li>
-                				<li><a href="${path }/" class="">공지추가</a></li>
+                				<li><a href="${path }/admin/boardList.do" class="items">게시판목록</a></li>
+                				<li><a href="${path }/admin/write_from.do" class="items">게시판추가</a></li>
                 			</ul>
-                		</li>	
+                		</li>
+                		<li>
+                			<span>공지관리</span>
+                			<ul class="sub">
+                				<li><a href="${path }/admin/noticePageList.do?curPage=1" class="items">공지사항목록</a></li>
+                				<li><a href="${path }/admin/addSmartNoticeForm.do" class="items">공지사항추가</a></li>
+                			</ul>
+                		</li>
+                		<li>
+                			<a href="${path }/admin/memberList.do">회원목록</a>
+                		</li>
+                		<li>	
+                			<a href="${path }/admin/salesList.do" >주문목록</a>
+                		</li>
                 	</ul>
                 </nav>	
                 </c:if>
@@ -209,10 +224,9 @@
         <header nid="header1" class="header1">
             <style>
                 .header1 {
-                    position: relative;
+                     position: relative;
                     padding: 25px 0;
                     border-bottom: 1px solid #ddd;
-                    margin-bottom: 30px;
                 }
 
                 .header1 .wrapper:after {

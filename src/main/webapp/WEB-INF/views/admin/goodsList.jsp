@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrap">
-	<%@include file="../inc/header.jsp" %>
+	<%@include file="admin_header.jsp" %>
 	<div id="content">
 		<table class="table">
 			<thead>
@@ -28,12 +28,19 @@
 				<c:forEach items="${goodsList }" var="glist">
 				<tr>
 					<td>${glist.gno }</td>
-					<td><a href="${path1 }/goods/detail.do?gno=${glist.gno }">${glist.gname }</a></td>
+					<td><a href="${path1 }/admin/goodsDetail.do?gno=${glist.gno }">${glist.gname }</a></td>
 					<td>${glist.gcolor }</td>
 					<td><img src="${path1 }/resources/upload/${glist.gimg1 } " style="width: 100px; height: 150px;"/></td>
 					<td><fmt:formatNumber value="${glist.price }" type="number" /></td>
 				</tr>	
 				</c:forEach>
+				<c:if test="${sid=='admin' }">
+				<tr>
+					<td>
+						<a href="${path1 }/admin/goodsAddForm.do" class="btn btn-primary">상품 추가</a>
+					</td>
+				</tr>
+				</c:if>
 			</tbody>
 		</table>
 	</div>
