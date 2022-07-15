@@ -25,7 +25,7 @@
 					<td><input type="text" name="gname" value="${goods.gname }"/></td>
 				</tr>
 				<tr>
-					<th><label for="gtype">상품타입</label></th>
+					<th><label for="gtype">서브메뉴</label></th>
 					<td>
 					<select name="gtype" id="gtype">
 						<option value="">타입을 선택하세요.</option>
@@ -37,11 +37,11 @@
 				</tr>
 				<tr>
 					<th><label for="gshape">프레임모양</label></th>
-					<td><input type="text" name="gshape" value="${goods.gshape }"/></td>
+					<td><input type="text" name="gshape" value="${goods.gshape }" required /></td>
 				</tr>
 				<tr>
 					<th><label for="gcolor">컬러</label></th>
-					<td><input type="text" name="gcolor" value="${goods.gcolor }"/></td>
+					<td><input type="text" name="gcolor" value="${goods.gcolor }" required/></td>
 				</tr>
 				<!-- 
 				<tr>
@@ -56,8 +56,8 @@
 				<tr>
 					<th><label for="gimg1">메인 사진</label></th>
 					<td>
-					<input type="file" name="gimg1" id="gimg1" >
-					<input type="hidden" name="gimg1" value="${goods.gimg1 }" required/>
+					<input type="file" name="gimg1" id="gimg1"  >
+					<input type="hidden" name="gimg1" value="${goods.gimg1 }" />
 					</td>
 				<tr>
 				<tr>

@@ -18,6 +18,10 @@
 	<div id="content">
 		<h2 class="tit">게시판 목록</h2>
 		<br>
+		<div>
+			<a href="${path1 }/admin/write_from.do" class="btn btn-primary">글 추가</a>
+		</div>
+		<br>
 		<table class="table" id="boardTable">
 			<thead>
 				<tr>

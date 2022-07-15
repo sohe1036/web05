@@ -9,13 +9,47 @@
 <meta charset="UTF-8">
 <title>주문 폼</title>
 <c:import url="../inc/head.jsp" />
+<style>
+	.salesBox {width: 100%; height: 1000px;}
+	.inner {width: 900px; margin: 0 auto; height: 100%;}
+	.salesBox li {padding-bottom: 20px;}
+</style>
 </head>
 <body>
 <div class="wrap">
 <c:import url="../inc/header.jsp" />
 	<div id="content">
 		<form method="post" action="${path1 }/sales/insert.do" name="" onsubmit="return salesForm(this)">
-			<table class="table">
+			<div class="salesBox">
+				<div class="inner">
+					<ul style="float: left;">
+						<li>
+							<img src="${path1 }/resources/upload/${goods.gimg1 } " style="width: 300px; height: 350px;"/>
+						</li>
+					</ul>
+					<ul style="float: right; padding-right: 50px;">	
+						<li>
+						<span style="font-size: 25px;">${goods.gname }</span>
+						<input type="hidden" name="gname" id="gname" value="${goods.gname }"/>
+						<input type="hidden" name="gno" id="gno" value="${goods.gno }" />
+						<input type="hidden" name="money" id="money" value="${goods.price * goods.pieces}" />
+						<input type="hidden" name="pieces" id="pieces" value="${goods.pieces }" />
+						<input type="hidden" name="uid" id="uid" value="${sid }" />
+						</li>
+						<li>
+							<span>수량 : </span>
+							${goods.pieces }
+						</li>
+						<li>
+							<span>총 금액 : </span>
+							${goods.price * goods.pieces }원
+						</li>
+						<li>
+							<span>수취인명 : </span>
+							<input type="text" name="rname" id="rname" required />
+						</li>
+						<!-- 
+						<table class="table">
 				<tr>
 					<th><label for="gname">상품명</label></th>
 					<td>
@@ -93,6 +127,10 @@
 					</td>	
 				</tr>
 			</table>
+						 -->
+					</ul>
+				</div>
+			</div>
 		</form>	
 <script>
 	function findAddr(){

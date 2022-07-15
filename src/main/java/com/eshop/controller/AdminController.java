@@ -58,12 +58,12 @@ public class AdminController {
 	private String uploadPath;
 	
     @RequestMapping(value="/", method = RequestMethod.GET)
-    public String AdminRoot() {
+    public String adminRoot() {
         return "admin/admin";
     }
 	
     @RequestMapping(value="admin.do", method = RequestMethod.GET)
-    public String Admin() {
+    public String admin() {
         return "admin/admin";
     }
     /*회원*/
@@ -96,6 +96,22 @@ public class AdminController {
 		SalesDTO sales = salesService.salesDetail(ono);
 		model.addAttribute("sales", sales);
 		return "admin/salesDetail";
+	}
+	
+	
+	//운송정보 입력폼
+	@RequestMapping(value="rstate.do")
+	public String rstateForm(@RequestParam("ono") int ono, Model model) throws Exception {
+		SalesDTO sales = salesService.salesDetail(ono);
+		model.addAttribute("sales", sales);
+		return "admin/rstateForm";
+	}
+	
+	//배송처리 ->운송장 입력
+	@RequestMapping(value="addShipping.do" , method = RequestMethod.POST)
+	public String addShipping(SalesDTO sdto, Model model) throws Exception {
+		salesService.addShipping(sdto);
+		return "redirect:salesDetail.do?ono="+sdto.getOno();
 	}
 	/*상품*/
 	//상품목록
@@ -181,7 +197,25 @@ public class AdminController {
 		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
 		
 		goodsService.goodsUpdate(gdto);
-	}else if(!gimg1.isEmpty()) {
+	}else if(gimg1.isEmpty()) {
+		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
+		String fileName2 = gimg2.getOriginalFilename();
+		File saveFile2 = new File(uploadFolder, fileName2);
+		gimg2.transferTo(saveFile2);
+		GoodsDTO gdto = new GoodsDTO();
+		gdto.setGno(Integer.parseInt(request.getParameter("gno")));
+		gdto.setGname(request.getParameter("gname"));
+		gdto.setGtype(request.getParameter("gtype"));
+		gdto.setGshape(request.getParameter("gshape"));
+		gdto.setGcolor(request.getParameter("gcolor"));
+		gdto.setGimg1(request.getParameter("gimg1"));
+		gdto.setGimg2(fileName2);
+		gdto.setGinfo(request.getParameter("ginfo"));
+		gdto.setPrice(request.getParameter("price"));
+		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
+
+		goodsService.goodsUpdate(gdto);
+	}else if(gimg2.isEmpty()) {
 		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
 		String fileName = gimg1.getOriginalFilename();
 		File saveFile = new File(uploadFolder, fileName);
@@ -193,6 +227,7 @@ public class AdminController {
 		gdto.setGshape(request.getParameter("gshape"));
 		gdto.setGcolor(request.getParameter("gcolor"));
 		gdto.setGimg1(fileName);
+		gdto.setGimg2(request.getParameter("gimg2"));
 		gdto.setGinfo(request.getParameter("ginfo"));
 		gdto.setPrice(request.getParameter("price"));
 		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
@@ -220,6 +255,7 @@ public class AdminController {
 		model.addAttribute("goods", goods);
 		return "admin/goodsEdit";
 	}
+	
 	
 	//상품 삭제
 	@RequestMapping(value="goodsDelete.do", method = RequestMethod.GET)
@@ -344,5 +380,6 @@ public class AdminController {
 		noticeService.noticeDelete(seq);
 		return "redirect:/admin/noticePageList.do?curPage="+1;
 	}
+
 	
 }

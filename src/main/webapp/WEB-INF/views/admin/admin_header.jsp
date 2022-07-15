@@ -435,8 +435,8 @@
                         <li>
                             <a href="${path }/goods/typeList.do?gtype=선글라스">선글라스</a>
                             <ul>
-                                <li><a>클래식 디자인</a></li>
-                                <li><a>틴트 렌즈</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=선글라스&&gshape=클래식">클래식 디자인</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=선글라스&&gshape=틴트">틴트 렌즈</a></li>
                                 <li><a href="${path }/goods/shapeList.do?gtype=선글라스&&gshape=사각">사각 프레임</a></li>
                                 <li><a href="${path }/goods/shapeList.do?gtype=선글라스&&gshape=캣아이">캣아이 프레임</a></li>
                             </ul>
@@ -444,20 +444,20 @@
                         <li>
                             <a href="${path }/goods/typeList.do?gtype=안경">안경</a>
                             <ul>
-                                <li><a>틴트 렌즈</a></li>
-                                <li><a>블루라이트 차단</a></li>
-                                <li><a>클래식디자인</a></li>
-                                <li><a>사각 프레임</a></li>
-                                <li><a>원형 프레임</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=안경&&gshape=틴트">틴트 렌즈</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=안경&&gshape=블루라이트">블루라이트 차단</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=안경&&gshape=클래식">클래식디자인</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=안경&&gshape=사각">사각 프레임</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=안경&&gshape=원형">원형 프레임</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="${path }/goods/typeList.do?gtype=콜라보레이션">콜라보레이션</a>
                             <ul>
-                                <li><a>몽클레르</a></li>
-                                <li><a>HBA</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=콜라보레이션&&gshape=몽클레르">몽클레르</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=콜라보레이션&&gshape=HBA">HBA</a></li>
                                 <li><a href="${path }/goods/shapeList.do?gtype=콜라보레이션&&gshape=젠틀가든">젠틀가든</a></li>
-                                <li><a>코페르니</a></li>
+                                <li><a href="${path }/goods/shapeList.do?gtype=콜라보레이션&&gshape=코페르니">코페르니</a></li>
                             </ul>
                         </li>
                         <li>

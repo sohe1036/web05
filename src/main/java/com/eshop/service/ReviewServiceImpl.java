@@ -44,10 +44,4 @@ public class ReviewServiceImpl implements ReviewService {
 		reviewDao.reviewDelete(uno);
 	}
 
-	@Override
-	public int reviewCheck(int ono) throws Exception {
-		return reviewDao.reviewCheck(ono);
-	}
-	
-	
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrap">
-<c:import url="admin_header.jsp" />
+<c:import url="../inc/header.jsp" />
 	<div id="content">
 		<table class="table">
 			<thead>
@@ -44,8 +44,13 @@
 						<c:if test="${empty list.transco }">
 						<span>상품준비중</span>
 						</c:if>
-						<c:if test="${list.rstate =='배송완료'}">
+					</td>
+					<td scope="row">
+						<c:if test="${list.rstate =='배송완료'&& list.review==0}">
 							<a href="${path1 }/review/reviewForm.do?gno=${list.gno}&uid=${list.uid }&gname=${list.gname }&ono=${list.ono}" class="btn btn-primary">리뷰작성</a>
+						</c:if>
+						<c:if test="${list.rstate =='배송완료'&& list.review==1}">
+							<span>리뷰작성 완료</span>
 						</c:if>
 					</td>
 				</tr>	

@@ -9,40 +9,33 @@
 <meta charset="UTF-8">
 <title>글 상세보기 </title>
 <c:import url="../inc/head.jsp" />
+<style>
+	.boardBox li {margin-bottom: 40px;}
+	.inner {width: 900px; margin: 0 auto;}
+</style>
 </head>
 <body>
 <div class="wrap">
 	<c:import url="admin_header.jsp" />
 	<div id="content">
-		<table class="table">
-			<tr>
-				<th>글번호</th>
-				<td>${board.seq }</td>
-			</tr>
-			<tr>
-				<th>글 제목</th>
-				<td>${board.btitle }</td>
-			</tr>
-			<tr>
-				<th>글 내용</th>
-				<td>${board.bcontent }</td>
-			</tr>
-			<tr>
-				<th>작성자</th>
-				<td>${board.uname }</td>
-			</tr>
-			<tr>
-				<th>작성일</th>
-				<td>${board.regdate }</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-				<a href="${path1 }/admin/boardList.do" class="btn btn-primary">목록</a>
-				<a href="${path1 }/admin/boardEdit.do?seq=${board.seq }" class="btn btn-primary">수정하기</a>
-				<a href="${path1 }/admin/boardDelete.do?seq=${board.seq }" class="btn btn-primary">삭제하기</a>
-				</td>
-			</tr>
-		</table>
+		<div class="boardBox">
+			<div class="inner">
+				<ul>
+					<li style="font-size: 35px; font-weight: bold; text-align: center;">${board.btitle }</li>
+					<li style="text-align: right;">
+						<span>${board.regdate }</span>
+						<span>/</span>
+						<span> ${board.uname }</span>
+					</li>
+					<li><span>${board.bcontent }</span></li>
+				</ul>
+				<div class="button">
+					<a href="${path1 }/admin/boardList.do" class="btn btn-primary">목록</a>
+					<a href="${path1 }/admin/boardEdit.do?seq=${board.seq }" class="btn btn-primary">수정하기</a>
+					<a href="${path1 }/admin/boardDelete.do?seq=${board.seq }" class="btn btn-primary">삭제하기</a>
+				</div>
+			</div>	
+		</div>
 	</div>
 	<c:import url="../inc/footer.jsp" />
 </div>

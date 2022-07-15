@@ -55,7 +55,7 @@ public class SalesController {
 		model.addAttribute("sales", sales);
 		return "sales/salesUpdateForm";
 	}
-		
+		/*
 	//운송정보 입력폼
 	@RequestMapping(value="rstate.do")
 	public String rstateForm(@RequestParam("ono") int ono, Model model) throws Exception {
@@ -63,7 +63,7 @@ public class SalesController {
 		model.addAttribute("sales", sales);
 		return "sales/rstateForm";
 	}
-	
+	*/
 	//결제 폼
 	@RequestMapping(value="salesForm.do")
 	public String salesForm(GoodsDTO gdto,Model model) throws Exception{
@@ -83,14 +83,14 @@ public class SalesController {
 			salesService.salesInsert(sdto);
 			return "redirect:idList.do?uid="+sdto.getUid();
 		}
-	
+	/*
 	//배송처리 ->운송장 입력
 	@RequestMapping(value="addShipping.do" , method = RequestMethod.POST)
 	public String addShipping(SalesDTO sdto, Model model) throws Exception {
 		salesService.addShipping(sdto);
 		return "redirect:detail.do?ono="+sdto.getOno();
 	}
-	
+	*/
 	
 	//주문수정-주소, 수취인명 수정
 	@RequestMapping(value="update.do", method = RequestMethod.POST)

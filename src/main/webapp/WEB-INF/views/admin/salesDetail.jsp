@@ -85,7 +85,7 @@
 						<span>등록된 운송장번호가 없습니다.</span>
 						</c:if>
 						<c:if test="${sid=='admin' }">
-						<a href="${path1 }/sales/rstate.do?ono=${sales.ono}" class="btn btn-primary">운송장 입력</a>
+						<a href="${path1 }/admin/rstate.do?ono=${sales.ono}" class="btn btn-primary">운송장 입력</a>
 					</c:if>
 					</td>					
 				</tr>
@@ -120,6 +120,7 @@
 						<c:if test="${!empty sales.transco }">
 							<span>배송이 시작되어 취소 및 수정이 불가능합니다.</span>
 						</c:if>
+							<a href="">목록</a>
 					</td>
 				</tr>
 			</tbody>	

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.eshop.dto.MemberDTO;
 
+import lombok.extern.log4j.Log4j;
+@Log4j
 @Repository
 public class DAOTest2 {
 
@@ -17,7 +19,7 @@ public class DAOTest2 {
 	
 	@Test
 	public void test() {
-		System.out.println("DAO Test~!");
+		log.info("DAO Test~!");
 	}
 
 	public List<MemberDTO> sampleList(){

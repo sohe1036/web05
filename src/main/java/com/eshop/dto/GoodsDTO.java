@@ -12,6 +12,7 @@ public class GoodsDTO {
 	private String ginfo;
 	private String price;
 	private int pieces;
+	
 	public int getGno() {
 		return gno;
 	}

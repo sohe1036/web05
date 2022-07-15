@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.eshop.dto.MemberDTO;
 
+import lombok.extern.log4j.Log4j;
+
 @Service
+@Log4j
 public class ServiceTest2 {
 
 	@Autowired
@@ -16,7 +19,7 @@ public class ServiceTest2 {
 	
 	@Test
 	public void test() {
-		System.out.println("Service Test~!");
+		log.info("Service Test~!");
 	}
 	
 	public List<MemberDTO> sampleList(){

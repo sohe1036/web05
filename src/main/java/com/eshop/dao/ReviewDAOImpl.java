@@ -33,24 +33,21 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public void reviewInsert(ReviewDTO rdto) throws Exception {
-		sqlSession.insert("review.reviewInsert", rdto);
-	}
-
-	@Override
 	public void reviewUpdate(ReviewDTO rdto) throws Exception {
 		sqlSession.update("review.reviewUpdate", rdto);
+	}
+	
+	//리뷰 작성시 sales테이블의 review를 +1
+	@Override
+	@Transactional
+	public void reviewInsert(ReviewDTO rdto) throws Exception {
+		sqlSession.update("review.reviewCk", rdto);
+		sqlSession.insert("review.reviewInsert", rdto);
 	}
 
 	@Override
 	public void reviewDelete(int uno) throws Exception {
 		sqlSession.delete("review.reviewDelete", uno);
 	}
-
-	@Override
-	public int reviewCheck(int ono) throws Exception {
-		return sqlSession.selectOne("review.reviewCheck", ono);
-	}
-	
-	
+		
 }

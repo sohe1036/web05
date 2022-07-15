@@ -102,8 +102,7 @@ public class MemberController {
 		mdto.setUpw(epw);		//인코딩한 epw를 다시 DTO의 u_pw에 세팅		
 		memberService.memberInsert(mdto);
 		return "redirect:loginForm.do";
-	}
-	
+	}	
 	//아이디 체크
 	@RequestMapping (value="idCheck.do", method = RequestMethod.GET)
 	public String idCheck(@RequestParam String uid, Model model, RedirectAttributes rttr) throws Exception {
@@ -121,13 +120,11 @@ public class MemberController {
 		}
 		return "member/join";
 	}
-	
 	//로그인폼
 	@RequestMapping("loginForm.do")
 	public String memberLoginForm(Model model) throws Exception {
 		return "member/loginForm";
 	}
-	
 	//로그인
 	@RequestMapping(value="login.do", method = RequestMethod.POST)
 	public String memberLogin(@RequestParam String uid, @RequestParam String upw, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
@@ -146,13 +143,10 @@ public class MemberController {
 			return "redirect:loginForm.do";
 		}
 	}
-	
 	//로그아웃
 	@RequestMapping("logout.do")
 	public String memberLogout(HttpSession session) throws Exception {
 		session.invalidate();
 		return "redirect:/";
 	}
-	
-	
 }

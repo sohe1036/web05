@@ -24,7 +24,5 @@ public interface ReviewDAO {
 	//리뷰삭제
 	public void reviewDelete(int uno) throws Exception;
 	
-	//리뷰 중복체크
-	public int reviewCheck(int ono) throws Exception;
 	
 }

@@ -12,10 +12,10 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
+	<c:import url="admin_header.jsp" />
 	<div id="content">
 		<h3>운송장 수정</h3>
-		<form action="${path1 }/sales/addShipping.do" method="post">
+		<form action="${path1 }/admin/addShipping.do" method="post">
 			<table class="table">
 				<tbody>
 					<tr>

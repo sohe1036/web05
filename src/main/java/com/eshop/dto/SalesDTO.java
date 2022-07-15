@@ -22,7 +22,7 @@ public class SalesDTO {
 	public String rdate;
 	public String memo;
 	public String gname;
-	
+	public int review;	
 	
 	public String getGname() {
 		return gname;
@@ -139,7 +139,12 @@ public class SalesDTO {
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
-	
-	
+	public int getReview() {
+		return review;
+	}
+	public void setReview(int review) {
+		this.review = review;
+	}
+		
 }
 

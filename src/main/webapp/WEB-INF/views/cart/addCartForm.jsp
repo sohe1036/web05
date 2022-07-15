@@ -45,12 +45,18 @@
 	</form>
 <script>
 	function addSubmit(){
+		if(document.getElementById("pieces").value > ${pieces}){
+				alert("재고가 부족합니다. 남은 수량은 "+${pieces}+"입니다." );
+				return false;
+			} else {
+				
 				window.opener.name = "parentPage";
 				document.cartForm.target = "parentPage";
 				document.cartForm.action = "${path1 }/cart/insert.do?uid=${sid}";
 				document.cartForm.submit();
 				self.close();
-			} 
+			}
+		} 
 </script>
 </body>
 </html>

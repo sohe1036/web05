@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.eshop.dto.MemberDTO;
 
+import lombok.extern.log4j.Log4j;
+
 @Controller
+@Log4j
 public class ControllerTest2 {
 
 	@Autowired
@@ -19,7 +22,7 @@ public class ControllerTest2 {
 		
 	@Test
 	public void test() {
-		System.out.println("Controller Test~!");
+		log.info("Controller Test~!");
 	}
 	
 	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
