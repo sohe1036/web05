@@ -2,12 +2,15 @@ package com.eshop.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.eshop.dto.CartDTO;
 import com.eshop.service.CartService;
@@ -59,11 +62,16 @@ public class CartController {
 	
 	//장바구니 추가
 	@RequestMapping(value="insert.do", method= RequestMethod.POST)
-	public String cartInsert(@RequestParam("uid") String uid,CartDTO cdto, Model model) throws Exception {
-		cartService.cartInsert(cdto);
+	public String cartInsert(@RequestParam("uid") String uid,CartDTO cdto, Model model,RedirectAttributes redirect) throws Exception {
+		int cnt = cartService.cartCheck(cdto);
+		if(cnt==0) {
+			cartService.cartInsert(cdto);
+		} else {
+			redirect.addFlashAttribute("msg", "이미 장바구니에 담긴 상품입니다.");
+		}
 		return "redirect:list.do?uid="+cdto.getUid();
 	}
-	
+	/*
 	//장바구니 체크
 	@RequestMapping(value="check.do" , method= RequestMethod.GET)
 	public String cartCheck(@RequestParam int gno,@RequestParam String uid,CartDTO cdto,Model model) throws Exception {
@@ -78,7 +86,7 @@ public class CartController {
 		}
 		return "cart/addCartForm";
 	}
-	
+	*/
 	//장바구니 수정
 	@RequestMapping(value="update.do" ,method = RequestMethod.POST)
 	public String cartUpdate (CartDTO cdto, Model model) throws Exception {

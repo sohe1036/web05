@@ -51,10 +51,16 @@
 		</table>
 	</div>
 	<script>
-			$(function(){
-				$("#cartTable").DataTable();
-			});
-			</script>
+		$(function(){
+			$("#cartTable").DataTable();
+		});
+		
+	</script>
+	<script>
+		if("${msg}"!=null){
+			alert("${msg}");	
+		}
+	</script>
 	<%@include file="../inc/footer.jsp" %>
 </div>	
 </body>

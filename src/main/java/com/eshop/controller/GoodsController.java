@@ -39,7 +39,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/goods/*")
 @Log4j
 public class GoodsController {
-	private static final Logger logger = LoggerFactory.getLogger(GoodsController.class);
+
 
 	@Autowired
 	GoodsService goodsService;
@@ -50,12 +50,6 @@ public class GoodsController {
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 	
-	/*@RequestMapping("실행경로")
-	public String boardList(Model model) throws Exception {
-		List<BoardDTO> boardList = boardService.boardList(); 리턴타입 변수명 = 서비스.메서드()
-		model.addAttribute("boardList", boardList);
-		return "리턴경로";
-	}*/
 	
 	@RequestMapping("list.do")
 	public String goodsList( Model model) throws Exception {

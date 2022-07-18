@@ -103,7 +103,7 @@ public class NoticeController {
 				           
 				            //String uploadPath = req.getSession().getServletContext().getRealPath("/views/upload"); //저장경로
 				            String uploadPath = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\WEB-INF\\views\\upload";
-				            System.out.println("uploadPath:"+uploadPath);
+				           // System.out.println("uploadPath:"+uploadPath);
 
 				            File uploadFile = new File(uploadPath);
 				            if(!uploadFile.exists()) {
@@ -118,13 +118,13 @@ public class NoticeController {
 				            printWriter = resp.getWriter();
 				            //String fileUrl = "/views/upload/"+fileName2+fileName;
 				            String fileUrl = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\WEB-INF\\views\\upload"+fileName2+fileName; //url경로
-				            System.out.println("fileUrl :" + fileUrl);
+				           // System.out.println("fileUrl :" + fileUrl);
 				            JsonObject json = new JsonObject();
 				            json.addProperty("uploaded", 1);
 				            json.addProperty("fileName", fileName);
 				            json.addProperty("url", fileUrl);
 				            printWriter.print(json);
-				            System.out.println(json);
+				           // System.out.println(json);
 				 
 				        }catch(IOException e){
 				            e.printStackTrace();

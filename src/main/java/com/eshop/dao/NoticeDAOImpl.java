@@ -23,8 +23,7 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public List<NoticeDTO> noticePageList(PageMaker page) throws Exception {
-		System.out.println("페이지 시작 글 : "+page.getStartPost());
-		System.out.println("한 페이지 글 개수 : "+page.getBnum());
+	
 		return sqlSession.selectList("notice.noticePageList", page);
 	}
 	//상세페이지 select하면서 count+1 트렌젝션

@@ -29,7 +29,7 @@
 				</tr>
 				<tr>
 					<th>수량</th>
-					<td><input type="number" name="amount" id="pieces" min="1" max="${pieces }" required/></td>
+					<td><input type="number" name="amount" id="pieces" value="" min="1" max="${pieces }" required/></td>
 				</tr>	
 				<tr>
 					<th>가격</th>
@@ -43,20 +43,28 @@
 			</tbody>
 		</table>
 	</form>
+		<script>
+		if("${msg}"!=null){
+			alert("${msg}");	
+		}
+	</script>
 <script>
 	function addSubmit(){
-		if(document.getElementById("pieces").value > ${pieces}){
-				alert("재고가 부족합니다. 남은 수량은 "+${pieces}+"입니다." );
-				return false;
-			} else {
-				
+		if(document.getElementById("pieces").value == "" ||document.getElementById("pieces").value==null){
+			alert("수량을 입력해주세요.");
+			return false;
+		}
+		if(document.getElementById("pieces").value > ${pieces }){
+			alert("재고가 부족합니다. 남은 수량은 "+${pieces }+"입니다." );
+			return false;
+			} else {	
 				window.opener.name = "parentPage";
 				document.cartForm.target = "parentPage";
 				document.cartForm.action = "${path1 }/cart/insert.do?uid=${sid}";
 				document.cartForm.submit();
 				self.close();
 			}
-		} 
+	} 
 </script>
 </body>
 </html>
