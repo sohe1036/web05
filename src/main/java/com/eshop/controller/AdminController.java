@@ -21,11 +21,13 @@ import com.eshop.dto.BoardDTO;
 import com.eshop.dto.GoodsDTO;
 import com.eshop.dto.MemberDTO;
 import com.eshop.dto.NoticeDTO;
+import com.eshop.dto.ReviewDTO;
 import com.eshop.dto.SalesDTO;
 import com.eshop.service.BoardService;
 import com.eshop.service.GoodsService;
 import com.eshop.service.MemberService;
 import com.eshop.service.NoticeService;
+import com.eshop.service.ReviewService;
 import com.eshop.service.SalesService;
 import com.eshop.util.PageMaker;
 
@@ -47,6 +49,9 @@ public class AdminController {
 	
 	@Autowired
 	NoticeService noticeService;
+	
+	@Autowired
+	ReviewService reviewService;
 	
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
@@ -380,6 +385,55 @@ public class AdminController {
 		noticeService.noticeDelete(seq);
 		return "redirect:/admin/noticePageList.do?curPage="+1;
 	}
+	
+	/*리뷰*/
+	//전체 리뷰 보기
+	@RequestMapping("reviewAllList.do")
+	public String reviewAllList (Model model) throws Exception {
+		List<ReviewDTO> reviewAllList = reviewService.reviewAllList();
+		model.addAttribute("reviewAllList", reviewAllList);
+		return "admin/reviewAllList";
+	}
 
+	
+	/*답글*/
+	/*
+	//답글 보기
+	@RequestMapping(value="replyRead.do" ,method = RequestMethod.GET)
+	public String replyRead(ReviewDTO rdto, Model model) throws Exception {
+		ReviewDTO reply = reviewService.replyRead(rdto);
+		model.addAttribute("reply", reply);
+		return"review/reviewRead";
+	}
+	*/
+	//답글 추가
+	@RequestMapping(value="replyAdd.do",method = RequestMethod.POST )
+	public String replyAdd(ReviewDTO rdto, Model model) throws Exception {
+		reviewService.replyAdd(rdto);
+		return"redirect:reviewAllList.do";
+	}
+	
+	//답글 폼
+	@RequestMapping(value="replyForm.do",method = RequestMethod.GET)
+	public String replyForm (ReviewDTO rdto,Model model) throws Exception {
+		ReviewDTO review = reviewService.reviewRead(rdto);
+		model.addAttribute("review", review);
+		return "admin/replyForm";
+	}
+	
+	//답글수정
+	@RequestMapping(value="replyUpdate.do",method = RequestMethod.POST)
+	public String replyUpdate(ReviewDTO rdto, Model model) throws Exception {
+		reviewService.replyUpdate(rdto);
+		return"redirect:reviewAllList.do";
+	}
+	
+	//답글 수정폼
+	@RequestMapping(value="replyUpdateForm.do",method = RequestMethod.GET)
+	public String replyUpdateForm (ReviewDTO rdto,Model model) throws Exception {
+		ReviewDTO review = reviewService.reviewRead(rdto);
+		model.addAttribute("review", review);
+		return "admin/replyUpdateForm";
+	}
 	
 }

@@ -56,11 +56,13 @@
 		});
 		
 	</script>
+	<!-- 
 	<script>
 		if("${msg}"!=null){
 			alert("${msg}");	
 		}
 	</script>
+	 -->
 	<%@include file="../inc/footer.jsp" %>
 </div>	
 </body>

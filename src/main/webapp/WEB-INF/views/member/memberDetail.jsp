@@ -17,31 +17,42 @@
 		<table class="table">
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="uid" value="${member.uid }" /> </td>
-			</tr>
-			<tr>
-				<th>비밀번호</th>
-				<td><input type="password" name="upw" value="${member.upw }"></td>
+				<td>
+				<span>${member.uid }</span>
+				<input type="hidden" name="uid" value="${member.uid }" />
+				</td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="uname" value="${member.uname }"></td>
+				<td>
+				<span>${member.uname }</span>
+				<input type="hidden" name="uname" value="${member.uname }">
+				</td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td> <input type="tel" name="tel" value="${member.tel }"></td>
+				<td> 
+				<span>${member.tel }</span>
+				<input type="hidden" name="tel" value="${member.tel }">
+				</td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="email" name="email" value="${member.email }"></td>
+				<td>
+				<span>${member.email }</span>
+				<input type="hidden" name="email" value="${member.email }">
+				</td>
 			</tr>
 			<tr>
 				<th>생년월일</th>
-				<td><input type="text" name="birth" value=" ${member.birth }"></td>
+				<td>
+				<span>${member.birth }</span>
+				<input type="hidden" name="birth" value=" ${member.birth }">
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<a href="${path1 }/member/update.do" class="btn btn-primary">수정하기</a>
+				<a href="${path1 }/member/edit.do?uid=${sid }" class="btn btn-primary">수정하기</a>
 				<a href="${path1 }/member/delete.do?uid=${sid }" class="btn btn-primary">회원탈퇴</a>
 				</td>
 			</tr>

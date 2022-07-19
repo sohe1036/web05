@@ -26,4 +26,6 @@ public interface MemberService {
 		
 		//아이디 체크 ->중복값 int로 받아 아이디 비교니까 매개변수는 uid
 		public int idCheck(String uid) throws Exception;
+		
+		public boolean loginMemberTest(MemberDTO mdto) throws Exception;
 	}

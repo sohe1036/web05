@@ -21,6 +21,7 @@ public class ReviewController {
 	
 	@Autowired
 	ReviewService reviewService;
+
 	
 	//리뷰목록
 	@RequestMapping("list.do")

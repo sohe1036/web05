@@ -16,6 +16,11 @@ public class ReviewDAOImpl implements ReviewDAO {
 	SqlSession sqlSession;
 
 	@Override
+	public List<ReviewDTO> reviewAllList() throws Exception {
+		return sqlSession.selectList("review.reviewAllList");
+	}
+
+	@Override
 	public List<ReviewDTO> reviewList(int gno) throws Exception {
 		return sqlSession.selectList("review.reviewList", gno);
 	}
@@ -49,5 +54,20 @@ public class ReviewDAOImpl implements ReviewDAO {
 	public void reviewDelete(int uno) throws Exception {
 		sqlSession.delete("review.reviewDelete", uno);
 	}
-		
+
+	@Override
+	public ReviewDTO replyRead(ReviewDTO rdto) throws Exception {
+		return sqlSession.selectOne("review.replyRead", rdto);
+	}
+
+	@Override
+	public void replyAdd(ReviewDTO rdto) throws Exception {
+		sqlSession.insert("review.replyAdd", rdto);
+	}
+
+	@Override
+	public void replyUpdate(ReviewDTO rdto) throws Exception {
+		sqlSession.update("review.replyUpdate", rdto);
+	}
+	
 }

@@ -17,7 +17,7 @@
 			<h2>마이페이지</h2>
 			<div>
 				<ul>
-					<li><a href="${path1 }/member/detail.do?uid=${sid }">내 정보 수정</a></li>
+					<li><a href="${path1 }/member/detail.do?uid=${sid }">내 정보</a></li>
 					<li><a href="${path1 }/review/idList.do?uid=${sid }">작성한 리뷰</a></li>
 					<li><a href="${path1 }/sales/idList.do?uid=${sid }">주문내역</a></li>
 				</ul>

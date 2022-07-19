@@ -66,10 +66,9 @@ public class CartController {
 		int cnt = cartService.cartCheck(cdto);
 		if(cnt==0) {
 			cartService.cartInsert(cdto);
-		} else {
-			redirect.addFlashAttribute("msg", "이미 장바구니에 담긴 상품입니다.");
-		}
+		} 
 		return "redirect:list.do?uid="+cdto.getUid();
+		
 	}
 	/*
 	//장바구니 체크

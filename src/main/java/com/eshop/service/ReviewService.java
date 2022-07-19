@@ -6,7 +6,10 @@ import com.eshop.dto.ReviewDTO;
 
 public interface ReviewService {
 
-	//리뷰 목록
+	//전체리뷰목록
+	public List<ReviewDTO> reviewAllList() throws Exception;
+	
+	//상품별 리뷰 목록
 	public List<ReviewDTO> reviewList(int gno) throws Exception;
 	
 	//아이디별 목록
@@ -23,5 +26,14 @@ public interface ReviewService {
 	
 	//리뷰삭제
 	public void reviewDelete(int uno) throws Exception;
+	
+	//답글보기
+	public ReviewDTO replyRead(ReviewDTO rdto) throws Exception;
+	
+	//답글쓰기
+	public void replyAdd(ReviewDTO rdto) throws Exception;
+	
+	//답글 수정
+	public void replyUpdate(ReviewDTO rdto) throws Exception;
 }
 

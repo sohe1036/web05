@@ -52,9 +52,40 @@
 					</td>
 				</tr>
 				</c:if>
+				<c:if test="${sid=='admin' }">
+				<tr>
+					<td colspan="2">
+						<a href="${path1 }/admin/replyForm.do?uno=${review.uno}" class="btn btn-primary">답글달기</a>
+					</td>
+				</tr>
+				</c:if>
 			</tbody>
 		</table>
-		
+		<c:if test="${!empty review.reply }">
+		<div class="replytable">
+			<div class="inner">
+				<ul>
+					<li>
+						<b>관리자</b>
+						<span>${review.replydate }</span>
+					</li>
+					<li>
+						<p>${review.reply }</p>
+					</li>
+					<c:if test="${sid=='admin' }">
+					<li>
+						<button type="button" onclick="replyUpdata()" class="btn btn-primary">수정</button>
+					</li>
+					</c:if>
+				</ul>
+			</div>
+		</div>
+		</c:if>
+	<script>
+		function replyUpdata(){
+			window.open("${path1}/admin/replyUpdateForm.do?uno=${review.uno}","dataUpdate","width=500, height=400");
+		}
+	</script>	
 	</div>
 	<%@include file="../inc/footer.jsp" %>	
 </div>	

@@ -25,6 +25,9 @@
 						<input type="hidden" name="gimg1" value="${gimg1 }">
 						<input type="hidden" name="pieces" value="${pieces }">
 						<input type="hidden" name="price" value="${price }">
+						<c:if test="${!empty msg }">
+						<input type="hidden" name="msg" id="msg" value="${msg }">
+						</c:if>
 					</td>				
 				</tr>
 				<tr>
@@ -43,11 +46,7 @@
 			</tbody>
 		</table>
 	</form>
-		<script>
-		if("${msg}"!=null){
-			alert("${msg}");	
-		}
-	</script>
+	
 <script>
 	function addSubmit(){
 		if(document.getElementById("pieces").value == "" ||document.getElementById("pieces").value==null){

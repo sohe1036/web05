@@ -10,7 +10,10 @@ public class ReviewDTO {
 	public String regdate;
 	public int visited;
 	public int best;
-	public int ono;			//주분번호
+	public int ono;			//주문번호
+	public String reply;
+	public String replydate;
+	public int rno;
 	
 	public int getUno() {
 		return uno;
@@ -67,6 +70,23 @@ public class ReviewDTO {
 	public void setOno(int ono) {
 		this.ono = ono;
 	}
-	
-	
+	public String getReply() {
+		return reply;
+	}
+	public void setReply(String reply) {
+		this.reply = reply;
+	}
+	public String getReplydate() {
+		return replydate;
+	}
+	public void setReplydate(String replydate) {
+		this.replydate = replydate;
+	}
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+		
 }

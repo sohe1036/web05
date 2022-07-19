@@ -215,6 +215,9 @@
                 		<li>	
                 			<a href="${path }/admin/salesList.do" >주문목록</a>
                 		</li>
+                		<li>	
+                			<a href="${path }/admin/reviewAllList.do" >리뷰관리</a>
+                		</li>
                 	</ul>
                 </nav>	
                 </c:if>
