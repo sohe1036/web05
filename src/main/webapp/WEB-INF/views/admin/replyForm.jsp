@@ -26,13 +26,13 @@
 				</tr>
 			</tbody>
 		</table>
-		<form action="${path1 }/admin/replyAdd.do" method="post">
+		<form action="${path1 }/admin/replyInsert.do" method="post">
 			<table>
 				<tbody>
 					<tr>
 						<th>답변</th>
 						<td>
-							<textarea name="reply" id="reply" cols="50" rows="5"></textarea>
+							<textarea name="recontent" id="recontent" cols="50" rows="5"></textarea>
 							<input type="hidden" name="uno" value="${review.uno }"/>
 						</td>
 					</tr>

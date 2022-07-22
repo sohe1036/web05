@@ -51,23 +51,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public void reviewDelete(int uno) throws Exception {
-		sqlSession.delete("review.reviewDelete", uno);
+	public void reviewDelete(int seq) throws Exception {
+		sqlSession.delete("review.reviewDelete", seq);
 	}
-
-	@Override
-	public ReviewDTO replyRead(ReviewDTO rdto) throws Exception {
-		return sqlSession.selectOne("review.replyRead", rdto);
-	}
-
-	@Override
-	public void replyAdd(ReviewDTO rdto) throws Exception {
-		sqlSession.insert("review.replyAdd", rdto);
-	}
-
-	@Override
-	public void replyUpdate(ReviewDTO rdto) throws Exception {
-		sqlSession.update("review.replyUpdate", rdto);
-	}
-	
 }

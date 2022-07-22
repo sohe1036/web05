@@ -45,9 +45,42 @@
 							${goods.price * goods.pieces }원
 						</li>
 						<li>
-							<span>수취인명 : </span>
+							<span>수취인명 </span>
 							<input type="text" name="rname" id="rname" required />
 						</li>
+						<li>
+							<span>전화번호</span>
+							<input type="text" name="tel" id="tel" required />
+						</li>
+						<li>
+							<span>주소</span>
+							<input type="button" value="주소찾기" onclick="findAddr()" class="btn btn-primary">
+							<p><input type="text" name="postcode" id="postcode"></p>
+							<p><input type="text" name="addr1" id="addr1" required></p>
+							<p><input type="text" name="addr2" id="addr2" placeholder="상세주소 입력" required><p>
+							
+						</li>
+						<li>
+							<span>메모</span>
+							<input type="text" name="memo" id="memo" />
+						</li>
+						<li>
+							<select name="paytype" id="paytype" required>
+								<option value="">결제방식을 선택하세요.</option>
+								<option value="credit">신용카드</option>
+								<option value="check">체크카드</option>
+								<option value="account">무통장입금</option>
+							</select>
+						</li>
+						<li>
+							<span>계좌/카드 번호</span>
+							<input type="text" name="payno" id="payno" required>
+						</li>
+						<li>
+							<input type="submit" value="주문" class="btn btn-primary"/>
+							<input type="reset" value="취소" class="btn btn-primary"/>
+						</li>
+						
 						<!-- 
 						<table class="table">
 				<tr>

@@ -45,23 +45,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public void reviewDelete(int uno) throws Exception {
-		reviewDao.reviewDelete(uno);
-	}
-
-	@Override
-	public ReviewDTO replyRead(ReviewDTO rdto) throws Exception {
-		return reviewDao.replyRead(rdto);
-	}
-
-	@Override
-	public void replyAdd(ReviewDTO rdto) throws Exception {
-		reviewDao.replyAdd(rdto);
-	}
-
-	@Override
-	public void replyUpdate(ReviewDTO rdto) throws Exception {
-		reviewDao.replyUpdate(rdto);
+	public void reviewDelete(int seq) throws Exception {
+		reviewDao.reviewDelete(seq);
 	}
 
 }

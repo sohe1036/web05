@@ -21,12 +21,14 @@ import com.eshop.dto.BoardDTO;
 import com.eshop.dto.GoodsDTO;
 import com.eshop.dto.MemberDTO;
 import com.eshop.dto.NoticeDTO;
+import com.eshop.dto.ReplyDTO;
 import com.eshop.dto.ReviewDTO;
 import com.eshop.dto.SalesDTO;
 import com.eshop.service.BoardService;
 import com.eshop.service.GoodsService;
 import com.eshop.service.MemberService;
 import com.eshop.service.NoticeService;
+import com.eshop.service.ReplyService;
 import com.eshop.service.ReviewService;
 import com.eshop.service.SalesService;
 import com.eshop.util.PageMaker;
@@ -52,6 +54,9 @@ public class AdminController {
 	
 	@Autowired
 	ReviewService reviewService;
+	
+	@Autowired
+	ReplyService replyService;
 	
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
@@ -397,43 +402,40 @@ public class AdminController {
 
 	
 	/*답글*/
-	/*
-	//답글 보기
-	@RequestMapping(value="replyRead.do" ,method = RequestMethod.GET)
-	public String replyRead(ReviewDTO rdto, Model model) throws Exception {
-		ReviewDTO reply = reviewService.replyRead(rdto);
-		model.addAttribute("reply", reply);
-		return"review/reviewRead";
-	}
-	*/
-	//답글 추가
-	@RequestMapping(value="replyAdd.do",method = RequestMethod.POST )
-	public String replyAdd(ReviewDTO rdto, Model model) throws Exception {
-		reviewService.replyAdd(rdto);
-		return"redirect:reviewAllList.do";
+	//답글작성
+	@RequestMapping(value="replyInsert.do",method=RequestMethod.POST)
+	public String replyInsert(ReplyDTO reply,Model model) throws Exception {
+		replyService.replyInsert(reply);
+		return "redirect:/review/read.do?uno="+reply.getUno();
 	}
 	
-	//답글 폼
-	@RequestMapping(value="replyForm.do",method = RequestMethod.GET)
-	public String replyForm (ReviewDTO rdto,Model model) throws Exception {
+	//답글작성 폼
+	@RequestMapping(value="replyForm.do",method=RequestMethod.GET)
+	public String replyForm(ReviewDTO rdto,Model model) throws Exception{
 		ReviewDTO review = reviewService.reviewRead(rdto);
 		model.addAttribute("review", review);
 		return "admin/replyForm";
 	}
 	
 	//답글수정
-	@RequestMapping(value="replyUpdate.do",method = RequestMethod.POST)
-	public String replyUpdate(ReviewDTO rdto, Model model) throws Exception {
-		reviewService.replyUpdate(rdto);
-		return"redirect:reviewAllList.do";
+	@RequestMapping(value="replyUpdate",method=RequestMethod.POST)
+	public String replyUpdate(ReplyDTO reply,Model model) throws Exception {
+		replyService.replyUpdate(reply);
+		return "redirect:/review/read.do?uno="+reply.getUno();
 	}
 	
-	//답글 수정폼
-	@RequestMapping(value="replyUpdateForm.do",method = RequestMethod.GET)
-	public String replyUpdateForm (ReviewDTO rdto,Model model) throws Exception {
-		ReviewDTO review = reviewService.reviewRead(rdto);
-		model.addAttribute("review", review);
+	//답글수정 폼	
+	@RequestMapping(value="replyUpdateForm.do",method=RequestMethod.GET)
+	public String replyUpdateForm(ReplyDTO reply, Model model) throws Exception{
+		ReplyDTO replyread = replyService.replyRead(reply);
+		model.addAttribute("replyread", replyread);
 		return "admin/replyUpdateForm";
 	}
 	
+	//답글 삭제
+	@RequestMapping(value="replyDelete.do",method=RequestMethod.GET)
+	public String replyDelete(@RequestParam("rno") int rno,Model model) throws Exception{
+		replyService.replyDelete(rno);
+		return "redirect:/admin/reviewAllList.do";
+	}
 }

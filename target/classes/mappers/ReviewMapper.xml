@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 리뷰쓰기 -->
 	<insert id="reviewInsert">
-		insert into review (gno, uid, subject, content,best,ono) values (#{gno}, #{uid}, #{subject}, #{content},#{best},#{ono}) 
+		insert into review (gno, uid, subject, content,best,ono,seq) values (#{gno}, #{uid}, #{subject}, #{content},#{best},#{ono},(select ifnull(max(seq)+1,1) from review b)) 
 	</insert>
 	
 	<!-- 리뷰 수정 -->
@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 리뷰삭제 -->
 	<delete id="reviewDelete">
-		delete from review where uno=#{uno}
+		delete from review where seq=#{seq}
 	</delete>
 	
 	<!-- 클릭시 visited 추가 -->
@@ -48,20 +48,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update sales set review=review+1 where ono=#{ono}
 	</update>
 	
-	<!-- 답글 보기 -->
-	<select id="replyRead" resultType="com.eshop.dto.ReviewDTO">
-		select reply,replydate from review where uno=#{uno} 
-	</select>
-	
-	<!-- 답글 쓰기 -->
-	<insert id="replyAdd">
-		insert into review (uno,gno, uid, subject, content,best,ono,reply,replydate,rno) values (#{uno},#{gno}, #{uid}, #{subject}, #{content},#{best},#{ono},#{reply},now(),(select ifnull(max(rno)+1,1) from review b)) 
-	</insert>
-	
-	<!-- 답글 수정 -->
-	<update id="replyUpdate">
-		update review set reply=#{reply} where rno=#{rno}
-	</update>
-	
-	<!-- 답글 삭제 -->
 </mapper>

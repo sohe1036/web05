@@ -132,7 +132,10 @@ public class MemberController {
 		member.setUid(uid);
 		member.setUpw(upw);		//request된 아이디 패스워드입력값을 DTO에 주입
 		MemberDTO login = memberService.login(member);
-		boolean loginSuccess = pwdEncoder.matches(member.getUpw(), login.getUpw());	// 입력한 비밀번호값과 원래 DTO의 비밀번호값 매치해
+		boolean loginSuccess = false;
+		if(login !=null) {
+			loginSuccess = pwdEncoder.matches(member.getUpw(), login.getUpw());	// 입력한 비밀번호값과 원래 DTO의 비밀번호값 매치해
+		}
 		
 		if(loginSuccess==true && login !=null) {
 			session.setAttribute("member", login);
@@ -140,6 +143,8 @@ public class MemberController {
 			return "redirect:/";
 		} else {
 			session.setAttribute("member", null);
+			session.setAttribute("sid", null);
+			rttr.addFlashAttribute("msg", "아이디 또는 비밀번호가 맞지않습니다");
 			return "redirect:loginForm.do";
 		}
 	}

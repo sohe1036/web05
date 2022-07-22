@@ -12,6 +12,7 @@
 <style>
 	h2 {padding: 30px;}
 	form {width: 400px; margin: 0 auto;}
+	.message{padding:10px; }
 </style>
 </head>
 <body>
@@ -27,8 +28,16 @@
 			<div class="mb-3">
 			    <label for="upw" class="form-label">비밀번호</label>
 			    <input type="password" name="upw" id="upw" required placeholder="비밀번호" class="form-control">
+			    <c:if test="${!empty msg }">
+				<input type="hidden" name="msg" value="${msg }" />
+				</c:if>
 			</div>
 			<button type="submit" class="btn btn-primary">로그인</button>
+			<div class="message">
+				<c:if test="${!empty msg }">
+				<p>${msg }</p>
+				</c:if>
+			</div>
  		</form>
 	</div>
 	<c:import url="../inc/footer.jsp" />

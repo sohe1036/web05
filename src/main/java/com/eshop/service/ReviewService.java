@@ -25,15 +25,6 @@ public interface ReviewService {
 	public void reviewUpdate(ReviewDTO rdto) throws Exception;
 	
 	//리뷰삭제
-	public void reviewDelete(int uno) throws Exception;
+	public void reviewDelete(int seq) throws Exception;
 	
-	//답글보기
-	public ReviewDTO replyRead(ReviewDTO rdto) throws Exception;
-	
-	//답글쓰기
-	public void replyAdd(ReviewDTO rdto) throws Exception;
-	
-	//답글 수정
-	public void replyUpdate(ReviewDTO rdto) throws Exception;
 }
-

@@ -18,8 +18,9 @@
 					<tr>
 						<th>답변</th>
 						<td>
-							<textarea name="reply" id="reply" cols="50" rows="5">${review.reply }</textarea>
-							<input type="hidden" name="uno" value="${review.uno }"/>
+							<textarea name="recontent" id="recontent" cols="50" rows="5">${replyread.recontent }</textarea>
+							<input type="hidden" name="uno" value="${replyread.uno }"/>
+							<input type="hidden" name="rno" value="${replyread.rno }"/>
 						</td>
 					</tr>
 					<tr>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reply">
+	<!-- 답글 보기 -->
+	<select id="replyRead" resultType="com.eshop.dto.ReplyDTO">
+		select * from reply where uno=#{uno} 
+	</select>
+	
+	<!-- 답글 쓰기 -->
+	<insert id="replyInsert">
+		insert into reply (recontent,uno) values ( #{recontent},#{uno}) 
+	</insert>
+	
+	<!-- 답글 수정 -->
+	<update id="replyUpdate">
+		update reply set recontent=#{recontent} where rno=#{rno}
+	</update>
+	
+	<!-- 답글 삭제 -->
+	<delete id="replyDelete">
+		delete from reply where rno=#{rno}
+	</delete>
+</mapper>

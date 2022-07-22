@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.eshop.dto.ReplyDTO;
 import com.eshop.dto.ReviewDTO;
 import com.eshop.dto.SalesDTO;
+import com.eshop.service.ReplyService;
 import com.eshop.service.ReviewService;
 
 @Controller
@@ -21,7 +23,9 @@ public class ReviewController {
 	
 	@Autowired
 	ReviewService reviewService;
-
+	
+	@Autowired
+	ReplyService replyService;
 	
 	//리뷰목록
 	@RequestMapping("list.do")
@@ -41,8 +45,10 @@ public class ReviewController {
 	
 	//리뷰 상세보기
 	@RequestMapping(value="read.do" , method = RequestMethod.GET)
-	public String reviewRead(ReviewDTO rdto, Model model) throws Exception {
+	public String reviewRead(ReviewDTO rdto,ReplyDTO reply, Model model) throws Exception {
 		ReviewDTO review = reviewService.reviewRead(rdto);
+		ReplyDTO replyread = replyService.replyRead(reply);
+		model.addAttribute("replyread", replyread);
 		model.addAttribute("review", review);
 		return "review/reviewRead";
 	}
@@ -83,8 +89,8 @@ public class ReviewController {
 	
 	//리뷰삭제
 	@RequestMapping(value="delete.do")
-	public String reviewDelete(@RequestParam("uno") int  uno ,HttpSession session, Model model) throws Exception {
-		reviewService.reviewDelete(uno);
+	public String reviewDelete(@RequestParam("seq") int  seq ,HttpSession session, Model model) throws Exception {
+		reviewService.reviewDelete(seq);
 		return "redirect:idList.do?uid="+session.getId();
 	}
 }
