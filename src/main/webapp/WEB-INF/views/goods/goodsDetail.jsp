@@ -43,7 +43,7 @@
 						<li>
 							<p>
 								<c:if test="${goods.pieces!=0 }">
-								<input type="number" name="pieces" style="width: 50px" value="1" min="1" max="${goods.pieces }"/>
+								<input type="number" name="pieces" id="pieces" style="width: 50px" value="" min="1" max="${goods.pieces }" required/>
 								</c:if>
 								<c:if test="${goods.pieces==0 }">
 								품절된 상품입니다.
@@ -72,7 +72,8 @@
 		</div>
 		<script>
 			function addCart() {
-				window.open("${path1}/cart/addCartForm.do?gno=${goods.gno}&gname=${goods.gname}&gcolor=${goods.gcolor}&gimg1=${goods.gimg1}&pieces=${goods.pieces }&price=${goods.price}", "dataupload", "width=500, height=400");
+				var amount = document.getElementById("pieces").value;
+				window.open("${path1}/cart/addCartForm.do?gno=${goods.gno}&gname=${goods.gname}&gcolor=${goods.gcolor}&gimg1=${goods.gimg1}&pieces=${goods.pieces }&price=${goods.price}&amount="+amount, "dataupload", "width=500, height=400");
 			}
 			function loginCart() {
 				alert("로그인이 필요합니다.");

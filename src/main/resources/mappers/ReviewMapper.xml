@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="review">
 	<!-- 전체 리뷰 목록 -->
 	<select id="reviewAllList" resultType="com.eshop.dto.ReviewDTO">
-		select * from review order by regdate desc;
+		select * from review order by uno desc;
 	</select>
 	
 	<!-- 상품별 리뷰 목록 -->
@@ -25,17 +25,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 리뷰쓰기 -->
 	<insert id="reviewInsert">
-		insert into review (gno, uid, subject, content,best,ono,seq) values (#{gno}, #{uid}, #{subject}, #{content},#{best},#{ono},(select ifnull(max(seq)+1,1) from review b)) 
+		insert into review (gno, uid, subject, content,best,ono, image,video) values (#{gno}, #{uid}, #{subject}, #{content},#{best},#{ono},#{image},#{video}) 
 	</insert>
 	
 	<!-- 리뷰 수정 -->
 	<update id="reviewUpdate">
-		update review set uid=#{uid}, subject=#{subject}, content=#{content},best=#{best}, regdate=now() where uno=#{uno}
+		update review set uid=#{uid}, subject=#{subject}, content=#{content},best=#{best} where uno=#{uno}
 	</update>
 	
 	<!-- 리뷰삭제 -->
 	<delete id="reviewDelete">
-		delete from review where seq=#{seq}
+		delete from review where uno=#{uno}
 	</delete>
 	
 	<!-- 클릭시 visited 추가 -->

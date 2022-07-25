@@ -11,9 +11,8 @@ public class ReviewDTO {
 	public int visited;
 	public int best;
 	public int ono;			//주문번호
-	public String reply;
-	public String replydate;
-	public int rno;
+	public String image;
+	public String video;
 	
 	public int getUno() {
 		return uno;
@@ -70,23 +69,17 @@ public class ReviewDTO {
 	public void setOno(int ono) {
 		this.ono = ono;
 	}
-	public String getReply() {
-		return reply;
+	public String getImage() {
+		return image;
 	}
-	public void setReply(String reply) {
-		this.reply = reply;
+	public void setImage(String image) {
+		this.image = image;
 	}
-	public String getReplydate() {
-		return replydate;
+	public String getVideo() {
+		return video;
 	}
-	public void setReplydate(String replydate) {
-		this.replydate = replydate;
-	}
-	public int getRno() {
-		return rno;
-	}
-	public void setRno(int rno) {
-		this.rno = rno;
+	public void setVideo(String video) {
+		this.video = video;
 	}
 		
 }

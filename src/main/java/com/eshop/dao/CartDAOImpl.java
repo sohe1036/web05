@@ -44,6 +44,10 @@ public class CartDAOImpl implements CartDAO {
 	public int cartCheck(CartDTO cdto) throws Exception {
 		return sqlSession.selectOne("cart.cartCheck", cdto);
 	}
-	
+
+	@Override
+	public void addPieces(CartDTO cdto) throws Exception {
+		sqlSession.update("cart.addPieces", cdto);
+	}
 	
 }

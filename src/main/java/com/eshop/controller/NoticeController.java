@@ -140,14 +140,14 @@ public class NoticeController {
 				}
 			}
 		}
-		/*
+		
 		@RequestMapping(value="noticeRead.do", method = RequestMethod.GET)
 	    public String noticeRead(@RequestParam("seq") int seq, Model model) throws Exception {
 			NoticeDTO notice = noticeService.noticeRead(seq);
 			model.addAttribute("notice", notice);
 	        return "notice/noticeRead";
 		}
-		*/
+		
 		/*
 		//수정폼
 		@RequestMapping(value="edit.do", method = RequestMethod.GET)

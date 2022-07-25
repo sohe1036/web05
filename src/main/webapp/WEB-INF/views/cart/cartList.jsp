@@ -44,7 +44,14 @@
 					</td>
 					<td scope="row">${list.amount }</td>
 					<td scope="row"><fmt:formatNumber value="${list.price *list.amount}" type="number" /></td>
-					<td><a href="${path1 }/sales/salesForm.do?gname=${list.gname}&gno=${list.gno}&gimg1=${list.gimg1}&pieces=${list.amount}&price=${list.price}" class="btn btn-primary">주문하기</a></td>
+					<td>
+						<c:if test="${list.amount <= list.pieces}">
+							<a href="${path1 }/sales/salesForm.do?gname=${list.gname}&gno=${list.gno}&gimg1=${list.gimg1}&pieces=${list.amount}&price=${list.price}" class="btn btn-primary">주문하기</a>
+						</c:if>
+						<c:if test="${list.amount > list.pieces}">
+							<span style="font-size:12px;">주문가능한 갯수가 아닙니다. 남은수량: ${list.pieces }</span>
+						</c:if>
+					</td>
 				</tr>	
 				</c:forEach>
 			</tbody>
@@ -56,13 +63,13 @@
 		});
 		
 	</script>
-	<!-- 
+
 	<script>
-		if("${msg}"!=null){
-			alert("${msg}");	
-		}
+		if(${message!=null}){
+			alert("${message}");
+			}
 	</script>
-	 -->
+
 	<%@include file="../inc/footer.jsp" %>
 </div>	
 </body>

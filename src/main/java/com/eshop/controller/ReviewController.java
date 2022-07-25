@@ -56,6 +56,29 @@ public class ReviewController {
 	//리뷰쓰기
 	@RequestMapping(value="insert.do", method = RequestMethod.POST)
 	public String reviewInsert(ReviewDTO rdto, Model model) throws Exception {
+		/*
+		 	String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload2";
+		String uploadFolder2 = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\video";
+		for(MultipartFile image : uploadFile1) {
+			
+			String fileName = image.getOriginalFilename();
+			File saveFile = new File(uploadFolder,fileName);
+			try {
+				image.transferTo(saveFile);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		for(MultipartFile video : uploadFile2) {
+			String fileName2 = video.getOriginalFilename();
+			File saveFile2 = new File(uploadFolder2,fileName2);
+			try {
+				video.transferTo(saveFile2);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		} 
+		 */
 		reviewService.reviewInsert(rdto);
 		return "redirect:idList.do?uid="+rdto.getUid();
 	}
@@ -89,8 +112,8 @@ public class ReviewController {
 	
 	//리뷰삭제
 	@RequestMapping(value="delete.do")
-	public String reviewDelete(@RequestParam("seq") int  seq ,HttpSession session, Model model) throws Exception {
-		reviewService.reviewDelete(seq);
+	public String reviewDelete(@RequestParam("uno") int  uno ,HttpSession session, Model model) throws Exception {
+		reviewService.reviewDelete(uno);
 		return "redirect:idList.do?uid="+session.getId();
 	}
 }

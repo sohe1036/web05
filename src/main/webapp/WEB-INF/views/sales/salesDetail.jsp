@@ -111,6 +111,7 @@
 						<c:if test="${!empty sales.transco }">
 							<span>배송이 시작되어 취소 및 수정이 불가능합니다.</span>
 						</c:if>
+							<a href="${path1 }/sales/idList.do?uid=${sid}" class="btn btn-primary">목록</a>
 					</td>
 				</tr>
 			</tbody>	

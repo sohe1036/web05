@@ -32,7 +32,7 @@
 				</tr>
 				<tr>
 					<th>수량</th>
-					<td><input type="number" name="amount" id="pieces" value="" min="1" max="${pieces }" required/></td>
+					<td><input type="number" name="amount" id="pieces" value="${amount }" min="1" max="${pieces }" required/></td>
 				</tr>	
 				<tr>
 					<th>가격</th>

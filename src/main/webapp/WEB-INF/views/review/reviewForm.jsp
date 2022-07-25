@@ -14,6 +14,7 @@
 <div class="wrap">
 	<c:import url="../inc/header.jsp" />
 	<div id="content">
+	
 		<form action="${path1 }/review/insert.do" method="post">
 			<table class="table">
 				<tbody>
@@ -58,6 +59,63 @@
 				</tbody>
 			</table>
 		</form>
+		
+		 	<!--
+		<form id="reviewForm" name="reviewForm" method="post" enctype="multipart/form-data">
+			<div class="reSubject">
+				<span>리뷰 제목</span>
+				<input type="text" name="subject" id="subject" >
+				<input type="hidden" name="gno" id="gno" value="${sales.gno }">
+				<input type="hidden" name="uid" id="uid" value="${sales.uid }">
+				<input type="hidden" name="ono" id="ono" value="${sales.ono }">
+			</div>
+			<div class="reBest">
+				<select name="best" id="best">
+					<option value="">별점을 선택하세요.</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</div>
+			<div class="reContent">
+				<textarea cols="50" rows="5" name="content"></textarea>
+			</div>
+			<div class="fileUpload">
+				<span>이미지 업로드</span>
+				<input type="file" name="image" id="image" >
+				<span>동영상 업로드</span>
+				<input type="file" name="video" id="video" >
+			</div>
+			<button type="button" onclick="reviewUpload()">확인</button>
+		</form>
+	 
+		<script>
+			function reviewUpload(){
+				var form = $("#reviewForm")[0];
+				var formData = new FormData(form);
+				
+				formData.append("uploadFile1",$("#image")[0].files[0]);
+				formData.append("uploadFile2",$("#video")[0].files[0]);
+				
+				$.ajax({
+					type : "post",
+					enctype : "multipart/form-data",
+					url : "insert.do",
+					data : formData,
+					processData : false,
+					contentType : false,
+					sucess : function(html){
+						alert("업로드성공");
+					},
+					error : function(){
+						alert("업로드실패");
+					}
+				});
+			}
+		</script>
+		-->
 	</div>
 	<c:import url="../inc/footer.jsp" />
 </div>	

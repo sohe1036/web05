@@ -51,7 +51,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public void reviewDelete(int seq) throws Exception {
-		sqlSession.delete("review.reviewDelete", seq);
+	public void reviewDelete(int uno) throws Exception {
+		sqlSession.delete("review.reviewDelete", uno);
 	}
 }

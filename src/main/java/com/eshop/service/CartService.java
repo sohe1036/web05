@@ -23,4 +23,8 @@ public interface CartService {
 	
 		//카트체크
 		public int cartCheck(CartDTO cdto) throws Exception;
+		
+		//같은상품 갯수추가
+		public void addPieces (CartDTO cdto) throws Exception;
+		
 }

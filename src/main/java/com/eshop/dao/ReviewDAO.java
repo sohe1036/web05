@@ -24,6 +24,6 @@ public interface ReviewDAO {
 	public void reviewUpdate(ReviewDTO rdto) throws Exception;
 	
 	//리뷰삭제
-	public void reviewDelete(int seq) throws Exception;
+	public void reviewDelete(int uno) throws Exception;
 	
 }

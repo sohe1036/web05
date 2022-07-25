@@ -45,8 +45,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public void reviewDelete(int seq) throws Exception {
-		reviewDao.reviewDelete(seq);
+	public void reviewDelete(int uno) throws Exception {
+		reviewDao.reviewDelete(uno);
 	}
 
 }

@@ -120,7 +120,7 @@
 						<c:if test="${!empty sales.transco }">
 							<span>배송이 시작되어 취소 및 수정이 불가능합니다.</span>
 						</c:if>
-							<a href="">목록</a>
+							<a href="${path1 }/admin/salesList.do" class="btn btn-primary">목록</a>
 					</td>
 				</tr>
 			</tbody>	

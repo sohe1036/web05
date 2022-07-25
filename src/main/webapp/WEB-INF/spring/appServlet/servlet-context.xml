@@ -26,6 +26,7 @@
 	<resources mapping="/goods/**" location="/WEB-INF/views/goods/" />
 	<resources mapping="/upload/**" location="/resources/upload/" />
 	<resources mapping="/upload2/**" location="/resources/upload2/" />
+	<resources mapping="/video/**" location="/resources/video/" />
 	<resources mapping="/ckeditor/**" location="/WEB-INF/views/ckeditor/" />
 	<resources mapping="/ajax/**" location="/WEB-INF/views/ajax/" />
 	<resources mapping="/sales/**" location="/WEB-INF/views/sales/" />

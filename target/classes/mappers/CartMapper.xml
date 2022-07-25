@@ -33,4 +33,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="cartCheck" resultType="int">
 		select count(*) from cart where gno=${gno} and uid=#{uid}
 	</select>	
+	
+	<!-- 같은상품 장바구니 수량변경 -->
+	<update id="addPieces">
+		update cart set amount=amount + #{amount} where gno = #{gno}
+	</update>
 </mapper>

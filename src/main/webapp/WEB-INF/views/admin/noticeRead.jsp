@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrap">
-	<c:import url="../inc/header.jsp" />
+	<c:import url="admin_header.jsp" />
 	<div id="content">
 		<table class="table">
 			<tr>

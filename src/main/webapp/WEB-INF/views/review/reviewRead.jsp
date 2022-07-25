@@ -56,25 +56,27 @@
 				<tr>
 					<td colspan="2">
 						<a href="${path1 }/admin/replyForm.do?uno=${review.uno}" class="btn btn-primary">답글달기</a>
+						<a href="${path1 }/admin/reviewAllList.do" class="btn btn-primary">관리자목록</a>
 					</td>
 				</tr>
 				</c:if>
 			</tbody>
 		</table>
-		<c:if test="${!empty review.reply }">
+		<c:if test="${!empty replyread.recontent }">
 		<div class="replytable">
 			<div class="inner">
 				<ul>
 					<li>
 						<b>관리자</b>
-						<span>${review.replydate }</span>
+						<span>${replyread.regdate }</span>
 					</li>
 					<li>
-						<p>${review.reply }</p>
+						<p>${replyread.recontent }</p>
 					</li>
 					<c:if test="${sid=='admin' }">
 					<li>
 						<button type="button" onclick="replyUpdata()" class="btn btn-primary">수정</button>
+						<a href="${path1 }/admin/replyDelete.do?rno=${replyread.rno}" class="btn btn-primary">삭제</a>
 					</li>
 					</c:if>
 				</ul>

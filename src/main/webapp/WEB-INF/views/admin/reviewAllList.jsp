@@ -21,7 +21,6 @@
 					<span style="display:inline-block; width:45%;">제목</span>
 					<span style="display:inline-block; width:10%;">상품번호</span>
 					<span style="display:inline-block; width:10%;">작성자</span>
-					<span style="display:inline-block; width:10%;">작성일</span>
 				</li>
 			</ul>
 		</div>

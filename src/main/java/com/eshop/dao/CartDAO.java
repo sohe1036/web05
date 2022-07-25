@@ -23,4 +23,8 @@ public interface CartDAO {
 	
 	//카드 상품체크->리턴으로 갯수
 	public int cartCheck(CartDTO cdto) throws Exception;
+	
+	//같은상품 갯수추가
+	public void addPieces (CartDTO cdto) throws Exception;
+	
 }

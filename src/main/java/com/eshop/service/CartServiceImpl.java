@@ -43,6 +43,10 @@ public class CartServiceImpl implements CartService {
 	public int cartCheck(CartDTO cdto) throws Exception {
 		return cartDao.cartCheck(cdto);
 	}
-	
+
+	@Override
+	public void addPieces(CartDTO cdto) throws Exception {
+		cartDao.addPieces(cdto);
+	}
 	
 }

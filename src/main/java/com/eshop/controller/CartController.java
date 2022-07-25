@@ -43,20 +43,21 @@ public class CartController {
 	
 	//추가폼
 	@RequestMapping(value="addCartForm.do", method= RequestMethod.GET)
-	public String addCartForm(CartDTO cdto, Model model)throws Exception {
+	public String addCartForm(CartDTO cdto,Model model)throws Exception {
 		String gname = cdto.getGname();
 		String gimg1 = cdto.getGimg1();
 		int pieces = cdto.getPieces();
 		int gno = cdto.getGno();
 		String gcolor = cdto.getGcolor();
 		String price = cdto.getPrice();
+		int amount = cdto.getAmount();
 		model.addAttribute("gimg1", gimg1);
 		model.addAttribute("gname",gname);
 		model.addAttribute("pieces", pieces);
 		model.addAttribute("gno", gno);
 		model.addAttribute("gcolor", gcolor);
 		model.addAttribute("price", price);
-
+		model.addAttribute("amount", amount);
 		return "cart/addCartForm";
 	}
 	
@@ -65,8 +66,12 @@ public class CartController {
 	public String cartInsert(@RequestParam("uid") String uid,CartDTO cdto, Model model,RedirectAttributes redirect) throws Exception {
 		int cnt = cartService.cartCheck(cdto);
 		if(cnt==0) {
-			cartService.cartInsert(cdto);
-		} 
+			cartService.cartInsert(cdto);		//중복상품 없으면 장바구니 추가
+			redirect.addFlashAttribute("message", "장바구니에 담았습니다.");
+		} else {
+			cartService.addPieces(cdto);		//중복상품있으면 수량만변경
+			redirect.addFlashAttribute("message", "이미 담은 상품이 있어 추가되었습니다.");
+		}
 		return "redirect:list.do?uid="+cdto.getUid();
 		
 	}
