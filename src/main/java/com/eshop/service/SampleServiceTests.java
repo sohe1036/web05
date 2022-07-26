@@ -21,7 +21,7 @@ public class SampleServiceTests {
 	@Test
 	public void testAOP() throws Exception {
 		log.info(service);
-		log.info(service.getClass().getName());
-		log.info(service.doAdd("123","456"));
+	//	log.info(service.getClass().getName());
+	//	log.info(service.doAdd("123","456"));
 	}
 }

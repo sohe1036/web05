@@ -34,7 +34,7 @@ public class AjaxController {
 	@ResponseBody
 	@RequestMapping(value="/ajax0.do",produces="text/plain; charset=UTF-8")	
 	public String ajax0() {
-		log.info("MIME TYPE :" + MediaType.TEXT_PLAIN_VALUE);
+		//log.info("MIME TYPE :" + MediaType.TEXT_PLAIN_VALUE);
 		return "<h2>안녕하세요 AJAX</h2>";
 	}
 	//객체		//MediaType으로 xml로변환

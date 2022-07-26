@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sales">
+	<!-- 결제 목록 -->
+	<select id="salesList" resultType="com.eshop.dto.SalesDTO">
+		select * from sales order by ono desc
+	</select>
+	
+	<!-- 아이디별 결제 목록 -->
+	<select id="salesIdList" resultType="com.eshop.dto.SalesDTO">
+		select * from sales where uid = #{uid }	order by ono desc
+	</select>
+	
+	<!-- 주문번호별 결제상세 -->
+	<select id="salesDetail" resultType="com.eshop.dto.SalesDTO">
+		select * from sales where ono=#{ono}	
+	</select>
+	
+	<!-- 결제 및 주문처리 -->
+	<insert id="salesInsert">
+		insert into sales(paytype, payno, money, gno, pieces, uid, rname, tel, addr1, addr2, postcode, memo,gname)
+		values (#{paytype}, #{payno}, #{money}, #{gno}, #{pieces}, #{uid}, #{rname}, #{tel}, #{addr1}, #{addr2}, #{postcode}, #{memo},#{gname})
+	</insert>
+	
+	<!-- 배송처리  -->
+	<update id="addShipping">
+		update sales set transno=#{transno}, transco=#{transco}, rstate=#{rstate}, rdate=#{rdate} where ono=#{ono}
+	</update>
+	
+	<!-- 주문 수정 -->
+	<update id="salesUpdate">
+		update sales set rname=#{rname}, tel=#{tel}, addr1=#{addr1}, addr2=#{addr2}, postcode=#{postcode} where ono=#{ono}
+	</update>
+
+	<!-- 결제 취소 -->
+	<delete id="salesDelete">
+		delete from sales where ono=#{ono}
+	</delete>
+	
+	<!-- 판매 건수조회 -->
+	<select id="salesCount" resultType="integer">
+		select count(*) from sales;
+	</select>
+	
+	<!-- 주문후 상품수량 변경 -->
+	<update id="updatePieces">
+		update goods set pieces= pieces - #{pieces} where gno = #{gno}
+	</update>
+	
+	<!-- 주문취소 상품수량 변경 -->
+	<update id="returnPieces">
+		update goods set pieces= pieces + #{pieces} where gno = #{gno}
+	</update>
+	
+	<!-- 장바구니 삭제 -->
+	<delete id="cartDelete">
+		delete from cart where gno=#{gno}
+	</delete>
+</mapper>

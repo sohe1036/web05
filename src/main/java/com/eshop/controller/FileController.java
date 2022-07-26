@@ -35,7 +35,7 @@ public class FileController {
 	@RequestMapping(value="/fileUpload.do",method= RequestMethod.POST)	//파일 업로드 처리
 	public String fileUpload(MultipartFile myfile) throws UnsupportedEncodingException, Exception {
 		String filename = myfile.getOriginalFilename();
-		System.out.println("업로드 파일 이름 "+filename);
+		//System.out.println("업로드 파일 이름 "+filename);
 		
 		filename = new String(filename.getBytes("8859_1"),"utf-8");		//인코팅처리
 		
@@ -43,7 +43,7 @@ public class FileController {
 		myfile.transferTo(new File("D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload2"+"/"+filename));  //절대경로
 		//System.out.println("파일 업로드 위치 "+resource.getFile().getCanonicalPath());
 
-		System.out.println("파일 저장 성공");
+		//System.out.println("파일 저장 성공");
 		
 		return "redirect:/";
 	}
@@ -64,14 +64,14 @@ public class FileController {
 		
 		for(MultipartFile file :files) {
 			String fileName = file.getOriginalFilename();
-			System.out.println("업로드 파일 이름 "+fileName);
-			System.out.println("업로드 파일 크기 "+file.getSize());
+			//System.out.println("업로드 파일 이름 "+fileName);
+			//System.out.println("업로드 파일 크기 "+file.getSize());
 			
 			File saveFile = new File(uploadFolder,fileName );		//경로,이름
 			try {
 				file.transferTo(saveFile);	//파일전송
 			}catch(Exception e) {
-				System.out.println("파일 처리 오류");
+			//	System.out.println("파일 처리 오류");
 				e.printStackTrace();
 			}
 		}
@@ -141,7 +141,7 @@ public class FileController {
 				e.printStackTrace();
 				result = "파일업로드 실패";
 			}
-			System.out.println(result);
+			//System.out.println(result);
 		}
 		return result;
 	}

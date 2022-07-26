@@ -112,8 +112,8 @@ public class NoticeController {
 				            String fileName2 = UUID.randomUUID().toString();
 				            uploadPath = uploadPath + "/" + fileName2 +fileName;
 				            
-				            out = new FileOutputStream(new File(uploadPath));
-				            out.write(bytes);
+				            //out = new FileOutputStream(new File(uploadPath));
+				            //out.write(bytes);
 				            
 				            printWriter = resp.getWriter();
 				            //String fileUrl = "/views/upload/"+fileName2+fileName;

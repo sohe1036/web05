@@ -33,7 +33,7 @@ public class AjaxController2 {
 	@ResponseBody 
 	@RequestMapping(value="ajax6.do", method=RequestMethod.POST, headers="Accept=application/json")
 	public EMP ajax6(@RequestBody EMP data, HttpServletRequest request, Model model) {
-		System.out.println("emp : "+(data.getSno()));
+		//System.out.println("emp : "+(data.getSno()));
 		return data;
 	}
 	
@@ -45,7 +45,7 @@ public class AjaxController2 {
 	@ResponseBody 
 	@RequestMapping(value="ajax7.do", method=RequestMethod.POST, headers="Accept=application/json")
 	public User2DTO ajax7(@RequestBody User2DTO data, HttpServletRequest request, Model model) {
-		System.out.println("emp : "+(data.getId()));
+		//System.out.println("emp : "+(data.getId()));
 		if(data.getId().equals("admin")) {
 			data.setGg("관리자");
 		} else {
