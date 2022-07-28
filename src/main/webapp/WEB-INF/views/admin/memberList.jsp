@@ -35,11 +35,7 @@
 			</tbody>
 		</table>
 	</div>
-	<script>
-		$(function(){
-			$("#memberTable").DataTable();
-		});
-	</script>
+
 <%@include file="../inc/footer.jsp" %>
 </div>	
 </body>

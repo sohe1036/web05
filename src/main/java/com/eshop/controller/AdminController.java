@@ -207,7 +207,7 @@ public class AdminController {
 		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
 		
 		goodsService.goodsUpdate(gdto);
-	}else if(gimg1.isEmpty()) {
+	}else if(gimg1.isEmpty() && !gimg2.isEmpty()) {
 		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
 		String fileName2 = gimg2.getOriginalFilename();
 		File saveFile2 = new File(uploadFolder, fileName2);
@@ -225,7 +225,7 @@ public class AdminController {
 		gdto.setPieces(Integer.parseInt(request.getParameter("pieces")));
 
 		goodsService.goodsUpdate(gdto);
-	}else if(gimg2.isEmpty()) {
+	}else if(gimg2.isEmpty() && !gimg1.isEmpty()) {
 		String uploadFolder = "D:\\LIM\\jsp3\\web05\\src\\main\\webapp\\resources\\upload";
 		String fileName = gimg1.getOriginalFilename();
 		File saveFile = new File(uploadFolder, fileName);

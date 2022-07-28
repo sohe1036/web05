@@ -14,7 +14,7 @@
 <div class="wrap">
 	<%@include file="../inc/header.jsp" %>
 	<div id="content">
-		<form action="${path1 }/review/update.do" method="post">
+		<form action="${path1 }/review/update.do" method="post" enctype="multipart/form-data">
 			<table class="table">
 				<tbody>
 					<tr>
@@ -46,6 +46,12 @@
 						<th>리뷰 내용</th>
 						<td><textarea cols="50" rows="5" name="content">${review.content }</textarea></td>
 					</tr>
+				<!--
+					<tr>
+						<th>사진</th>
+						<td><input type="file" name="image" id="image" ></td>
+					</tr>
+					-->
 					<tr>
 						<th>작성일</th>
 						<td>${review.regdate }</td>

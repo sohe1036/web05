@@ -6,17 +6,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="sales">
 	<!-- 결제 목록 -->
 	<select id="salesList" resultType="com.eshop.dto.SalesDTO">
-		select * from sales order by ono desc
+		select a.*,g.gimg1 from sales a inner join goods g on a.gno=g.gno order by ono desc;
 	</select>
 	
 	<!-- 아이디별 결제 목록 -->
 	<select id="salesIdList" resultType="com.eshop.dto.SalesDTO">
-		select * from sales where uid = #{uid }	order by ono desc
+		select a.*,g.gimg1 from sales a inner join goods g on a.gno=g.gno where uid = #{uid } order by ono desc
 	</select>
 	
 	<!-- 주문번호별 결제상세 -->
 	<select id="salesDetail" resultType="com.eshop.dto.SalesDTO">
-		select * from sales where ono=#{ono}	
+		select a.*,g.gimg1 from sales a inner join goods g on a.gno=g.gno where ono=#{ono}	
 	</select>
 	
 	<!-- 결제 및 주문처리 -->

@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 리뷰쓰기 -->
 	<insert id="reviewInsert">
-		insert into review (gno, uid, subject, content,best,ono, image,video) values (#{gno}, #{uid}, #{subject}, #{content},#{best},#{ono},#{image},#{video}) 
+		insert into review (gno, uid, subject, content,best,ono) values (#{gno}, #{uid}, #{subject}, #{content},#{best},#{ono}) 
 	</insert>
 	
 	<!-- 리뷰 수정 -->

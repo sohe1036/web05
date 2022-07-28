@@ -8,6 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
+<style>
+	.mypage_list {margin-top: 80px;}
+	ul {overflow: hidden;}
+	.mypage_list li {float: left; width:33.3%; text-align: center;}
+</style>
 <c:import url="../inc/head.jsp" />
 </head>
 <body>
@@ -15,7 +20,7 @@
 	<c:import url="../inc/header.jsp" />
 		<div id="content" class="content">
 			<h2>마이페이지</h2>
-			<div>
+			<div class="mypage_list">
 				<ul>
 					<li><a href="${path1 }/member/detail.do?uid=${sid }">내 정보</a></li>
 					<li><a href="${path1 }/review/idList.do?uid=${sid }">작성한 리뷰</a></li>

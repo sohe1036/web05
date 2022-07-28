@@ -12,7 +12,6 @@ public class ReviewDTO {
 	public int best;
 	public int ono;			//주문번호
 	public String image;
-	public String video;
 	
 	public int getUno() {
 		return uno;
@@ -74,12 +73,6 @@ public class ReviewDTO {
 	}
 	public void setImage(String image) {
 		this.image = image;
-	}
-	public String getVideo() {
-		return video;
-	}
-	public void setVideo(String video) {
-		this.video = video;
 	}
 		
 }
