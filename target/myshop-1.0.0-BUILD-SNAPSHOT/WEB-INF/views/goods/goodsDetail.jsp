@@ -73,7 +73,12 @@
 		<script>
 			function addCart() {
 				var amount = document.getElementById("pieces").value;
-				window.open("${path1}/cart/addCartForm.do?gno=${goods.gno}&gname=${goods.gname}&gcolor=${goods.gcolor}&gimg1=${goods.gimg1}&pieces=${goods.pieces }&price=${goods.price}&amount="+amount, "dataupload", "width=500, height=400");
+				if(amount != ""){
+					window.open("${path1}/cart/addCartForm.do?gno=${goods.gno}&gname=${goods.gname}&gcolor=${goods.gcolor}&gimg1=${goods.gimg1}&pieces=${goods.pieces }&price=${goods.price}&amount="+amount, "dataupload", "width=500, height=400");
+				} else {
+					alert("수량을 입력하세요.");
+					return false;
+				}
 			}
 			function loginCart() {
 				alert("로그인이 필요합니다.");

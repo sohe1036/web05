@@ -43,7 +43,9 @@
 	</div>
 	<script>
 		$(function(){
-			$("#boardTable").DataTable();
+			$("#boardTable").DataTable({
+				"ordering": false
+			});
 		});
 	</script>
 	<%@include file="../inc/footer.jsp" %>

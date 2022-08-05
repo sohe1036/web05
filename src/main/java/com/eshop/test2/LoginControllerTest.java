@@ -26,16 +26,16 @@ public class LoginControllerTest {
 	
 	@Test
 	public void test() throws Exception {  //로그인 테스트
-		System.out.println("Controller Test~!");
+		//System.out.println("Controller Test~!");
 		MemberDTO member = new MemberDTO();
 		member.setUid("admin");
 		member.setUpw("1234");
-		System.out.println("Controller id : "+member.getUid());
+		//System.out.println("Controller id : "+member.getUid());
 	
 		if(member.getUid().equals("admin") && member.getUpw().equals("1234")) {
-			System.out.println("로그인 성공");	
+		//	System.out.println("로그인 성공");	
 		} else {
-			System.out.println("로그인 실패");
+			//System.out.println("로그인 실패");
 		}
 	
 	}

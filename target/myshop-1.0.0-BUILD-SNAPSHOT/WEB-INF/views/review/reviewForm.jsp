@@ -49,6 +49,12 @@
 							<textarea cols="50" rows="5" name="content"></textarea>
 							</td>
 						</tr>
+							<!--
+						<tr>
+							<th>사진</th>
+							<td><input type="file" name="image" id="image" ></td>
+						</tr>
+					-->
 						<tr>
 							<td colspan="2">
 								<input type="submit" value="확인" class="btn btn-primary">

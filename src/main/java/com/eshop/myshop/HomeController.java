@@ -26,7 +26,7 @@ public class HomeController {
 	@Autowired
 	GoodsService goodsService;
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	//private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.

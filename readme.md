@@ -9,13 +9,6 @@
     1. 회원기능
         * 회원가입  
 
-        ![회원가입 페이지](./data/join.png)
-
-        입력 된 아이디를 select하고 리턴 타입을 int로 받고  
-
-        ![아이디체크 mapper](./data/idcheckMapper.png)  
-
-        return 값이 0 일경우 같은 아이디가 없으므로 가입이 가능하게 model을 통해 아이디값을 전달, return값이 0 이상일 경우 같은 아이디가 있으므로 아이디값을 null로 전달  
+        ![회원가입 페이지](./data/join.png)  
         
-        ![아이디체크 controller](./data/idcheckCtrl.png)
 

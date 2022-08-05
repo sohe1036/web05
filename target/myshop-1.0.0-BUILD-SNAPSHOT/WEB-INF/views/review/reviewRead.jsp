@@ -32,6 +32,12 @@
 					<th>리뷰 내용</th>
 					<td>${review.content }</td>
 				</tr>
+				<c:if test="${review.image != null}">
+				<tr>
+					<th>사진</th>
+					<td><img src="${path1 }/resources/upload2/${review.image }"></td>
+				</tr>
+				</c:if>
 				<tr>
 					<th>작성일</th>
 					<td>${review.regdate }</td>
