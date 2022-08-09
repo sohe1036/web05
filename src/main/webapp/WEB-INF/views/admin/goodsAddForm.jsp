@@ -15,6 +15,7 @@
 	<c:import url="admin_header.jsp" />
 	<div id="content">
 		<form method="post" action="${path1 }/admin/insert.do" enctype="multipart/form-data">
+			<h2 style="padding-bottom:20px;">상품추가</h2>
 			<table class="table">
 				<tr>
 					<th><label for="gname">상품명</label></th>

@@ -16,6 +16,7 @@
 <div class="wrap">
 <%@include file="admin_header.jsp" %>
 	<div id="content">
+		<h1>회원목록</h1>
 		<table class="table" id="memberTable">
 			<thead>
 				<tr>

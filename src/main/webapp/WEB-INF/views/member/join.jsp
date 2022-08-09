@@ -69,7 +69,7 @@
 			<div class="mb-3">
 				<label for="uid" class="form-label">아이디</label>
 				<c:if test="${empty id }">
-				<input type="text" name="uid" id="uid" required class="form-control"/>
+				<input type="text" name="uid" id="uid" required placeholder="아이디를 입력하세요." class="form-control"/>
 				</c:if>
 				<c:if test="${!empty id }">
 				<input type="text" name="uid" id="uid" value="${id }" placeholder="아이디를 입력하세요." class="form-control"/>
@@ -88,27 +88,28 @@
 			</div>
 			<div class="mb-3">
 				<label for="upw" class="form-label">비밀번호</label>
-				<input type="password" name="upw" id="upw" required class="form-control"/>
+				<input type="password" name="upw" id="upw" required placeholder="비밀번호를 입력하세요." class="form-control"/>
 			</div>
 			<div class="mb-3">
 				<label for="upw2" class="form-label">비밀번호 확인</label>
-				<input type="password" name="upw2" id="upw2" required class="form-control"/>
+				<input type="password" name="upw2" id="upw2" required placeholder="비밀번호를 한번 더 입력하세요." class="form-control"/>
 			</div>
 			<div class="mb-3">
 		 		<label for="uname" class="form-label">이름</label>
-				<input type="text" name="uname" required class="form-control"/>
+				<input type="text" name="uname" required placeholder="이름을 입력하세요." class="form-control"/>
 			</div>
 			<div class="mb-3">
 				<label for="birth" class="form-label">생년월일</label>
+				<span style="font-size: 15px; color:gray;">예)2000-01-01</span>
 				<input type="date" name="birth" class="form-control" />
 			</div>
 			<div class="mb-3">
 				<label for="tel" class="form-label">전화번호</label>
-				<input type="tel" name="tel" required class="form-control"/>
+				<input type="tel" name="tel" required placeholder="전화번호를 입력하세요. 예)010-0000-0000" class="form-control"/>
 			</div>
 			<div class="mb-3">
 				<label for="email" class="form-label">이메일</label>
-				<input type="email" name="email" class="form-control" required/>
+				<input type="email" name="email" class="form-control" placeholder="이메일을 입력하세요." required/>
 			</div>
 			<button type="submit" class="btn btn-primary">회원가입</button>
 		</form>
